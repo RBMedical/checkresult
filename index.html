@@ -54,9 +54,18 @@
         }
     }
 
+    .d-grid{
+        grid-template-columns: 1fr 2fr;
+    }
+    
+   
     .container-fluid {
         background-color: lightblue;
 
+    }
+    h {
+        font-size: 2rem;
+        margin-top: 20px;
     }
 
     .b-example-divider {
@@ -139,6 +148,9 @@
         width: 30px;
         height: 30px;
     }
+    p {
+        font-size: 2rem;
+    }
 
     .nav-pills {
         .nav-link.active {
@@ -158,6 +170,53 @@
     w {
         line-height: 2;
     }
+
+    @media (max-width: 768px) {
+    .container-fluid {
+        background-color: lightblue;
+        padding: 10px;
+    }
+
+    h {
+        font-size: 1rem;
+    }
+
+    w {
+        font-size: 0.75rem;
+        line-height: 1;
+    }
+
+    img {
+       
+        max-width: 100%;
+        height: auto;
+    }
+
+    .nav-pills .nav-link {
+        font-size: 14px;
+        padding: 5px;
+    }
+    .bg-body-tertiary{
+        min-width: 400px;
+        max-width: 400px;
+    }
+    .d-grid {
+        grid-template-columns: auto;
+    }
+   
+    .container-fluid{
+        max-width: 400px;
+        min-width: 400px;
+            }
+            p{
+                font-size: 1rem;
+            }
+            .container{
+                max-width: 500px;
+                min-width: 500px;
+            }
+}
+
 </style>
 
 <body>
@@ -182,13 +241,13 @@
         <img fetchpriority="high" src="https://img5.pic.in.th/file/secure-sv1/Screenshot-2025-03-19-160408.png" alt=""
             style="object-fit: cover; object-position: 66% 15%; width: 100%;" data-ssr-src-done="true">
         <div class="container-fluid  mt-5">
-            <div class="d-grid gap-3" style="grid-template-columns: 1fr 2fr;">
+            <div class="d-grid gap-3">
                 <div class="bg-body-tertiary border rounded-3 mt-3 mb-3">
                     <img class="img-thumbnail" src="https://img5.pic.in.th/file/secure-sv1/-135e1cf1cc667f011.png">
                 </div>
                 <div class="bg-body-tertiary border rounded-3 mt-3 mb-3">
                     <div class="container-md mt-5">
-                        <h class="ms-2 mt-5 fs-3 fw-bold" style="font-family: sarabun; color:darkgreen;">
+                        <h class="fw-bold" style="font-family: sarabun; color:darkgreen;">
                             บริการตรวจวิเคราะห์และรายงานผลทางการแพทย์</h>
 
                         <div class="container-md mt-5">
@@ -206,10 +265,10 @@
             </div>
         </div>
         <div class="container-fluid pb-3 mt-5">
-            <div class="d-grid gap-3" style="grid-template-columns: 2fr 1fr;">
-                <div class="bg-body-tertiary border rounded-3 mt-3">
+            <div class ="row">
+                <div class="col-7 bg-body-tertiary border rounded-3 mt-3 ms-3 me-3">
                     <div class="container-md mt-5">
-                        <h class="ms-2 my-5 fs-3 fw-bold" style="font-family: sarabun; color:darkgreen;">
+                        <h class="fw-bold" style="font-family: sarabun; color:darkgreen;">
                             บริการออกหน่วยตรวจสุขภาพเคลื่อนที่</h>
                         <div class="container-md mt-5">
                             <w class="ms-5" style="font-family: sarabun;">ให้บริการตรวจสุขภาพนอกสถานที่ สำหรับ บริษัท
@@ -222,7 +281,7 @@
                     </div>
 
                 </div>
-                <div class="bg-body-tertiary border rounded-3 mt-3">
+                <div class="col-4 bg-body-tertiary border rounded-3 ms-3 mt-3">
                     <img class="img-thumbnail" src="https://img5.pic.in.th/file/secure-sv1/-222abbac6064ef21f.png">
 
                 </div>
@@ -234,7 +293,7 @@
             <div class="d-flex gap-2 py-5 border border-bottom" style="justify-content: space-between;">
                <div class="container">
                 <img class="footer-logo ms-3" src="https://img5.pic.in.th/file/secure-sv1/8c27b7b1c06a8f089.png">
-                <h style="color:darkgreen;">อาร์แอนด์บี เมดิคอล คลินิคเทคนิคการแพทย์</h>
+                <h class="fs-6" style="color:darkgreen;">อาร์แอนด์บี เมดิคอล คลินิคเทคนิคการแพทย์</h>
             </div>
             <div id="datetime" class="fs-6 text-right" style="color:darkgreen;"></div>
             
