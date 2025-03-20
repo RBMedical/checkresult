@@ -18,16 +18,13 @@
     <style>
         body {
             font-family: 'Sarabun', sans-serif;
-             background-image: url('https://img2.pic.in.th/pic/--2c1095bccc0d81850.png'); /* เปลี่ยนเป็น URL รูปที่ต้องการ */
-             background-size: cover; /* ทำให้ภาพยืด-หดตามหน้าจอ */
-             background-position: center;
-             background-repeat: no-repeat;
-             height: 100vh;
+            
+    background-image: url('https://img2.pic.in.th/pic/--2c1095bccc0d81850.png'); /* เปลี่ยนเป็น URL รูปที่ต้องการ */
+    background-size: cover; /* ทำให้ภาพยืด-หดตามหน้าจอ */
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
         }
-         .text-footer{
-            font-family: "sarabun";
-            font-color: darkgreen;
-            font-size: 0.80rem;
         .nav-container {
             display: flex;
             justify-content: space-between;
@@ -68,6 +65,10 @@
       border-radius: 10px;
       /* มุมโค้งของ modal */
       justify-content: center;
+    }
+    .text-footer{
+        font-family: "sarabun";
+        font-size: 0.80rem;
     }
 
         .nav-logo span {
@@ -114,6 +115,9 @@
                 flex-direction: column;
                 align-items: center;
             }
+            .text-footer{
+                font-size: 0.5rem;
+            }
             .nav-pills {
                 margin-top: 10px;
             }
@@ -159,14 +163,6 @@
           .card-text{
             font-size: 0.80rem
           }
-        .modalrecieve{
-            width: 80%;
-        }
-      .text-footer{
-            font-family: "sarabun";
-            font-color: darkgreen;
-            font-size: 0.50rem;
-            
         }
     </style>
 </head>
@@ -178,158 +174,67 @@
                 <img src="https://img5.pic.in.th/file/secure-sv1/8c27b7b1c06a8f089.png" alt="Logo" width="40">
                 <span class="fs-6 text-dark ms-2">R&B Medical Laboratory</span>
             </a>
-            <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse d-md-flex justify-content-end" id="navbarNav">
                 <ul class="nav nav-pills">
-                    <li class="nav-item"><a href="index.html" class="nav-link ">หน้าแรก</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link active">อัตราค่าบริการ</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link active">หน้าแรก</a></li>
+                    <li class="nav-item"><a href="package.html" class="nav-link">อัตราค่าบริการ</a></li>
                     <li class="nav-item"><a href="home.html" class="nav-link">ผลตรวจสุขภาพประจำปี</a></li>
                     <li class="nav-item"><a href="contact.html" class="nav-link">ติดต่อเรา</a></li>
                 </ul>
             </div>
         </header>
         
-        <div class="b-example-divider"></div>
         
-
-        <div class="album py-5 bg-body-tertiary">
-            <div class="container">
+        <img src="https://img5.pic.in.th/file/secure-sv1/Screenshot-2025-03-19-160408.png" class="hero-image mb-3">
         
-              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                <div class="col">
-                  <div class="card shadow-sm">
-                    <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://img2.pic.in.th/pic/1e88cc10617f493ce.png" role="img" ></img>
-                    <div class="card-body">
-                      <p class="card-text">โปรแกรมเหมาจ่ายสำหรับผู้ที่ต้องทำงานในที่ๆอากาศไม่ถ่ายเททุกวัน อย่างหลีกเลี่ยงไม่ได้ แยกเป็น 2 แพคเกจ สำหรับผู้ชายและผู้หญิง</p>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-outline-secondary" onclick="openMale()" style="cursor: pointer;">View</button>
-                          
-                        </div>
-                  
-                      </div>
-                    </div>
-                  </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <img class="img-thumbnail" src="https://img5.pic.in.th/file/secure-sv1/-135e1cf1cc667f011.png">
                 </div>
-                <div class="col">
-                  <div class="card shadow-sm">
-                    <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://img5.pic.in.th/file/secure-sv1/23228b5cab55c5be3.png" role="img" ></img>
-                   
-                     <div class="card-body">
-                      <p class="card-text">โปรแกรมเหมาจ่าย สำหรับผู้ที่มีอายุ 30 ปีขึ้นไป ด้วยการตรวจขั้นพื้นฐาน จำนวน 15 รายการ</p>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-outline-secondary" onclick="openFemale()" style="cursor: pointer;">View</button>
-                          
-                        </div>
-                       
-                      </div>
-                    </div>
-                  </div>
+                <div class="col-md-7">
+                    <h2 class="fw-bold text-success">บริการตรวจวิเคราะห์และรายงานผลทางการแพทย์</h2>
+                    <p class="text-container">ให้บริการตรวจสุขภาพและการวิเคราะห์ทางการแพทย์โดยนักเทคนิคการแพทย์ผู้เชี่ยวชาญ รวมทั้งเทคโนโลยีที่ทันสมัยตามมาตรฐานสากล รายงานผลได้อย่างแม่นยำและน่าเชื่อถือ สำหรับผู้ที่ต้องการตรวจสุขภาพทั่วไป ตรวจเลือด ตรวจปัสสาวะทั่วไป ตรวจหาสารเสพติดในปัสสาวะ ตรวจการตั้งครรภ์ ตรวจสุขภาพเพื่อการออกใบรับรองแพทย์ หรือเพื่อสมัครงาน ทราบผลไว ภายใน 60 นาที</p>
+                    <p class="text-primary fw-bold">ยินดีให้คำปรึกษาด้วยแพทย์ผู้เชี่ยวชาญโดยไม่เสียค่าใช้จ่าย</p>
                 </div>
-                
-              
-               
-                
-                <div class="col">
-                  <div class="card shadow-sm">
-                    <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://img2.pic.in.th/pic/34562b2fb15f1071e.png" role="img" ></img>
-                   
-                    <div class="card-body">
-                      <p class="card-text">ตารางแสดงอัตราค่าบริการ การตรวจและรายงานผล ตามมาตรฐานที่กำหนดโดยสมาคมโรคจากการประกอบอาชีพและสิ่งแวดล้อมแห่งประเทศไทย</p>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-outline-secondary" style="cursor: pointer;">View</button>
-                          
-                        </div>
-                        
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
-
-
-          <modal class="modalrecieve" id="malemodal">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeModal()" style="cursor: pointer;"></button>
+        </div>
+        
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-md-7">
+                    <h2 class="fw-bold text-success">บริการออกหน่วยตรวจสุขภาพเคลื่อนที่</h2>
+                    <p class="text-container">ให้บริการตรวจสุขภาพนอกสถานที่ สำหรับ บริษัท หน่วยงาน องค์กร และสถานศึกษา ในการจัดการตรวจสุขภาพประจำปีเพื่อเป็นสวัสดิการแด่พนักงาน หรือ ตามที่กฎหมายคุ้มครองแรงงานกำหนด มีความพร้อมด้วยทีมเจ้าหน้าที่ผู้เชี่ยวชาญ และเครื่องมือที่ทันสมัยและปลอดเชื้อ พร้อมด้วย รถ X Ray Mobile ให้บริการฉายภาพรังสีเคลื่อนที่ ด้วยระบบดิจิตอล</p>
+                    <a href="#" class="link">คลิกดูรายละเอียดแพคเกจ</a>
                 </div>
-                <div class="modal-body">
-                  <img class="img-thumbnail mt-3" src="https://img5.pic.in.th/file/secure-sv1/1a9d307bb8186b60d.png">
+                <div class="col-md-4 text-center">
+                    <img class="img-thumbnail" src="https://img5.pic.in.th/file/secure-sv1/-222abbac6064ef21f.png">
                 </div>
-                
-              </div>
             </div>
-          </modal>
-
-          <modal class="modalrecieve" id="femalemodal">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="modalClose()" style="cursor: pointer;"></button>
-                </div>
-                <div class="modal-body">
-                  <img class="img-thumbnail mt-3" src="https://img2.pic.in.th/pic/25f980d7a2e4cf6ed.png">
-                </div>
-                
-              </div>
+        </div>
+        
+        <footer class="d-flex justify-content-between py-3 border-top">
+            <div>
+                <img class="footer-logo" src="https://img5.pic.in.th/file/secure-sv1/8c27b7b1c06a8f089.png">
+                <span class="text-footer">อาร์แอนด์บี เมดิคอล คลินิคเทคนิคการแพทย์</span>
             </div>
-          </modal>
-
-        <div class="b-example-divider"></div>
-        <div class="border border-bottom" style="justify-content: space-between;">
-            <div class="d-flex gap-2 py-5 border border-bottom" style="justify-content: space-between;">
-               <div class="container">
-                <img class="footer-logo ms-3" src="https://img5.pic.in.th/file/secure-sv1/8c27b7b1c06a8f089.png">
-                <h class="text-footer" style="color:darkgreen;">อาร์แอนด์บี เมดิคอล คลินิคเทคนิคการแพทย์</h>
-            </div>
-            <div id="datetime" class="text-footer" style="color:darkgreen;"></div>
-            
-            </div>
-
+            <div id="datetime" class="text-footer"></div>
+        </footer>
     </div>
     <script>
         function updateDateTime() {
             const now = new Date();
             const date = now.toLocaleDateString('th-TH');
             const time = now.toLocaleTimeString('th-TH');
-            document.getElementById('datetime').innerHTML = `${date} ${time}`;
+            document.getElementById('datetime').textContent = `${date} ${time}`;
         }
-
-        function closeModal() {
-    $('#malemodal').css('display','none');
-}
- 
-function modalClose() {
-    $('#femalemodal').css('display','none');
-}
-
-        function openMale(){
-            $('#malemodal').css('display','block');
-
-        }
-
-        function openFemale(){
-            $('#femalemodal').css('display','block');
-
-        }
- 
-
-        // เรียกฟังก์ชันทุกวินาทีเพื่ออัปเดตวันที่และเวลา
         setInterval(updateDateTime, 1000);
-
-        // เรียกฟังก์ชันเมื่อโหลดหน้าเว็บ
         updateDateTime();
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
