@@ -49,16 +49,17 @@
         user-select: none;
     }
 
-    #alert {
-        display: none;
+   
     
-    }
+   
     @media (min-width: 768px) {
         .bd-placeholder-img-lg {
             font-size: 3.5rem;
         }
     }
-    
+     #alert {
+        display: none;
+          }
     .content {
         display: flex;
         justify-content: space-between;
@@ -160,14 +161,16 @@
         .nav-link {
             color: rgb(18, 112, 50);
         }
-      #deviece {
-        display: none;
-      }
-      #alert {
-        display: block;
-        margin-top: 10px;
-        color:crimson;
-      }
+        
+        @media (max-width: 768px) {
+                #deviece {
+                    display: none;
+                  }
+                #alert {
+                    display: block;
+                    margin-top: 10px;
+                      color:crimson;
+                   }
     }
 
  
