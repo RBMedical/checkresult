@@ -1,336 +1,86 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mobile Checkup System</title>
-
-    <head>
-        <script src="https://apis.google.com/js/api.js"></script>
-
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-3.6.0.js"
-            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/10.5.0/jsrsasign-all-min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-            integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.23.0/pivot.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.23.0/pivot.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/10.5.22/jsrsasign-all-min.js"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap"
-            rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Extended&display=swap" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&display=swap" rel="stylesheet">
-
-        <script src="JsBarcode.all.min.js"></script>
-        <link rel="stylesheet" href="index.css">
-        <script src="index.js"></script>
-        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-
-    </head>
-
-
-</head>
-<style>
-    .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-    }
-
-    @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-            font-size: 3.5rem;
-        }
-    }
-
-    .d-grid{
-        grid-template-columns: 1fr 2fr;
-    }
     
-   
-    .container-fluid {
-        background-color: lightblue;
-
-    }
-    h {
-        font-size: 2rem;
-        margin-top: 20px;
-    }
-
-    .b-example-divider {
-        width: 100%;
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-    }
-
-    .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-    }
-
-    .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-    }
-
-    .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-    }
-
-    .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .btn-bd-primary {
-        --bd-violet-bg: #712cf9;
-        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-
-        --bs-btn-font-weight: 600;
-        --bs-btn-color: var(--bs-white);
-        --bs-btn-bg: var(--bd-violet-bg);
-        --bs-btn-border-color: var(--bd-violet-bg);
-        --bs-btn-hover-color: var(--bs-white);
-        --bs-btn-hover-bg: #6528e0;
-        --bs-btn-hover-border-color: #6528e0;
-        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-        --bs-btn-active-color: var(--bs-btn-hover-color);
-        --bs-btn-active-bg: #5a23c8;
-        --bs-btn-active-border-color: #5a23c8;
-    }
-
-    .bd-mode-toggle {
-        z-index: 1500;
-    }
-  .container-md{
-    margin-top: 10px;;
-  }
-    .bd-mode-toggle .dropdown-menu .active .bi {
-        display: block !important;
-    }
-
-    .nav-logo {
-
-        object-fit: contain;
-        top: -15px;
-        right: -15px;
-        width: 50px;
-        height: 50px;
-    }
-
-    .footer-logo {
-
-        object-fit: contain;
-        top: -15px;
-        right: -15px;
-        width: 30px;
-        height: 30px;
-    }
-    p {
-        font-size: 2rem;
-    }
-
-    .nav-pills {
-        .nav-link.active {
-            background-color: rgb(0, 104, 35);
-            /* เปลี่ยนสีข้อความ */
-            color: rgb(228, 252, 236);
-            font-family: "Anuphan";
-        }
-
-        .nav-link {
-            color: rgb(18, 112, 50);
-        }
-
-
-    }
-
-    w {
-        line-height: 2;
-    }
-
-    @media (max-width: 950px) {
-    .container-fluid {
-        background-color: lightblue;
-        padding: 10px;
-    }
-   
-    h {
-        font-size: 2rem;
-    }
-
-    w {
-        font-size: 1.5rem;
-        line-height: 1;
-    }
-
-    img {
-       
-        max-width: 100%;
-        height: auto;
-    }
-
-    .nav-pills .nav-link {
-        font-size: 14px;
-        padding: 5px;
-        font-size: 2rem;
-    }
-    .bg-body-tertiary{
-        min-width: 890px;
-        max-width: 890px;
-    }
-    .d-grid {
-        grid-template-columns: auto;
-    }
-   p{
-    font-size: 1rem
-   }
-    .container-fluid{
-        max-width: 920px;
-        min-width: 920px;
-            }
-            p{
-                font-size: 1rem;
-            }
-        .col-4 {
-            max-width: 900px;
-            min-width: 900px;
-        }
-
-         .col-7 {
-            max-width: 900px;
-            min-width: 900px;
-        }
-            .container{
-                max-width: 950px;
-                min-width: 950px;
-            }
-        .d-flex{
-             max-width: 950px;
-             min-width: 950px;
-}
-
-</style>
-
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link href="index.css" rel="stylesheet">
+</head>
 <body>
     <div class="container">
-        <header class="d-flex flex-wrap justify-content-start py-3 mb-4 border-bottom">
-            <a href="/"
-               class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                <img class="nav-logo" src="https://img5.pic.in.th/file/secure-sv1/8c27b7b1c06a8f089.png">
-                <span class="fs-4" style="color:rgb(13, 48, 3)">R&B Medical Laboratory</span>
+        <header class="d-flex flex-wrap justify-content-between py-3 border-bottom">
+            <a href="/" class="d-flex align-items-center text-decoration-none">
+                <img class="nav-logo" src="https://img5.pic.in.th/file/secure-sv1/8c27b7b1c06a8f089.png" alt="Logo" width="50">
+                <span class="fs-4 text-dark ms-2">R&B Medical Laboratory</span>
             </a>
-
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="#" class="nav-link active fw-bold" aria-current="page">หน้าแรก</a></li>
+                <li class="nav-item"><a href="#" class="nav-link active">หน้าแรก</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">อัตราค่าบริการ</a></li>
                 <li class="nav-item"><a href="home.html" class="nav-link">ผลตรวจสุขภาพประจำปี</a></li>
                 <li class="nav-item"><a href="contact.html" class="nav-link">ติดต่อเรา</a></li>
-
             </ul>
         </header>
-        <div class="b-example-divider"></div>
-
-        <img fetchpriority="high" src="https://img5.pic.in.th/file/secure-sv1/Screenshot-2025-03-19-160408.png" alt=""
-            style="object-fit: cover; object-position: 66% 15%; width: 100%;" data-ssr-src-done="true">
-        <div class="container-fluid  mt-5">
-            <div class="row">
-                 <div class="col-4 bg-body-tertiary border rounded-3 mt-3 mb-3 ms-3">
-                    <img class="img-thumbnail" src="https://img5.pic.in.th/file/secure-sv1/-135e1cf1cc667f011.png">
-                </div>
-                <div class="col-7 bg-body-tertiary border rounded-3 mt-3 mb-3 ms-3">
-                    <div class="container-md">
-                        <h class="fw-bold" style="font-family: sarabun; color:darkgreen;">
-                            บริการตรวจวิเคราะห์และรายงานผลทางการแพทย์</h>
-
-                        <div class="container-md">
-                            <w class="ms-5" style="font-family: sarabun;">
-                                ให้บริการตรวจสุขภาพและการวิเคราะห์ทางการแพทย์โดยนักเทคนิคการแพทย์
-                                ผู้เชี่ยวชาญด้านการตรวจวิเคราะห์รวมทั้งเทคโนโลยีที่ทันสมัยตามมาตรฐานสากล
-                                รายงานผลได้อย่างแม่นยำและน่าเชื่อถือ สำหรับผู้ที่ต้องการ ตรวจสุขภาพทั่วไป ตรวจเลือด
-                                ตรวจปัสสาวะทั่วไป ตรวจหาสารเสพติดในปัสสาวะ ตรวจการตั้งครรภ์
-                                ตรวจสุขภาพเพื่อการออกใบรับรองแพทย์ หรือ เพื่อสมัครงาน ทราบผลไว ภายใน 60 นาที </w>
-                            <p class="fs-3 fw-bold" style="font-family: sarabun; color:dodgerblue;">
-                                ยินดีให้คำปรึกษาด้วยแพทย์ผู้เชียวชาญโดยไม่เสียค่าใช้จ่าย</p><br
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid pb-3 mt-5">
-            <div class ="row">
-                <div class="col-7 bg-body-tertiary border rounded-3 mt-3 ms-3 me-3 mb-3">
-                    <div class="container-md">
-                        <h class="fw-bold" style="font-family: sarabun; color:darkgreen;">
-                            บริการออกหน่วยตรวจสุขภาพเคลื่อนที่</h>
-                        <div class="container-md">
-                            <w class="ms-5" style="font-family: sarabun;">ให้บริการตรวจสุขภาพนอกสถานที่ สำหรับ บริษัท
-                                หน่วยงาน องค์กร และสถานศึกษา ในการจัดการตรวจสุขภาพประจำปีเพื่อเป็นสวัสดิการแด่พนักงาน
-                                หรือ ตามที่กฎหมายคุ้มครองแรงงานกำหนด มีความพร้อมด้วยทีมเจ้าหน้าที่ผู้เชี่ยวชาญ
-                                และเครื่องมือที่ทันสมัยและปลอดเชื้อ พร้อมด้วย รถ X Ray Mobile
-                                ให้บริการฉายภาพรังษีเคลื่อนที่ ด้วยระบบดิจิตอล</w>
-                            <a href="#" class="link">คลิกดูรายละเอียดแพคเกจ</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-4 bg-body-tertiary border rounded-3 ms-3 mt-3 ms-3">
-                    <img class="img-thumbnail" src="https://img5.pic.in.th/file/secure-sv1/-222abbac6064ef21f.png">
-
-                </div>
-            </div>
-
-        </div>
-        <div class="b-example-divider"></div>
-        <div class="border border-bottom" style="justify-content: space-between;">
-            <div class="d-flex gap-2 py-5 border border-bottom" style="justify-content: space-between;">
-               <div class="container">
-                <img class="footer-logo ms-3" src="https://img5.pic.in.th/file/secure-sv1/8c27b7b1c06a8f089.png">
-                <h class="fs-6" style="color:darkgreen;">อาร์แอนด์บี เมดิคอล คลินิคเทคนิคการแพทย์</h>
-            </div>
-            <div id="datetime" class="fs-6 text-right" style="color:darkgreen;"></div>
-            
-            </div>
-           
-               
         
+        <img src="https://img5.pic.in.th/file/secure-sv1/Screenshot-2025-03-19-160408.png" class="img-fluid mt-3" alt="Banner">
+        
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center">
+                    <img class="img-thumbnail" src="https://img5.pic.in.th/file/secure-sv1/-135e1cf1cc667f011.png" alt="Service">
+                </div>
+                <div class="col-md-8 content-section text-center text-md-start">
+                    <h2 class="text-success">บริการตรวจวิเคราะห์และรายงานผลทางการแพทย์</h2>
+                    <p>ให้บริการตรวจสุขภาพและการวิเคราะห์ทางการแพทย์โดยนักเทคนิคการแพทย์ผู้เชี่ยวชาญ...</p>
+                    <p class="text-primary">ยินดีให้คำปรึกษาด้วยแพทย์ผู้เชี่ยวชาญโดยไม่เสียค่าใช้จ่าย</p>
+                </div>
+            </div>
         </div>
-        <script>
-            function updateDateTime() {
-                const now = new Date();
-                const date = now.toLocaleDateString('th-TH');
-                const time = now.toLocaleTimeString('th-TH');
-                document.getElementById('datetime').innerHTML = `${date} ${time}`;
-            }
-
-            // เรียกฟังก์ชันทุกวินาทีเพื่ออัปเดตวันที่และเวลา
-            setInterval(updateDateTime, 1000);
-
-            // เรียกฟังก์ชันเมื่อโหลดหน้าเว็บ
-            updateDateTime();
-        </script>
+        
+        <div class="container-fluid mt-4">
+            <div class="row align-items-center">
+                <div class="col-md-8 content-section text-center text-md-start">
+                    <h2 class="text-success">บริการออกหน่วยตรวจสุขภาพเคลื่อนที่</h2>
+                    <p>ให้บริการตรวจสุขภาพนอกสถานที่สำหรับบริษัท หน่วยงาน องค์กร...</p>
+                    <a href="#" class="link">คลิกดูรายละเอียดแพคเกจ</a>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img class="img-thumbnail" src="https://img5.pic.in.th/file/secure-sv1/-222abbac6064ef21f.png" alt="Mobile Checkup">
+                </div>
+            </div>
+        </div>
+        
+        <footer class="d-flex justify-content-between align-items-center py-3 border-top">
+            <div>
+                <img class="footer-logo" src="https://img5.pic.in.th/file/secure-sv1/8c27b7b1c06a8f089.png" alt="Footer Logo" width="30">
+                <span class="text-success">อาร์แอนด์บี เมดิคอล คลินิคเทคนิคการแพทย์</span>
+            </div>
+            <div id="datetime" class="text-success"></div>
+        </footer>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="index.js"></script>
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            document.getElementById('datetime').textContent = now.toLocaleDateString('th-TH') + ' ' + now.toLocaleTimeString('th-TH');
+        }
+        setInterval(updateDateTime, 1000);
+        document.addEventListener("DOMContentLoaded", updateDateTime);
+    </script>
 </body>
+</html>
