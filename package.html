@@ -46,6 +46,10 @@
         -webkit-user-select: none;
         -moz-user-select: none;
         user-select: none;
+        max-width: 410px;
+        min-width: 410px;
+        max-height: 500px;
+        min-height: 500px;
     }
 
     @media (min-width: 768px) {
@@ -63,6 +67,34 @@
         background-color: lightblue;
 
     }
+
+    .modalrecieve {
+    display: none;
+      /* ซ่อน modal ไว้ก่อน จนกว่าจะถูกแสดง */
+      position: fixed;
+      /* ทำให้ modal อยู่บนสุดตลอดเวลา */
+      top: 50%;
+      /* จัดให้อยู่กลางหน้าจอ (แนวตั้ง) */
+      left: 50%;
+      /* จัดให้อยู่กลางหน้าจอ (แนวนอน) */
+      transform: translate(-50%, -50%);
+      /* ย้าย modal ให้ตรงกลางพอดี */
+      width: 30%;
+      /* กำหนดความกว้าง */
+      max-width: 800px;
+      /* จำกัดความกว้างสูงสุด */
+      padding: 20px;
+      /* ระยะห่างด้านในของ modal */
+
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      /* เงาของ modal */
+      z-index: 1000;
+      /* ทำให้ modal อยู่เหนือ element อื่นๆ */
+      border-radius: 10px;
+      /* มุมโค้งของ modal */
+      justify-content: center;
+      background-color:dimgrey; 
+    }
     h {
         font-size: 2rem;
         margin-top: 20px;
@@ -76,7 +108,10 @@
         border-width: 1px 0;
         box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
     }
-
+    .card-text{
+        font-family: "sarabun";
+        font-size: 1.5rem
+    }
     .b-example-vr {
         flex-shrink: 0;
         width: 1.5rem;
@@ -185,11 +220,16 @@
         min-width: 660px;
    
     }
+
+    .card-text{
+        font-family: "sarabun";
+        font-size: 1.5rem;
+    }
+    
     .bd-placeholder-img{
-        min-height: 500px;
-        max-height: 500px;
+        min-height: 300px;
+        max-height: 300px;
     }  
-       
 
     h {
         font-size: 1rem;
@@ -336,49 +376,51 @@
               <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 <div class="col">
                   <div class="card shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                    <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://img2.pic.in.th/pic/1790f84d7c34c37ba.png" role="img" ></img>
                     <div class="card-body">
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text">โปรแกรมเหมาจ่าย (ผู้ชาย) สำหรับผู้ที่ต้องทำงานในที่ๆอากาศไม่ถ่ายเททุกวัน อย่างหลีกเลี่ยงไม่ได้  รวมรายการตรวจมากถึง 9 รายการ</p>
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                          <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                          <button type="button" class="btn btn-sm btn-outline-secondary" onclick="openMale()" style="cursor: pointer;">View</button>
+                          
                         </div>
-                        <small class="text-body-secondary">9 mins</small>
+                  
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="col">
                   <div class="card shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                    <div class="card-body">
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://img2.pic.in.th/pic/27e46fd81ec17055a.png" role="img" ></img>
+                   
+                     <div class="card-body">
+                      <p class="card-text">โปรแกรมเหมาจ่าย (ผู้ชาย) สำหรับผู้ที่ต้องทำงานในที่ๆอากาศไม่ถ่ายเททุกวัน อย่างหลีกเลี่ยงไม่ได้  รวมรายการตรวจมากถึง 9 รายการ</p>
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                          <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                          <button type="button" class="btn btn-sm btn-outline-secondary" onclick="openFemale()" style="cursor: pointer;">View</button>
+                          
                         </div>
-                        <small class="text-body-secondary">9 mins</small>
+                       
                       </div>
                     </div>
                   </div>
                 </div>
                 
-        
+              
                
                 
                 <div class="col">
                   <div class="card shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                    <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://img2.pic.in.th/pic/34562b2fb15f1071e.png" role="img" ></img>
+                   
                     <div class="card-body">
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text">ตารางแสดงอัตราค่าบริการ การตรวจและรายงานผล ตามมาตรฐานที่กำหนดโดยสมาคมโรคจากการประกอบอาชีพและสิ่งแวดล้อมแห่งประเทศไทย</p>
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                          <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                          <button type="button" class="btn btn-sm btn-outline-secondary" style="cursor: pointer;">View</button>
+                          
                         </div>
-                        <small class="text-body-secondary">9 mins</small>
+                        
                       </div>
                     </div>
                   </div>
@@ -386,6 +428,37 @@
               </div>
             </div>
           </div>
+
+
+          <modal class="modalrecieve" id="malemodal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeModal()" style="cursor: pointer;"></button>
+                </div>
+                <div class="modal-body">
+                  <img class="img-thumbnail mt-3" src="https://img2.pic.in.th/pic/--143b59c763a2192c6.png">
+                </div>
+                
+              </div>
+            </div>
+          </modal>
+
+          <modal class="modalrecieve" id="femalemodal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="modalClose()" style="cursor: pointer;"></button>
+                </div>
+                <div class="modal-body">
+                  <img class="img-thumbnail mt-3" src="https://img5.pic.in.th/file/secure-sv1/-9b977129895ec513.png">
+                </div>
+                
+              </div>
+            </div>
+          </modal>
 
         <div class="b-example-divider"></div>
         <div class="border border-bottom" style="justify-content: space-between;">
@@ -407,11 +480,32 @@
             document.getElementById('datetime').innerHTML = `${date} ${time}`;
         }
 
+        function closeModal() {
+    $('#malemodal').css('display','none');
+}
+ 
+function modalClose() {
+    $('#femalemodal').css('display','none');
+}
+
+        function openMale(){
+            $('#malemodal').css('display','block');
+
+        }
+
+        function openFemale(){
+            $('#femalemodal').css('display','block');
+
+        }
+ 
+
         // เรียกฟังก์ชันทุกวินาทีเพื่ออัปเดตวันที่และเวลา
         setInterval(updateDateTime, 1000);
 
         // เรียกฟังก์ชันเมื่อโหลดหน้าเว็บ
         updateDateTime();
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 </html>
