@@ -82,6 +82,10 @@
         width: 1.5rem;
         height: 100vh;
     }
+    #aleart{
+        display: none;
+        color: red;
+    }
 
     .bi {
         vertical-align: -.125em;
@@ -193,6 +197,12 @@
         max-width: 100%;
         height: auto;
     }
+    #aleart{
+        display: block;
+    }
+    #maindevice {
+        display: none;
+    }
 
     .nav-pills .nav-link {
         font-size: 14px;
@@ -237,6 +247,8 @@
 </style>
 
 <body>
+    <div id = "alert"> This page not support on mobile device , Please open on PC </div> 
+    <div id="maindevice">
     <div class="container">
         <header class="d-flex flex-wrap justify-content-start py-3 mb-4 border-bottom">
             <a href="/"
@@ -335,6 +347,7 @@
         </div>     
         
         </div>
+    </div>
         <script>
             function updateDateTime() {
                 const now = new Date();
