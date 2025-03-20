@@ -21,8 +21,9 @@
             font-family: 'Sarabun', sans-serif;
         }
 
-        .container-fluid {
-            background-color: lightblue;
+        .container, .container-fluid {
+            max-width: 1100px; /* จำกัดความกว้างของเนื้อหา */
+            margin: 0 auto; /* จัดให้อยู่ตรงกลาง */
         }
 
         .nav-logo, .footer-logo {
@@ -30,13 +31,18 @@
             height: auto;
         }
 
-        .nav-link.active {
-            background-color: rgb(0, 104, 35);
-            color: rgb(228, 252, 236);
+        .nav-pills .nav-link {
+            color: white;
+            background-color: #2E7D32; /* สีเขียวเข้ม */
+        }
+
+        .nav-pills .nav-link.active, .nav-pills .nav-link:hover {
+            background-color: #1B5E20; /* สีเขียวเข้มขึ้นเมื่อ hover หรือ active */
+            color: #E8F5E9;
         }
 
         .btn-bd-primary {
-            background-color: #712cf9;
+            background-color: #388E3C; /* สีเขียว */
             color: white;
         }
 
