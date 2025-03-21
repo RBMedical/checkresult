@@ -45,7 +45,133 @@
         .navbar-toggler-icon {
             background-image: url('data:image/svg+xml;charset=UTF8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="black"%3E%3Cpath stroke="rgba%280, 0, 0, 0.7%29" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
         }
-</style>
+    
+
+        .modalrecieve {
+    display: none;
+      /* ซ่อน modal ไว้ก่อน จนกว่าจะถูกแสดง */
+      position: fixed;
+      /* ทำให้ modal อยู่บนสุดตลอดเวลา */
+      top: 50%;
+      /* จัดให้อยู่กลางหน้าจอ (แนวตั้ง) */
+      left: 50%;
+      /* จัดให้อยู่กลางหน้าจอ (แนวนอน) */
+      transform: translate(-50%, -50%);
+      /* ย้าย modal ให้ตรงกลางพอดี */
+      width: 30%;
+      /* กำหนดความกว้าง */
+      max-width: 800px;
+      /* จำกัดความกว้างสูงสุด */
+      padding: 20px;
+      /* ระยะห่างด้านในของ modal */
+
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      /* เงาของ modal */
+      z-index: 1000;
+      /* ทำให้ modal อยู่เหนือ element อื่นๆ */
+      border-radius: 10px;
+      /* มุมโค้งของ modal */
+      justify-content: center;
+    }
+    .text-footer{
+        font-family: "sarabun";
+        font-size: 0.80rem;
+    }
+
+        .nav-logo span {
+            font-size: 1rem;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+        }
+        .nav-logo img {
+            width: 50px;
+        }
+        .hero-image {
+            width: 100%;
+            height: auto;
+        }
+        .container-fluid {
+            background-color: #e3f2fd; /* สีฟ้าอ่อน ๆ */
+            padding: 15px;
+        }
+        .text-container {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        .nav-pills .nav-link {
+            background-color: white;
+            color: darkgreen;
+            border-radius: 5px;
+            margin: 0 5px;
+        }
+        .nav-pills .nav-link:hover {
+            background-color: #e0f2f1;
+        }
+        .nav-pills .nav-link.active {
+            background-color: #2e7d32; /* สีเขียวเข้มเมื่อ active */
+            color: white;
+        }
+        .footer-logo {
+            width: 30px;
+            height: 30px;
+        }
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .text-footer{
+                font-size: 0.5rem;
+            }
+            .nav-pills {
+                margin-top: 10px;
+            }
+            .container{
+              max-width: 90%;
+              min-width: 90%;
+            }
+            .container-fluid{
+              max-width: 90%;
+              min-width: 90%;
+          }
+          .card-body{
+            max-width: 100%;
+            min-width: 100%;
+          }
+          .card-shadow{
+            max-width: 100%;
+            min-width: 100%;
+
+          }
+          .bd-placeholder-img card-img-top{
+            max-width: 100%;
+            min-width: 100%;
+            min-width: 500px;
+            max-height: 500px;
+          }
+          .ulbum{
+            max-width: 100%;
+            min-width: 100%;
+          }
+          .col{
+            max-width: 100%;
+            min-width: 100%;
+          }
+          image{
+            max-width: 100%;
+            min-width: 100%;
+          }
+          .card-shadow-sm{
+            max-width: 100%;
+            min-width: 100%;
+          }
+          .card-text{
+            font-size: 0.80rem
+          }
+        }
+    </style>
 <body>
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
