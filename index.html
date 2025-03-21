@@ -34,6 +34,12 @@
 <style>
       .nav-logo {
             width: 50px;
+
+     .page-headers {
+    background: url(https://img2.pic.in.th/pic/065dca9c28b2bab87fc4238e7756a620.png) top center no-repeat;
+    background-size: cover;
+    text-shadow: 0 0 30px rgba(0, 0, 0, .1);
+}
         }
 
         .navbar-toggler {
@@ -45,150 +51,7 @@
         .navbar-toggler-icon {
             background-image: url('data:image/svg+xml;charset=UTF8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="black"%3E%3Cpath stroke="rgba%280, 0, 0, 0.7%29" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
         }
-    
-
-        .modalrecieve {
-    display: none;
-      /* ซ่อน modal ไว้ก่อน จนกว่าจะถูกแสดง */
-      position: fixed;
-      /* ทำให้ modal อยู่บนสุดตลอดเวลา */
-      top: 50%;
-      /* จัดให้อยู่กลางหน้าจอ (แนวตั้ง) */
-      left: 50%;
-      /* จัดให้อยู่กลางหน้าจอ (แนวนอน) */
-      transform: translate(-50%, -50%);
-      /* ย้าย modal ให้ตรงกลางพอดี */
-      width: 30%;
-      /* กำหนดความกว้าง */
-      max-width: 800px;
-      /* จำกัดความกว้างสูงสุด */
-      padding: 20px;
-      /* ระยะห่างด้านในของ modal */
-
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      /* เงาของ modal */
-      z-index: 1000;
-      /* ทำให้ modal อยู่เหนือ element อื่นๆ */
-      border-radius: 10px;
-      /* มุมโค้งของ modal */
-      justify-content: center;
-    }
-    .text-footer{
-        font-family: "sarabun";
-        font-size: 0.80rem;
-    }
-
-        .nav-logo span {
-            font-size: 1rem;
-        }
-        .nav-logo {
-            display: flex;
-            align-items: center;
-        }
-        .nav-logo img {
-            width: 50px;
-        }
-        .hero-image {
-            width: 100%;
-            height: auto;
-        }
-        .container-fluid {
-            background-color: #e3f2fd; /* สีฟ้าอ่อน ๆ */
-            padding: 15px;
-        }
-        .text-container {
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-        .nav-pills .nav-link {
-            background-color: white;
-            color: darkgreen;
-            border-radius: 5px;
-            margin: 0 5px;
-        }
-        .nav-pills .nav-link:hover {
-            background-color: #e0f2f1;
-        }
-        .nav-pills .nav-link.active {
-            background-color: #2e7d32; /* สีเขียวเข้มเมื่อ active */
-            color: white;
-        }
-        .footer-logo {
-            width: 30px;
-            height: 30px;
-        }
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .text-footer{
-                font-size: 0.5rem;
-            }
-            .nav-pills {
-                margin-top: 10px;
-            }
-            .container{
-              max-width: 90%;
-              min-width: 90%;
-            }
-            .container-fluid{
-              max-width: 90%;
-              min-width: 90%;
-          }
-          .card-body{
-            max-width: 100%;
-            min-width: 100%;
-          }
-          .card-shadow{
-            max-width: 100%;
-            min-width: 100%;
-
-          }
-          .bd-placeholder-img card-img-top{
-            max-width: 100%;
-            min-width: 100%;
-            min-width: 500px;
-            max-height: 500px;
-          }
-          .ulbum{
-            max-width: 100%;
-            min-width: 100%;
-          }
-          .col{
-            max-width: 100%;
-            min-width: 100%;
-          }
-          image{
-            max-width: 100%;
-            min-width: 100%;
-          }
-          .card-shadow-sm{
-            max-width: 100%;
-            min-width: 100%;
-          }
-          .card-text{
-            font-size: 0.80rem
-          }
-        }
-        .container-short {
-            max-width: 30%;
-            min-width: 30%;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-            background-color: rgb(167, 216, 200);
-
-
-        }
-
-        .container-long {
-            max-width: 50%;
-            min-width: 50%;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-            background-color: rgb(167, 216, 200);
-        }
-    </style>
+</style>
 <body>
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -220,36 +83,87 @@
                 </div>
               
     </nav>
-    <!-- Navbar End -->
-<div class="container">
-<img src="https://img5.pic.in.th/file/secure-sv1/Screenshot-2025-03-19-160408.png" class="hero-image mb-3">
-        
-        <div class="container-fluid">
-            <div class="row">
-                <div class="container-short">
-                    <img class="img-thumbnail" src="https://img5.pic.in.th/file/secure-sv1/-135e1cf1cc667f011.png">
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">R&B Medical</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+              
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- Feature Start -->
+    <div class="container-fluid bg-primary overflow-hidden px-lg-0" style="margin: 6rem 0;">
+        <div class="container feature px-lg-0">
+            <div class="row g-0 mx-lg-0">
+                <div class="col-lg-6 feature-text py-5 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="p-lg-5 ps-lg-0">
+                        <p class="d-inline-block border rounded-pill text-light py-1 px-4">บริการของเรา</p>
+                        <h1 class="text-white mb-4">เราคือตัวช่วยที่ดีของคุณ</h1>
+                        <p class="text-white mb-4 pb-2">นอกจากบริการวิเคราะห์และรายงานผลทางการแพทย์แล้ว เรายังมีบริการที่ยอดเยี่ยมอื่นๆให้ท่านอีก</p>
+                        <div class="row g-4">
+                            <div class="col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
+                                        <i class="fa fa-user-md text-primary"></i>
+                                    </div>
+                                    <div class="ms-4">
+                                        <p class="text-white mb-2">บริการให้เช่ารถเอ็กซเรย์ดิจิตอล พร้อมเจ้าหน้าที่</p>
+                                        <h5 class="text-white mb-0">บริการออกหน่วยตรวจสุขภาพเคลื่อนที่</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
+                                        <i class="fa fa-check text-primary"></i>
+                                    </div>
+                                    <div class="ms-4">
+                                        <p class="text-white mb-2">ให้เช่าเครื่องมือตรวจทางชีวอนามัย</p>
+                                        <h5 class="text-white mb-0">จัดหาบุคลากรวิชาชีพเพื่อปฎิบัติงาน</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
+                                        <i class="fa fa-comment-medical text-primary"></i>
+                                    </div>
+                                    <div class="ms-4">
+                                        <p class="text-white mb-2">ดีเยี่ยมด้านบริการ</p>
+                                        <h5 class="text-white mb-0">บุคลากรมากคุณภาพ</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
+                                        <i class="fa fa-headphones text-primary"></i>
+                                    </div>
+                                    <div class="ms-4">
+                                        <p class="text-white mb-2">ความแม่นยำของผลตรวจ</p>
+                                        <h5 class="text-white mb-0">อุปกรณ์ที่มีมาตรฐาน</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="container-long">
-                    <h2 class="fw-bold text-success">บริการตรวจวิเคราะห์และรายงานผลทางการแพทย์</h2>
-                    <p class="text-container">ให้บริการตรวจสุขภาพและการวิเคราะห์ทางการแพทย์โดยนักเทคนิคการแพทย์ผู้เชี่ยวชาญ รวมทั้งเทคโนโลยีที่ทันสมัยตามมาตรฐานสากล รายงานผลได้อย่างแม่นยำและน่าเชื่อถือ สำหรับผู้ที่ต้องการตรวจสุขภาพทั่วไป ตรวจเลือด ตรวจปัสสาวะทั่วไป ตรวจหาสารเสพติดในปัสสาวะ ตรวจการตั้งครรภ์ ตรวจสุขภาพเพื่อการออกใบรับรองแพทย์ หรือเพื่อสมัครงาน ทราบผลไว ภายใน 60 นาที</p>
-                    <p class="text-primary fw-bold">ยินดีให้คำปรึกษาด้วยแพทย์ผู้เชี่ยวชาญโดยไม่เสียค่าใช้จ่าย</p>
+                <div class="col-lg-6 pe-lg-0 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute img-fluid w-100 h-100" src="img/feature.jpg" style="object-fit: cover;" alt="">
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+    <!-- Feature End -->
         
-        <div class="container-fluid mt-5">
-            <div class="row">
-                <div class="col-md-7">
-                    <h2 class="fw-bold text-success">บริการออกหน่วยตรวจสุขภาพเคลื่อนที่</h2>
-                    <p class="text-container">ให้บริการตรวจสุขภาพนอกสถานที่ สำหรับ บริษัท หน่วยงาน องค์กร และสถานศึกษา ในการจัดการตรวจสุขภาพประจำปีเพื่อเป็นสวัสดิการแด่พนักงาน หรือ ตามที่กฎหมายคุ้มครองแรงงานกำหนด มีความพร้อมด้วยทีมเจ้าหน้าที่ผู้เชี่ยวชาญ และเครื่องมือที่ทันสมัยและปลอดเชื้อ พร้อมด้วย รถ X Ray Mobile ให้บริการฉายภาพรังสีเคลื่อนที่ ด้วยระบบดิจิตอล</p>
-                    <a href="#" class="link">คลิกดูรายละเอียดแพคเกจ</a>
-                </div>
-                <div class="col-md-4 text-center">
-                    <img class="img-thumbnail" src="https://img5.pic.in.th/file/secure-sv1/-222abbac6064ef21f.png">
-                </div>
-            </div>
-        </div>
-</div>    
+
     <!-- Footer Start -->
     <div class="container-fluid bg-secondary text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
        
@@ -259,9 +173,9 @@
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                         &copy; <a class="border-bottom" href="#">อาร์ แอนด์ บี</a>, คลินิคเทคนิคการแพทย์.
                     </div>
-                     <div class="col-md-6 text-center text-md-end">
-                 <a href="https://lin.ee/6KvgXbZ"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/th.png" alt="เพิ่มเพื่อน" height="36" border="0"></a>
-                     </div>
+                    <div class="col-md-6 text-center text-md-end">
+                      <a href="https://lin.ee/6KvgXbZ"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/th.png" alt="เพิ่มเพื่อน" height="36" border="0"></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -286,7 +200,6 @@
 
     <!-- Template Javascript -->
     <script src="main.js"></script>
-   
 </body>
 
 </html>
