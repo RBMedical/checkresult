@@ -1,32 +1,39 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Klinik - Clinic Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
 
-    <title>Mobile Checkup System</title>
-    <script src="https://apis.google.com/js/api.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/10.5.22/jsrsasign-all-min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <link rel="stylesheet" href="index.css">
-    <script src="index.js"></script>
-    <style>
-        body {
-            font-family: 'Sarabun', sans-serif;
-        }
+    <!-- Favicon -->
+    <link href="8.ico" rel="icon">
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #ffffff;
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="animate.min.css" rel="stylesheet">
+    <link href="owl.carousel.min.css" rel="stylesheet">
+    <link href="tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="style.css" rel="stylesheet">
+</head>
+<style>
+      .nav-logo {
+            width: 50px;
         }
 
         .navbar-toggler {
@@ -38,250 +45,66 @@
         .navbar-toggler-icon {
             background-image: url('data:image/svg+xml;charset=UTF8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="black"%3E%3Cpath stroke="rgba%280, 0, 0, 0.7%29" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
         }
-        .card-body{
-            min-height: 250px;
-            max-height: 250px;
-            background-color:lightblue;
-        }
-
-        .modalrecieve{
-            display: none;
-            /* ซ่อน modal ไว้ก่อน จนกว่าจะถูกแสดง */
-           
-            top: 50%;
-            /* จัดให้อยู่กลางหน้าจอ (แนวตั้ง) */
-            left: 50%;
-            /* จัดให้อยู่กลางหน้าจอ (แนวนอน) */
-            transform: translate(-50%, -50%);
-            /* ย้าย modal ให้ตรงกลางพอดี */
-            width: 30%;
-            /* กำหนดความกว้าง */
-            max-width: 800px;
-            /* จำกัดความกว้างสูงสุด */
-            padding: 20px;
-            /* ระยะห่างด้านในของ modal */
-
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            /* เงาของ modal */
-            z-index: 1000;
-            /* ทำให้ modal อยู่เหนือ element อื่นๆ */
-            border-radius: 10px;
-            /* มุมโค้งของ modal */
-            justify-content: center;
-        }
-
-        .text-footer {
-            font-family: "sarabun";
-            font-size: 0.80rem;
-            color: darkgreen;
-        }
-
-        .nav-logo span {
-            font-size: 1rem;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-logo img {
-            width: 50px;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: auto;
-        }
-
-        .container-fluid {
-            background-color: #e3f2fd;
-            /* สีฟ้าอ่อน ๆ */
-            padding: 15px;
-        }
-        .container-sm{
-            display: flex;
-        }
-
-        .text-container {
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-
-        .nav-pills .nav-link {
-            background-color: white;
-            color: darkgreen;
-            border-radius: 5px;
-            margin: 0 5px;
-        }
-
-        .nav-pills .nav-link:hover {
-            background-color: #e0f2f1;
-        }
-
-        .nav-pills .nav-link.active {
-            background-color: #2e7d32;
-            /* สีเขียวเข้มเมื่อ active */
-            color: white;
-        }
-
-        .footer-logo {
-            width: 30px;
-            height: 30px;
-        }
-        .col{
-            max-width: 250px;
-            min-width: 250px;
-        }
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .nav-pills {
-                margin-top: 10px;
-            }
-            .text-footer{
-               justify-content: center;
-            }
-
-            .container {
-                max-width: 90%;
-                min-width: 90%;
-            }
-
-            .container-fluid {
-                max-width: 90%;
-                min-width: 90%;
-            }
-
-            .card-body {
-                max-height: 200px;
-                min-height: 200px;
-            }
-
-            .card-shadow {
-                max-width: 100%;
-                min-width: 100%;
-
-            }
-
-            .bd-placeholder-img card-img-top {
-                max-width: 100%;
-                min-width: 100%;
-                min-width: 500px;
-                max-height: 500px;
-            }
-
-            .ulbum {
-                max-width: 100%;
-                min-width: 100%;
-            }
-
-            .col {
-                max-width: 250px;
-                min-width: 250px;
-                margin-left: 30px;
-            }
-            .container-sm{
-                display: block;
-                max-width: 760px;
-                min-width: 760px;
-                justify-content: center;
-            }
-
-            image {
-                max-height: 100%;
-                min-width: 100%;
-            }
-
-            .card-shadow-sm {
-                max-width: 100%;
-                min-width: 100%;
-      
-            }
-
-            .card-text {
-                font-size: 0.80rem
-            }
-
-            .modal {
-                width: 80%;
-                justify-content: center;
-            }
-
-            .teext-footer {
-                font-size: 0.50rem;
-
-            }
-           
-        }
-
-        .package-container {
-
-            min-height: 600px;
-            max-width: 90%;
-            display: flex;
-            background-color: #2e7d32;
-            margin-left: 60px;
-        }
-
-        .product {
-            width: 80%;
-            padding: 10px;
-            height: 100%;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 20px;
-        }
-
-        .product-img {
-            width: 100%;
-            height: 17vw;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .product-items {
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .product-items:hover {
-            transform: scale(1.03);
-        }
-    </style>
-</head>
-
+</style>
 <body>
-    <div class="container">
-        <header
-            class="d-flex flex-wrap align-items-center justify-content-between py-3 mb-4 border-bottom nav-container container">
-            <a href="/" class="d-flex align-items-center text-decoration-none nav-logo">
-                <img src="https://img5.pic.in.th/file/secure-sv1/8c27b7b1c06a8f089.png" alt="Logo" width="40">
-                <span class="fs-6 text-dark ms-2">R&B Medical Laboratory</span>
-            </a>
-            <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-md-flex justify-content-end" id="navbarNav">
-                <ul class="nav nav-pills">
-                    <li class="nav-item"><a href="index.html" class="nav-link ">หน้าแรก</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link active">อัตราค่าบริการ</a></li>
-                    <li class="nav-item"><a href="home.html" class="nav-link">ผลตรวจสุขภาพประจำปี</a></li>
-                    <li class="nav-item"><a href="contact.html" class="nav-link">ติดต่อเรา</a></li>
-                    <li class="nav-item"><a href="login.html" class="nav-link text-secondary">เจ้าหน้าที่</a></li>
-                </ul>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+  
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 wow fadeIn" data-wow-delay="0.1s">
+        <img src="https://img5.pic.in.th/file/secure-sv1/8c27b7b1c06a8f089.png" class="nav-logo">
+            <h1 class="fs-4" style="color:darkgreen">R&B Medical Laboratory</h1>
+            <button class="navbar-toggler d-md-none me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+       
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link">หน้าหลัก</a>
+                <a href="package.html" class="nav-item nav-link active">อัตราค่าบริการ</a>
+                <a href="home.html" class="nav-item nav-link">ผลตรวจสุขภาพออนไลน์</a>
+                <a href="contact.html" class="nav-item nav-link">ติดต่อเรา</a>
+                <a href="login.html" class="nav-item nav-link text-secndary">สำหรับเจ้าหน้าที่</a>
+                </div>
+              
+    </nav>
+    <!-- Navbar End -->
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Test & Package</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- Team Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <p class="d-inline-block border rounded-pill py-1 px-4">อัตราค่าบริการ</p>
+                <h1 style="font-family: sarabun; color:darkcyan;">แพคเกจสุดพิเศษสำหรับคุณ</h1>
             </div>
-        </header>
+            <div class="row g-4" id="package">
+                
+            </div>
+        </div>     
     </div>
-    <div class="b-example-divider"></div>
-    <div class="container-sm" id="package">
-     
-           
-    </div>
+    <!-- Team End -->
     <div class="modal fade" id="malemodal" tabindex="-1" aria-labelledby="malemodalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -297,53 +120,47 @@
         </div>
     </div>
 
-    <div class="container-lg">
-        <div class="b-example-divider"></div>
-        <div class="border border-bottom" style="justify-content: space-between;">
-            <div class="d-flex gap-2 py-5 border border-bottom" style="justify-content: space-between;">
-                <div class="container">
-                    <a class="mt-3" href="https://lin.ee/6KvgXbZ"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/th.png" alt="ติดต่อสอบถาม คลิก" height="36"></a>
-                
-                <div id="datetime" class="text-footer me-5" style="color:darkgreen;"></div>
+    <!-- Footer Start -->
+    <div class="container-fluid bg-secondary text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+       
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">อาร์ แอนด์ บี</a>, คลินิคเทคนิคการแพทย์.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                        Designed By <a class="border-bottom">Menzshops</a>
+                    </div>
+                </div>
             </div>
-            </div>
-
         </div>
-        <script>
-            function updateDateTime() {
-                const now = new Date();
-                const date = now.toLocaleDateString('th-TH');
-                const time = now.toLocaleTimeString('th-TH');
-                document.getElementById('datetime').innerHTML = `${date} ${time}`;
-            }
-
-            function closeModal() {
-                $('#malemodal').css('display', 'none');
-            }
-
-            function modalClose() {
-                $('#femalemodal').css('display', 'none');
-            }
-
-            function openModal() {
-                $('#malemodal').css('display', 'block');
-
-            }
-
-            function openFemale() {
-                $('#femalemodal').css('display', 'block');
-
-            }
+    </div>
+    <!-- Footer End -->
 
 
-            // เรียกฟังก์ชันทุกวินาทีเพื่ออัปเดตวันที่และเวลา
-            setInterval(updateDateTime, 1000);
+  
 
-            // เรียกฟังก์ชันเมื่อโหลดหน้าเว็บ
-            updateDateTime();
-                let productData = []; // ตัวแปรเก็บข้อมูลสินค้า
 
-function fetchPackage() {
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="wow.min.js"></script>
+    <script src="easing.min.js"></script>
+    <script src="waypoints.min.js"></script>
+    <script src="counterup.min.js"></script>
+    <script src="owl.carousel.min.js"></script>
+    <script src="moment.min.js"></script>
+    <script src="moment-timezone.min.js"></script>
+    <script src="tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="main.js"></script>
+    <script>
+
+let productData = []; 
+        function fetchPackage() {
     const scriptURL = "https://script.google.com/macros/s/AKfycby9WPpycC3nXQ_6no9YMML9BhbrWuvnytZSlHBHEMAjasnF152UV_6dr3XJxKyJ9D_Smg/exec";
 
     fetch(scriptURL)
@@ -353,20 +170,23 @@ function fetchPackage() {
             let html = "";
 
             data.forEach((item, i) => {
-                html += ` 
-                <div class="col me-2 mb-2">
-                    <div class="card shadow-sm">
-                        <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="${item.mainImage}" alt="Product Image">
-                        <div class="card-body">
-                            <p class="card-text">${item.description}</p>
-                            <div class="d-flex justify-content-between align-items-center">
+                html += ` <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item position-relative rounded overflow-hidden">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="${item.mainImage}" alt="">
+                        </div>
+                        <div class="team-text bg-light text-start p-4">
+                            <h5  style="font-size: 0.80rem; font-family: sarabun;">${item.description}</h5>
+                           
+                            <div class="team-social text-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="openProductDetail(${i})" style="cursor: pointer;">View</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="openProductDetail(${i})" style="cursor: pointer;">รายการตรวจ</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>`;
+                </div>
+               `;
             });
 
             document.getElementById("package").innerHTML = html || `<p>Not found product</p>`;
@@ -384,23 +204,7 @@ function openProductDetail(index) {
 // ให้รัน fetchPackage() ทันทีเมื่อโหลดหน้าเว็บ
 window.onload = fetchPackage;
 
-// ฟังก์ชันปิด Modal
-function closeModal() {
-    $("#malemodal").css('display', 'none');
-}
-
-
-
-            window.onload = function () {
-                fetchPackage();
-            };
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-            integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-            crossorigin="anonymous"></script>
+    </script>
 </body>
 
 </html>
