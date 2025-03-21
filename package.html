@@ -18,121 +18,44 @@
     <script src="index.js"></script>
     <style>
         
-       body {
-    font-family: 'Sarabun', sans-serif;
-    max-width: 100vw;
-    overflow-x: hidden;
-}
+     /* ปรับแต่งให้รองรับทุกขนาดหน้าจอ */
 body {
     font-family: 'Sarabun', sans-serif;
+    max-width: 100%;
     overflow-x: hidden;
-    max-width: 100%;
 }
 
-.container, .container-fluid {
-    max-width: 100%;
-    padding: 15px;
-}
-
-/* ป้องกันการขยาย-ย่อโดยไม่ได้ตั้งใจ */
-html, body {
-    touch-action: manipulation;
-}
-
-/* ปรับ Navbar ให้อยู่ตรงกลางและขยายเต็มจอเมื่ออยู่บนมือถือ */
+/* จัดให้ Navbar ทำงานได้ดีขึ้น */
 .nav-container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    background-color: #ffffff;
-    padding: 10px;
+    flex-wrap: wrap;
 }
 
 .navbar-toggler {
     border: none;
-    background-color: transparent;
-    margin-left: auto;
+    background: transparent;
 }
 
-.navbar-collapse {
-    text-align: center;
-    width: 100%;
-}
-
-.nav-pills .nav-link {
-    width: 100%;
-}
-
-/* ปรับขนาด modal ให้เหมาะสมกับมือถือ */
-.modal-dialog {
-    max-width: 90%;
-    margin: auto;
-}
-
-.modal-content {
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* ปรับขนาดรูปภาพให้เหมาะสมกับหน้าจอ */
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* ปรับ layout ของ card ให้เหมาะสมกับมือถือ */
-.col {
-    max-width: 100%;
-    min-width: auto;
-    margin-bottom: 10px;
-}
-
+/* ปรับขนาดของ card-body ให้พอดีกับอุปกรณ์ */
 .card-body {
-    min-height: auto;
+    min-height: 200px;
+    max-height: 200px;
     background-color: lightblue;
 }
 
-/* ปรับ container-sm ให้เหมาะสมกับหน้าจอมือถือ */
-.container-sm {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+/* ป้องกันการขยายขนาดของมือถือ */
+meta[name="viewport"] {
+    content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no";
 }
 
-/* ปรับขนาด text-footer ให้เล็กลงเมื่ออยู่บนมือถือ */
-.text-footer {
-    font-size: 0.80rem;
-    text-align: center;
-    color: darkgreen;
+/* ปรับขนาดของ modal ให้เหมาะสมกับมือถือ */
+.modal-dialog {
+    max-width: 90%;
 }
 
-/* ปรับการแสดงผลของ package-container บนมือถือ */
-.package-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 100%;
-    min-height: auto;
-    background-color: #2e7d32;
-    padding: 10px;
-}
-
-.product {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
-}
-
-.product-img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-/* Media Queries สำหรับหน้าจอมือถือ */
+/* ปรับ UI สำหรับอุปกรณ์มือถือ */
 @media (max-width: 768px) {
     .nav-container {
         flex-direction: column;
@@ -140,275 +63,34 @@ img {
     }
 
     .nav-pills {
-        width: 100%;
+        margin-top: 10px;
+    }
+
+    .container, .container-fluid {
+        max-width: 95%;
     }
 
     .card-body {
-        max-height: 200px;
+        max-height: 180px;
+        min-height: 180px;
     }
 
-    .modal {
+    .bd-placeholder-img {
         width: 100%;
-        max-width: 90%;
-        margin: auto;
-    }
-}
-
-        
-        container, .container-sm, .container-lg {
-    max-width: 100%;
-}
-      .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #ffffff;
-    flex-wrap: wrap;
-}
-
-        .navbar-toggler {
-    border: none;
-    background-color: transparent;
-}
-.navbar-toggler {
-    border: none;
-    background-color: transparent;
-}
-
-.modal-content {
-    width: 90%;
-    max-width: 500px;
-    margin: auto;
-}
-สค
-ญ
-        ๗,,navbar-toggler-icon {
-            background-image: url('data:image/svg+xml;charset=UTF8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="black"%3E%3Cpath stroke="rgba%280, 0, 0, 0.7%29" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
-        }
-        .card-body{
-            min-height: 250px;
-            max-height: 250px;
-            background-color:lightblue;
-        }
-
-        .modalrecieve{
-            display: none;
-            /* ซ่อน modal ไว้ก่อน จนกว่าจะถูกแสดง */
-           
-            top: 50%;
-            /* จัดให้อยู่กลางหน้าจอ (แนวตั้ง) */
-            left: 50%;
-            /* จัดให้อยู่กลางหน้าจอ (แนวนอน) */
-            transform: translate(-50%, -50%);
-            /* ย้าย modal ให้ตรงกลางพอดี */
-            width: 30%;
-            /* กำหนดความกว้าง */
-            max-width: 800px;
-            /* จำกัดความกว้างสูงสุด */
-            padding: 20px;
-            /* ระยะห่างด้านในของ modal */
-
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            /* เงาของ modal */
-            z-index: 1000;
-            /* ทำให้ modal อยู่เหนือ element อื่นๆ */
-            border-radius: 10px;
-            /* มุมโค้งของ modal */
-            justify-content: center;
-        }
-
-        .text-footer {
-            font-family: "sarabun";
-            font-size: 0.80rem;
-            color: darkgreen;
-        }
-
-        .nav-logo span {
-            font-size: 1rem;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-logo img {
-            width: 50px;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: auto;
-        }
-
-        .container-fluid {
-            background-color: #e3f2fd;
-            /* สีฟ้าอ่อน ๆ */
-            padding: 15px;
-        }
-        .container-sm{
-            display: flex;
-        }
-
-        .text-container {
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-
-        .nav-pills .nav-link {
-            background-color: white;
-            color: darkgreen;
-            border-radius: 5px;
-            margin: 0 5px;
-        }
-
-        .nav-pills .nav-link:hover {
-            background-color: #e0f2f1;
-        }
-
-        .nav-pills .nav-link.active {
-            background-color: #2e7d32;
-            /* สีเขียวเข้มเมื่อ active */
-            color: white;
-        }
-
-        .footer-logo {
-            width: 30px;
-            height: 30px;
-        }
-        .col{
-            max-width: 250px;
-            min-width: 250px;
-        }
-        @media (max-width: 768px) {
-             .nav-container {
-        flex-direction: column;
-        align-items: center;
+        height: auto;
     }
 
-    .container {
-        padding: 0 10px;
-    }
-            body{
-                max-width: 7cm;
-                min-width: 6cm;
-            }
-
-             .nav-pills {
-        margin-top: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-          .text-footer {
-        text-align: center;
-        font-size: 0.80rem;
-    }
-            .container {
-                max-width: 7cm;
-                min-width: 6cm;
-            }
-          
-           .container-fluid {
-        width: 100%;
-        padding: 10px;
-    }
-
-           .card-body {
-        max-height: 200px;
-        min-height: 200px;
-    }
-
-
-            .card-shadow {
-                max-width: 100%;
-                min-width: 100%;
-
-            }
-
-            .bd-placeholder-img card-img-top {
-                max-width: 100%;
-                min-width: 100%;
-                min-width: 500px;
-                max-height: 500px;
-            }
-
-            .ulbum {
-                max-width: 100%;
-                min-width: 100%;
-            }
-
-            .col {
-        width: 100%;
+    .col {
         max-width: 100%;
     }
 
-    .modal {
-        width: 90%;
+    .container-sm {
+        display: block;
+        max-width: 100%;
+        justify-content: center;
     }
-            .container-sm{
-                display: block;
-                max-width: 760px;
-                min-width: 760px;
-                justify-content: center;
-            }
+}
 
-            image {
-                max-width: 100%;
-                min-width: 100%;
-            }
-
-            .card-shadow-sm {
-                max-width: 100%;
-                min-width: 100%;
-            }
-
-            .card-text {
-                font-size: 0.80rem
-            }
-
-          
-
-            .teext-footer {
-                font-size: 0.50rem;
-
-            }
-           
-        }
-
-        .package-container {
-
-            min-height: 600px;
-            max-width: 90%;
-            display: flex;
-            background-color: #2e7d32;
-            margin-left: 60px;
-        }
-
-        .product {
-            width: 80%;
-            padding: 10px;
-            height: 100%;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 20px;
-        }
-
-        .product-img {
-            width: 100%;
-            height: 17vw;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .product-items {
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .product-items:hover {
-            transform: scale(1.03);
-        }
     </style>
 </head>
 
