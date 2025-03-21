@@ -11,7 +11,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/10.5.22/jsrsasign-all-min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <link rel="stylesheet" href="index.css">
     <script src="index.js"></script>
@@ -19,163 +20,247 @@
         body {
             font-family: 'Sarabun', sans-serif;
         }
+
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             background-color: #ffffff;
         }
+
         .navbar-toggler {
             border: none;
             background-color: transparent;
             margin-left: auto;
         }
-        .col{
-            max-width: 250px;
-            min-width: 250px;
+
         .navbar-toggler-icon {
             background-image: url('data:image/svg+xml;charset=UTF8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="black"%3E%3Cpath stroke="rgba%280, 0, 0, 0.7%29" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
         }
+        .card-body{
+            min-height: 250px;
+            max-height: 250px;
+            background-color:lightblue;
+        }
 
-        .modalrecieve {
-    display: none;
-      /* ซ่อน modal ไว้ก่อน จนกว่าจะถูกแสดง */
-      position: fixed;
-      /* ทำให้ modal อยู่บนสุดตลอดเวลา */
-      top: 50%;
-      /* จัดให้อยู่กลางหน้าจอ (แนวตั้ง) */
-      left: 50%;
-      /* จัดให้อยู่กลางหน้าจอ (แนวนอน) */
-      transform: translate(-50%, -50%);
-      /* ย้าย modal ให้ตรงกลางพอดี */
-      width: 30%;
-      /* กำหนดความกว้าง */
-      max-width: 800px;
-      /* จำกัดความกว้างสูงสุด */
-      padding: 20px;
-      /* ระยะห่างด้านในของ modal */
+        .modalrecieve{
+            display: none;
+            /* ซ่อน modal ไว้ก่อน จนกว่าจะถูกแสดง */
+           
+            top: 50%;
+            /* จัดให้อยู่กลางหน้าจอ (แนวตั้ง) */
+            left: 50%;
+            /* จัดให้อยู่กลางหน้าจอ (แนวนอน) */
+            transform: translate(-50%, -50%);
+            /* ย้าย modal ให้ตรงกลางพอดี */
+            width: 30%;
+            /* กำหนดความกว้าง */
+            max-width: 800px;
+            /* จำกัดความกว้างสูงสุด */
+            padding: 20px;
+            /* ระยะห่างด้านในของ modal */
 
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      /* เงาของ modal */
-      z-index: 1000;
-      /* ทำให้ modal อยู่เหนือ element อื่นๆ */
-      border-radius: 10px;
-      /* มุมโค้งของ modal */
-      justify-content: center;
-    }
-       .text-footer{
-        font-family: "sarabun";
-        font-size: 0.80rem;
-        color: darkgreen;
-       }
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            /* เงาของ modal */
+            z-index: 1000;
+            /* ทำให้ modal อยู่เหนือ element อื่นๆ */
+            border-radius: 10px;
+            /* มุมโค้งของ modal */
+            justify-content: center;
+        }
+
+        .text-footer {
+            font-family: "sarabun";
+            font-size: 0.80rem;
+            color: darkgreen;
+        }
+
         .nav-logo span {
             font-size: 1rem;
         }
+
         .nav-logo {
             display: flex;
             align-items: center;
         }
+
         .nav-logo img {
             width: 50px;
         }
+
         .hero-image {
             width: 100%;
             height: auto;
         }
+
         .container-fluid {
-            background-color: #e3f2fd; /* สีฟ้าอ่อน ๆ */
+            background-color: #e3f2fd;
+            /* สีฟ้าอ่อน ๆ */
             padding: 15px;
         }
+        .container-sm{
+            display: flex;
+        }
+
         .text-container {
             word-wrap: break-word;
             overflow-wrap: break-word;
         }
+
         .nav-pills .nav-link {
             background-color: white;
             color: darkgreen;
             border-radius: 5px;
             margin: 0 5px;
         }
+
         .nav-pills .nav-link:hover {
             background-color: #e0f2f1;
         }
+
         .nav-pills .nav-link.active {
-            background-color: #2e7d32; /* สีเขียวเข้มเมื่อ active */
+            background-color: #2e7d32;
+            /* สีเขียวเข้มเมื่อ active */
             color: white;
         }
+
         .footer-logo {
             width: 30px;
             height: 30px;
+        }
+        .col{
+            max-width: 250px;
+            min-width: 250px;
         }
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
                 align-items: center;
             }
+
             .nav-pills {
                 margin-top: 10px;
             }
-            .container{
-              max-width: 90%;
-              min-width: 90%;
+            .text-footer{
+               justify-content: center;
             }
-            .container-fluid{
-              max-width: 90%;
-              min-width: 90%;
-          }
-          .card-body{
-            max-width: 100%;
-            min-width: 100%;
-          }
-          .card-shadow{
-            max-width: 100%;
-            min-width: 100%;
 
-          }
-          .bd-placeholder-img card-img-top{
-            max-width: 100%;
-            min-width: 100%;
-            min-width: 500px;
-            max-height: 500px;
-          }
-          .ulbum{
-            max-width: 100%;
-            min-width: 100%;
-          }
-          .col{
-            max-width: 100%;
-            min-width: 100%;
-          }
-          image{
-            max-width: 100%;
-            min-width: 100%;
-          }
-          .card-shadow-sm{
-            max-width: 100%;
-            min-width: 100%;
-          }
-          .card-text{
-            font-size: 0.80rem
-          }
-          .modalrecieve{
-            width: 70%;
-          }
-          .teext-footer{
-font-size: 0.50rem;
+            .container {
+                max-width: 90%;
+                min-width: 90%;
+            }
 
-          }
+            .container-fluid {
+                max-width: 90%;
+                min-width: 90%;
+            }
+
+            .card-body {
+                max-height: 200px;
+                min-height: 200px;
+            }
+
+            .card-shadow {
+                max-width: 100%;
+                min-width: 100%;
+
+            }
+
+            .bd-placeholder-img card-img-top {
+                max-width: 100%;
+                min-width: 100%;
+                min-width: 500px;
+                max-height: 500px;
+            }
+
+            .ulbum {
+                max-width: 100%;
+                min-width: 100%;
+            }
+
+            .col {
+                max-width: 250px;
+                min-width: 250px;
+            }
+            .container-sm{
+                display: block;
+                max-width: 760px;
+                min-width: 760px;
+                justify-content: center;
+            }
+
+            image {
+                max-width: 100%;
+                min-width: 100%;
+            }
+
+            .card-shadow-sm {
+                max-width: 100%;
+                min-width: 100%;
+            }
+
+            .card-text {
+                font-size: 0.80rem
+            }
+
+            .modal {
+                width: 80%;
+                justify-content: center;
+            }
+
+            .teext-footer {
+                font-size: 0.50rem;
+
+            }
+           
+        }
+
+        .package-container {
+
+            min-height: 600px;
+            max-width: 90%;
+            display: flex;
+            background-color: #2e7d32;
+            margin-left: 60px;
+        }
+
+        .product {
+            width: 80%;
+            padding: 10px;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 17vw;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .product-items {
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .product-items:hover {
+            transform: scale(1.03);
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <header class="d-flex flex-wrap align-items-center justify-content-between py-3 mb-4 border-bottom nav-container container">
+        <header
+            class="d-flex flex-wrap align-items-center justify-content-between py-3 mb-4 border-bottom nav-container container">
             <a href="/" class="d-flex align-items-center text-decoration-none nav-logo">
                 <img src="https://img5.pic.in.th/file/secure-sv1/8c27b7b1c06a8f089.png" alt="Logo" width="40">
                 <span class="fs-6 text-dark ms-2">R&B Medical Laboratory</span>
             </a>
-            <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse d-md-flex justify-content-end" id="navbarNav">
@@ -184,150 +269,135 @@ font-size: 0.50rem;
                     <li class="nav-item"><a href="#" class="nav-link active">อัตราค่าบริการ</a></li>
                     <li class="nav-item"><a href="home.html" class="nav-link">ผลตรวจสุขภาพประจำปี</a></li>
                     <li class="nav-item"><a href="contact.html" class="nav-link">ติดต่อเรา</a></li>
-                  <li class="nav-item"><a href="login.html" class="nav-link" style="color: darkgray;">เจ้าหน้าที่</a></li>
+                    <li class="nav-item"><a href="login.html" class="nav-link text-secondary">เจ้าหน้าที่</a></li>
                 </ul>
             </div>
         </header>
-        
-        <div class="b-example-divider"></div>
-        
-
-        <div class="album py-5 bg-body-tertiary">
-            <div class="container">
-        
-              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                <div class="col">
-                  <div class="card shadow-sm">
-                    <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://img2.pic.in.th/pic/1e88cc10617f493ce.png" role="img" ></img>
-                    <div class="card-body">
-                      <p class="card-text">โปรแกรมเหมาจ่ายสำหรับผู้ที่ต้องทำงานในที่ๆอากาศไม่ถ่ายเททุกวัน อย่างหลีกเลี่ยงไม่ได้ แยกเป็น 2 แพคเกจ สำหรับผู้ชายและผู้หญิง</p>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-outline-secondary" onclick="openMale()" style="cursor: pointer;">View</button>
-                          
-                        </div>
-                  
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card shadow-sm">
-                    <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://img5.pic.in.th/file/secure-sv1/23228b5cab55c5be3.png" role="img" ></img>
-                   
-                     <div class="card-body">
-                      <p class="card-text">โปรแกรมเหมาจ่าย สำหรับผู้ที่มีอายุ 30 ปีขึ้นไป ด้วยการตรวจขั้นพื้นฐาน จำนวน 15 รายการ</p>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-outline-secondary" onclick="openFemale()" style="cursor: pointer;">View</button>
-                          
-                        </div>
-                       
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
+    </div>
+    <div class="b-example-divider"></div>
+    <div class="container-sm" id="package">
+     
+           
+    </div>
+    <div class="modal fade" id="malemodal" tabindex="-1" aria-labelledby="malemodalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
               
-               
-                
-                <div class="col">
-                  <div class="card shadow-sm">
-                    <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://img2.pic.in.th/pic/34562b2fb15f1071e.png" role="img" ></img>
-                   
-                    <div class="card-body">
-                      <p class="card-text">ตารางแสดงอัตราค่าบริการ การตรวจและรายงานผล ตามมาตรฐานที่กำหนดโดยสมาคมโรคจากการประกอบอาชีพและสิ่งแวดล้อมแห่งประเทศไทย</p>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-outline-secondary" style="cursor: pointer;">View</button>
-                          
-                        </div>
-                        
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeModal()" style="cursor: pointer;"></button>
             </div>
+            <div class="modal-body">
+              <img class="img-thumbnail mt-3" id="mdd-img">
+            </div>
+            
           </div>
+        </div>
+    </div>
 
-
-          <modal class="modalrecieve" id="malemodal">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeModal()" style="cursor: pointer;"></button>
-                </div>
-                <div class="modal-body">
-                  <img class="img-thumbnail mt-3" src="https://img5.pic.in.th/file/secure-sv1/1a9d307bb8186b60d.png">
-                </div>
-                
-              </div>
-            </div>
-          </modal>
-
-          <modal class="modalrecieve" id="femalemodal">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="modalClose()" style="cursor: pointer;"></button>
-                </div>
-                <div class="modal-body">
-                  <img class="img-thumbnail mt-3" src="https://img2.pic.in.th/pic/25f980d7a2e4cf6ed.png">
-                </div>
-                
-              </div>
-            </div>
-          </modal>
-
+    <div class="container-lg">
         <div class="b-example-divider"></div>
         <div class="border border-bottom" style="justify-content: space-between;">
             <div class="d-flex gap-2 py-5 border border-bottom" style="justify-content: space-between;">
-               <div class="container">
-                 <a class="mt-3" href="https://lin.ee/6KvgXbZ"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/th.png" alt="ติดต่อสอบถาม คลิก" height="36" border="0"></a>
-              
+                <div class="container">
+                    <a class="mt-3" href="https://lin.ee/6KvgXbZ"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/th.png" alt="ติดต่อสอบถาม คลิก" height="36"></a>
+                
+                <div id="datetime" class="text-footer me-5" style="color:darkgreen;"></div>
             </div>
-            <div id="datetime" class="text-footer" style="color:darkgreen;"></div>
-            
             </div>
 
-    </div>
-    <script>
-        function updateDateTime() {
-            const now = new Date();
-            const date = now.toLocaleDateString('th-TH');
-            const time = now.toLocaleTimeString('th-TH');
-            document.getElementById('datetime').innerHTML = `${date} ${time}`;
-        }
+        </div>
+        <script>
+            function updateDateTime() {
+                const now = new Date();
+                const date = now.toLocaleDateString('th-TH');
+                const time = now.toLocaleTimeString('th-TH');
+                document.getElementById('datetime').innerHTML = `${date} ${time}`;
+            }
 
-        function closeModal() {
-    $('#malemodal').css('display','none');
+            function closeModal() {
+                $('#malemodal').css('display', 'none');
+            }
+
+            function modalClose() {
+                $('#femalemodal').css('display', 'none');
+            }
+
+            function openModal() {
+                $('#malemodal').css('display', 'block');
+
+            }
+
+            function openFemale() {
+                $('#femalemodal').css('display', 'block');
+
+            }
+
+
+            // เรียกฟังก์ชันทุกวินาทีเพื่ออัปเดตวันที่และเวลา
+            setInterval(updateDateTime, 1000);
+
+            // เรียกฟังก์ชันเมื่อโหลดหน้าเว็บ
+            updateDateTime();
+                let productData = []; // ตัวแปรเก็บข้อมูลสินค้า
+
+function fetchPackage() {
+    const scriptURL = "https://script.google.com/macros/s/AKfycby9WPpycC3nXQ_6no9YMML9BhbrWuvnytZSlHBHEMAjasnF152UV_6dr3XJxKyJ9D_Smg/exec";
+
+    fetch(scriptURL)
+        .then(response => response.json())
+        .then(data => {
+            productData = data; // เก็บข้อมูลที่ดึงมา
+            let html = "";
+
+            data.forEach((item, i) => {
+                html += ` 
+                <div class="col me-2 mb-2">
+                    <div class="card shadow-sm">
+                        <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="${item.mainImage}" alt="Product Image">
+                        <div class="card-body">
+                            <p class="card-text">${item.description}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="openProductDetail(${i})" style="cursor: pointer;">View</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+            });
+
+            document.getElementById("package").innerHTML = html || `<p>Not found product</p>`;
+        })
+        .catch(error => console.error("เกิดข้อผิดพลาด:", error));
 }
- 
-function modalClose() {
-    $('#femalemodal').css('display','none');
+
+// ฟังก์ชันเปิด Modal และใส่รูปภาพที่ตรงกับ index
+function openProductDetail(index) {
+    document.getElementById("mdd-img").src = productData[index].dataImage;
+    let modal = new bootstrap.Modal(document.getElementById('malemodal'));
+    modal.show();
 }
 
-        function openMale(){
-            $('#malemodal').css('display','block');
+// ให้รัน fetchPackage() ทันทีเมื่อโหลดหน้าเว็บ
+window.onload = fetchPackage;
 
-        }
+// ฟังก์ชันปิด Modal
+function closeModal() {
+    $("#malemodal").css('display', 'none');
+}
 
-        function openFemale(){
-            $('#femalemodal').css('display','block');
 
-        }
- 
 
-        // เรียกฟังก์ชันทุกวินาทีเพื่ออัปเดตวันที่และเวลา
-        setInterval(updateDateTime, 1000);
-
-        // เรียกฟังก์ชันเมื่อโหลดหน้าเว็บ
-        updateDateTime();
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+            window.onload = function () {
+                fetchPackage();
+            };
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+            integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+            crossorigin="anonymous"></script>
 </body>
+
 </html>
