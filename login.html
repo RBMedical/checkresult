@@ -85,7 +85,7 @@
               
     </nav>
     <!-- Navbar End -->
-
+<div class="container-lg">
         <div class="login-box ms-5">
             <h3 class="text-center">เข้าสู่ระบบ</h3>
             <form onsubmit="return validateLogin()">
@@ -110,6 +110,7 @@
         </footer>
     </div>
     </div>
+</div>
   <!-- Footer Start -->
     <div class="container-fluid bg-secondary text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
        
@@ -148,50 +149,6 @@
     <script src="main.js"></script>
     <script>
 
-let productData = []; 
-        function fetchPackage() {
-    const scriptURL = "https://script.google.com/macros/s/AKfycbzqZvxrT2H3W37gXqu4ljD5eeWetUJcW0QI1Lh4rMi0XpPK95iApVsbPQ_2GXW6ylUJ/exec";
-
-    fetch(scriptURL)
-        .then(response => response.json())
-        .then(data => {
-            productData = data; // เก็บข้อมูลที่ดึงมา
-            let html = "";
-
-            data.forEach((item, i) => {
-                html += ` <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item position-relative rounded overflow-hidden">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="${item.mainImage}" alt="">
-                        </div>
-                        <div class="team-text bg-light text-start p-4">
-                            <h5  style="font-size: 0.80rem; font-family: sarabun;">${item.description}</h5>
-                           
-                            <div class="team-social text-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="openProductDetail(${i})" style="cursor: pointer;">รายการตรวจ</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-               `;
-            });
-
-            document.getElementById("package").innerHTML = html || `<p>Not found product</p>`;
-        })
-        .catch(error => console.error("เกิดข้อผิดพลาด:", error));
-}
-
-// ฟังก์ชันเปิด Modal และใส่รูปภาพที่ตรงกับ index
-function openProductDetail(index) {
-    document.getElementById("mdd-img").src = productData[index].dataImage;
-    let modal = new bootstrap.Modal(document.getElementById('malemodal'));
-    modal.show();
-}
-
-// ให้รัน fetchPackage() ทันทีเมื่อโหลดหน้าเว็บ
-window.onload = fetchPackage;
 
     </script>
 
