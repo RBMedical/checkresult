@@ -51,6 +51,23 @@
         .navbar-toggler-icon {
             background-image: url('data:image/svg+xml;charset=UTF8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="black"%3E%3Cpath stroke="rgba%280, 0, 0, 0.7%29" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
         }
+    container-login{
+          top: 50%;
+      /* จัดให้อยู่กลางหน้าจอ (แนวตั้ง) */
+      left: 50%;
+      /* จัดให้อยู่กลางหน้าจอ (แนวนอน) */
+      transform: translate(-50%, -50%);
+      /* ย้าย modal ให้ตรงกลางพอดี */
+      width: 30%;
+      /* กำหนดความกว้าง */
+      max-width: 800px;
+      /* จำกัดความกว้างสูงสุด */
+      padding: 20px;
+      /* ระยะห่างด้านในของ modal */
+
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      /* เงาของ modal */
+    }
 </style>
 <body>
     <!-- Spinner Start -->
@@ -85,7 +102,7 @@
               
     </nav>
     <!-- Navbar End -->
-<div class="container-lg">
+<div class="container-login">
         <div class="login-box ms-5">
             <h3 class="text-center">เข้าสู่ระบบ</h3>
             <form onsubmit="return validateLogin()">
