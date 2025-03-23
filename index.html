@@ -166,7 +166,43 @@
         </div>
     </div>
     <!-- Feature End -->
-        
+
+
+     <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <p class="d-inline-block border rounded-pill py-1 px-4">Testimonial</p>
+                <h1>What Say Our Patients!</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial-1.jpg" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text rounded text-center p-4">
+                        <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
+                        <h5 class="mb-1">Patient Name</h5>
+                        <span class="fst-italic">Profession</span>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial-2.jpg" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text rounded text-center p-4">
+                        <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
+                        <h5 class="mb-1">Patient Name</h5>
+                        <span class="fst-italic">Profession</span>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text rounded text-center p-4">
+                        <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
+                        <h5 class="mb-1">Patient Name</h5>
+                        <span class="fst-italic">Profession</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
 
     <!-- Footer Start -->
     <div class="container-fluid bg-secondary text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
@@ -186,7 +222,63 @@
     </div>
     <!-- Footer End -->
 
+<script>
 
+function loadTestimonials() {
+    const scriptUrl = "https://script.google.com/macros/s/AKfycbxvjmGSHbzF0_caT5ROFlTeeEynrulde_pO8Sh5eMI9Hfv4jJwduqMnnV8lXO-j9X2tZQ/exec"; // แทนที่ด้วย URL ของ Apps Script
+
+    fetch(scriptUrl)
+        .then(response => response.json())
+        .then(data => {
+            console.log("✅ Data from Google Sheets:", data); // ตรวจสอบข้อมูลที่ได้รับ
+
+            if (!Array.isArray(data) || data.length === 0) {
+                console.error("❌ No data received from Google Sheets!");
+                return;
+            }
+
+            const items = document.querySelectorAll(".testimonial-item");
+            const carousel = document.querySelector(".owl-carousel");
+
+            // ลบข้อมูลเก่า
+            carousel.innerHTML = ""; 
+
+            // ใส่ข้อมูลใหม่
+            data.forEach(item => {
+                const testimonialItem = document.createElement("div");
+                testimonialItem.className = "testimonial-item text-center";
+                testimonialItem.innerHTML = `
+                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="${item.img}" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text rounded text-center p-4">
+                        <p>${item.fullname}</p>
+                        <h5 class="mb-1">${item.nickname}</h5>
+                        <span class="fst-italic">${item.depart}</span>
+                    </div>
+                `;
+                carousel.appendChild(testimonialItem);
+            });
+
+            // รีเฟรช Owl Carousel
+            $(".owl-carousel").trigger("destroy.owl.carousel"); 
+            $(".owl-carousel").owlCarousel({
+                loop: true,
+                margin: 20,
+                nav: true,
+                responsive: {
+                    0: { items: 1 },
+                    768: { items: 2 },
+                    1000: { items: 3 }
+                }
+            });
+        })
+        .catch(error => console.error("❌ Fetch Error:", error));
+}
+
+// เรียกใช้ฟังก์ชันเมื่อเพจโหลด
+window.onload = loadTestimonials;
+
+
+</script>
   
 
 
