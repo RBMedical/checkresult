@@ -206,8 +206,7 @@
             <div class="collapse navbar-collapse d-md-flex justify-content-end" id="navbarNav">
                 <ul class="nav nav-pills">
                    <li class="nav-item"><a href="login.html" class="nav-link active">Log Out</a></li>
-                    <button class="nav-item btn-secondary" onclick = "openData()">Data</a></li> 
-                       <button class="nav-item btn-secondary" onclick = "openSite()">Website</a></li> 
+                  
                             
                 </ul>
             </div>
@@ -240,14 +239,4 @@
     setInterval(updateDateTime, 1000);
     updateDateTime();
 
-    function openData(){
-    $("#data").css('display', 'block');
-    $("#website").css('display', 'none');
-    }
-
-
-     function openSite(){
-    $("#data").css('display', 'none');
-    $("#website").css('display', 'block');
-    }
 </script>
