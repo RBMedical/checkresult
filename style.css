@@ -1,4 +1,8 @@
 /********** Template CSS **********/
+
+body{
+    font-family: "sarabun";
+}
 :root {
     --primary: #0463FA;
     --light: #EFF5FF;
