@@ -120,6 +120,14 @@
             /* จัดให้อยู่กึ่งกลางแนวตั้ง */
         }
 
+        .container-table{
+           max-widht: 45%;
+            
+        }
+        .container-sm{
+            display: flex;
+        }
+            
         .tablehead {
             font-size: 2rem;
             margin-left: 50px;
@@ -204,10 +212,10 @@
         }
     </style>
    
-        
+     <div class="container-sm">   
         <div class="tabledetail mt-5 mb-3 " style="font-family: sarabun; color: darkgreen;">รายการตรวจสุขภาพทั่วไป</div>
    
-    <div class="container-sm">
+    <div class="container-table">
         <table class="custom-table mb-5">
 
             <thead class="bg-secondary" style="color:aliceblue">
@@ -224,14 +232,14 @@
 
         </table>
     </div>
-
+          <div class="container-table">
 
         <div class="tabledetail mt-5 mb-3 " style="font-family: sarabun; color: darkgreen;">รายการตรวจวิเคราะห์สารเคมีทางชีวภาพ(Toxico)</div>
      
-    <div class="container-sm">
-        <table class="custom-table mb-5">
+         <div class="container-sm">
+           <table class="custom-table mb-5">
 
-            <thead class="bg-secondary" style="color:aliceblue">
+              <thead class="bg-secondary" style="color:aliceblue">
                 <tr>
                     <th scope="col">ลำดับที่</th>
                     <th scope="col">รายการตรวจ</th>
@@ -245,6 +253,8 @@
 
         </table>
     </div>
+ </div>
+ </div>
     <div class="b-example-divider"></div>
     <script>
         function loadAllRecords() {
