@@ -173,75 +173,60 @@
 
 
 function loadAllRecords() {
-  const url = "https://script.google.com/macros/s/AKfycbw_K7VI0Bz5Tolfx4VfMPEz6BQ7FwXo0vV2JPXmAB3Dbf587fX8K1tdIvoAA-8kiAgW5Q/exec";
+    const url = "https://script.google.com/macros/s/AKfycbw_K7VI0Bz5Tolfx4VfMPEz6BQ7FwXo0vV2JPXmAB3Dbf587fX8K1tdIvoAA-8kiAgW5Q/exec";
 
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      console.log("🔹 Data received from API:", data);
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            console.log("🔹 Data received from API:", data);
 
-      const resultDiv1 = document.getElementById('cbcresult');
-      resultDiv1.innerHTML = ''; // เคลียร์ผลลัพธ์ก่อนแสดงใหม่
+            const resultDiv1 = document.getElementById('cbcresult');
+            resultDiv1.innerHTML = ''; // เคลียร์ผลลัพธ์ก่อนแสดงใหม่
 
-      // ✅ ดึงค่า selectedValue จาก Local Storage
-      const selectedValue = localStorage.getItem('selectedDropdownValue')?.trim(); 
-      console.log("🔹 Selected Value from Local Storage:", selectedValue);
+            // ✅ ดึงค่า selectedValue จาก Local Storage
+            const selectedValue = localStorage.getItem('selectedDropdownValue');
+            console.log("🔹 Selected Value from Local Storage:", selectedValue);
 
-      // ✅ ดึงค่า selected จาก <span id="selectedValue">
-      const selected = document.getElementById('selectedValue').textContent.trim();
-      console.log("🔹 Selected Text Content:", selected);
+            // ✅ ตรวจสอบว่าข้อมูลจาก API ไม่ว่างเปล่า
+            if (!data || data.length === 0) {
+                console.warn("⚠️ No data found in API response:", data);
+                return;
+            }
 
-      if (!data.values || data.values.length === 0) {
-        console.warn("⚠️ No data found in API response.");
-        return;
-      }
+            data.forEach(row => {
+                console.log("🔹 Checking row:", row);
 
-      let foundMatch = false; // ตรวจสอบว่ามีแถวที่ตรงหรือไม่
+                // ✅ เปลี่ยนไปใช้ key ที่ถูกต้อง เช่น register หรือ name
+                if (row.customer == selectedValue) { 
+                    console.log("✅ Matched row:", row);
 
-      data.values.forEach(row => {
-        console.log("🔹 Checking row:", row);
-
-        // ✅ ใช้ .trim() กับค่าที่เปรียบเทียบเพื่อลบช่องว่าง
-        if (row.customer.trim() === selected) { 
-          console.log("✅ Matched row:", row);
-          foundMatch = true;
-
-          resultDiv1.innerHTML += ` 
-            <tr>
-              <th class="text-center" scope="row" colspan="2">${row.register}</th>
-              <td colspan="3">${row.name}</td>
-              <td class="text-center">${row.age}</td>
-              <td class="text-center">${row.sex}</td>
-              <td class="text-center">${row.waigh}</td>
-              <td class="text-center">${row.tall}</td>
-              <td class="text-center">${row.lung}</td>
-              <td class="text-center">${row.eyes}</td>
-              <td class="text-center">${row.ear}</td>
-              <td class="text-center">${row.hand}</td>
-              <td class="text-center">${row.leg}</td>
-              <td class="text-center">${row.back}</td>
-            </tr>
-          `;
-        }
-      });
-
-      if (!foundMatch) {
-        console.warn("⚠️ No matching rows found!");
-        resultDiv1.innerHTML = "<tr><td colspan='15' class='text-center text-danger'>No matching data found.</td></tr>";
-      }
-
-    })
-    .catch(error => {
-      console.error("❌ Error fetching data:", error);
-    });
+                    resultDiv1.innerHTML += ` 
+                        <tr>
+                            <th class="text-center" scope="row" colspan="2">${row.register}</th>
+                            <td colspan="3">${row.name}</td>
+                            <td class="text-center">${row.age}</td>
+                            <td class="text-center">${row.sex}</td>
+                            <td class="text-center">${row.waigh}</td>
+                            <td class="text-center">${row.tall}</td>
+                            <td class="text-center">${row.lung}</td>
+                            <td class="text-center">${row.eyes}</td>
+                            <td class="text-center">${row.ear}</td>
+                            <td class="text-center">${row.hand}</td>
+                            <td class="text-center">${row.leg}</td>
+                            <td class="text-center">${row.back}</td>
+                        </tr>
+                    `;
+                }
+            });
+        })
+        .catch(error => {
+            console.error("❌ Error fetching data:", error);
+        });
 }
 
-// ✅ โหลดค่าจาก Local Storage และแสดงในหน้าเว็บ
-const selectedValue = localStorage.getItem('selectedDropdownValue')?.trim();
-document.getElementById('selectedValue').textContent = selectedValue ? selectedValue : 'No value selected';
-
-// ✅ แก้ปัญหาการเรียกใช้ฟังก์ชัน onload
+// ✅ เรียกใช้งานเมื่อหน้าเว็บโหลดเสร็จ
 window.onload = loadAllRecords;
+
 
 
 
