@@ -186,7 +186,7 @@ function loadAllRecords() {
       // ✅ ดึงค่า selectedValue จาก Local Storage
       const selectedValue = localStorage.getItem('selectedDropdownValue');
       console.log("🔹 Selected Value from Local Storage:", selectedValue);
-      var selected = document.getElementById('selectedValue').textContent.Trim();
+      var selected = document.getElementById('selectedValue').textContent;
       if (!data.values || data.values.length === 0) {
         console.warn("⚠️ No data found in API response.");
         return;
