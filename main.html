@@ -377,32 +377,35 @@
     <script>
        
     
-        const urlsheet1 = `https://script.google.com/macros/s/AKfycbw0a1dzQQcp8NzlnOmXz4k6yMvI-NDFYgpLpXXR8iF_JO-PS9v4MgOGvsm89Y_DugUlOg/exec`;
+      
     
-        let sheetData = []; // เก็บข้อมูลจาก Google Sheets
+      let sheetData = []; // เก็บข้อมูลจาก Google Sheets
+
+function loadDropdownData() {
+    const urlsheet1 = `https://script.google.com/macros/s/AKfycbw0a1dzQQcp8NzlnOmXz4k6yMvI-NDFYgpLpXXR8iF_JO-PS9v4MgOGvsm89Y_DugUlOg/exec`;
     
-        function loadDropdownData() {
-            fetch(urlsheet1)
-                .then(response => response.json())
-                .then(data => {
-                    const dropdown = document.getElementById('dynamicDropdown');
-                    dropdown.innerHTML = ''; // Clear previous options
-    
-                    if (data.values && data.values.length > 0) {
-                        sheetData = data.values; // เก็บข้อมูลทั้งหมดไว้ใน sheetData
-                 console.log(sheetData);
-                        data.values.forEach(row => {
-                            const option = document.createElement('option');
-                            option.value = row[1]; // ค่าในคอลัมน์ B
-                            option.text = row[1];  // ค่าในคอลัมน์ B
-                            dropdown.appendChild(option);
-                        });
-                    }
-                })
-                .catch(error => {
-                    console.error('Error fetching data:', error);
+    fetch(urlsheet1)
+        .then(response => response.json())
+        .then(data => {
+            const dropdown = document.getElementById('dynamicDropdown');
+            dropdown.innerHTML = ''; // ล้างค่าที่มีอยู่ก่อนหน้า
+            
+            if (Array.isArray(data) && data.length > 0) {
+                sheetData = data; // เก็บข้อมูลทั้งหมดไว้ใน sheetData
+                console.log(sheetData);
+                
+                data.forEach(row => {
+                    const option = document.createElement('option');
+                    option.value = row.username; // ใช้ค่าจากคีย์ 'username'
+                    option.text = row.username;  // ใช้ค่าจากคีย์ 'username'
+                    dropdown.appendChild(option);
                 });
-        }
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+}
     
         function checkCredentials() {
             const dropdown = document.getElementById('dynamicDropdown');
@@ -411,7 +414,7 @@
             const passwordInput = document.getElementById('floatingPassword').value; // รหัสผ่านที่ผู้ใช้กรอก
     
             // ตรวจสอบค่าที่เลือกและรหัสผ่าน
-            const isValid = sheetData.some(row => row[0] === selectedValue && row[1] === passwordInput);
+            const isValid = sheetData.some(row => row.username === selectedValue && row.passwordd === passwordInput);
     
             if (isValid) {
                 // เก็บค่า dropdown ที่เลือกไว้ใน Local Storage
