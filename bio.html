@@ -186,7 +186,7 @@ function loadAllRecords() {
       // ✅ ดึงค่า selectedValue จาก Local Storage
       const selectedValue = localStorage.getItem('selectedDropdownValue');
       console.log("🔹 Selected Value from Local Storage:", selectedValue);
-
+      var selected = document.getElementById('selectedValue').textContent.Trim();
       if (!data.values || data.values.length === 0) {
         console.warn("⚠️ No data found in API response.");
         return;
@@ -195,7 +195,7 @@ function loadAllRecords() {
       data.values.forEach(row => {
         console.log("🔹 Checking row:", row);
 
-        if (row.customer === selectedValue) { 
+        if (row.customer.Trim() === selected) { 
           console.log("✅ Matched row:", row);
 
           resultDiv1.innerHTML += ` 
