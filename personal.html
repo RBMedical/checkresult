@@ -6,9 +6,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@100..900&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
@@ -16,23 +16,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <script src="sweetalert2.min.js"></script>
-  <link rel="stylesheet" href="sweetalert2.min.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
   <link
     href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
     rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <script src="api.js"></script>
+  
+  
+  <link rel="stylesheet" href="index.css">
 </head>
-
 <body>
   <style>
     .body {
@@ -377,7 +368,7 @@ function searchRecord() {
   var password = document.getElementById('password').value;
 
  
-  const urlsheet1 = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${rangesheet1}?key=${apiKey}`;
+  const urlsheet1 = ` "https://script.google.com/macros/s/AKfycbza6a827EUSt4AjpTtvWJV2Rc3ERhA7HbRY0ftd10NKqKd0IKiFRHJ13qQhe56kO5G0sA/exec"`;
   
  
   fetch(urlsheet1)
@@ -389,7 +380,7 @@ function searchRecord() {
       let found = false;
 
           data.values.forEach(row => {
-            if (row[0] == searchKey && row[66] == password) { 
+            if (String(row.register) == String(searchKey) && String(row.pw) == String(password)) { 
               resultDiv1.innerHTML +=`
               <div class="container-sm" id="result" style="font-family: sarabun;">
                   <div class="container-login">
@@ -400,7 +391,7 @@ function searchRecord() {
                                         <label class="col-form-label fw-bold">Identify :</label>
                                        </div>
                                         <div class="col-auto">
-                                          <label> ${row[0]}</label>
+                                          <label> ${row.register}</label>
                                          </div>
                                        </div>
                                         <div class="row fs-3 align-items-center">
@@ -408,7 +399,7 @@ function searchRecord() {
                                              <label class="col-form-label fw-bold ">ชื่อ นามสกุล :</label>
                                           </div>
                                            <div class="col-auto">
-                                              <label> ${row[1]}</label>
+                                              <label> ${row.name}</label>
                                            </div>
                                          <div class="col-10 ms-1 border border-bottom"></div>
                                        </div>
@@ -418,7 +409,7 @@ function searchRecord() {
                                               <label class="col-form-label fw-bold">อายุ :</label>
                                           </div>
                                          <div class="col-auto">
-                                           <label> ${row[2]}</label>
+                                           <label> ${row.age}</label>
                                          </div>
                                          <div class="col-auto">
                                            <label class="col-form-label fw-bold">ปี</label>
@@ -427,7 +418,7 @@ function searchRecord() {
                                           <label class="col-form-label fw-bold">เพศ</label>
                                        </div>
                                          <div class="col-auto">
-                                          <label> ${row[3]}</label>
+                                          <label> ${row.sex}</label>
                                          </div>
                                        
                                        <div class="row  align-items-center">
@@ -435,7 +426,7 @@ function searchRecord() {
                                            <label class="col-form-label fw-bold">น้ำหนัก :</label>
                                         </div>
                                          <div class="col-auto">
-                                           <label> ${row[4]}</label>
+                                           <label> ${row.waigh}</label>
                                          </div>
                                          <div class="col-auto">
                                            <label class="col-form-label fw-bold">ก.ก.</label>
@@ -444,7 +435,7 @@ function searchRecord() {
                                           <label class="col-form-label fw-bold">ส่วนสูง</label>
                                        </div>
                                          <div class="col-auto">
-                                           <label> ${row[5]}</label>
+                                           <label> ${row.tall}</label>
                                          </div>
                                          <div class="col-auto">
                                           <label class="col-form-label fw-bold">ซ.ม.</label>
@@ -453,7 +444,7 @@ function searchRecord() {
                                           <label class="col-form-label fw-bold">หมู่โลหิต</label>
                                      </div>
                                         <div class="col-auto">
-                                          <label> ${row[6]}</label>
+                                          <label> ${row.bg}</label>
                                          </div>
                                        </div>
                                     
@@ -469,13 +460,13 @@ function searchRecord() {
                                                <label class="col-form-label ms-1 fw-bold">ค่าBMI :</label>
                                             </div>
                                              <div class="col-auto">
-                                              <label> ${row[9]}</label>
+                                              <label> ${row.bmiv}</label>
                                            </div>
                                            <div class="col-auto">
                                              <label class="col-form-label fw-bold">อยู่ในเกณฑ์ :</label>
                                            </div>
                                          <div class="col-auto">
-                                            <label> ${row[10]}</label>
+                                            <label> ${row.bmir}</label>
                                          </div>
                                        </div>
                                        
@@ -484,7 +475,7 @@ function searchRecord() {
                                             <label class="col-form-label ms-1 fw-bold">ค่าความดันโลหิต :</label>
                                          </div>
                                          <div class="col-auto">
-                                            <label> ${row[7]}</label>
+                                            <label> ${row.bp}</label>
                                          </div>
                                          <div class="col-auto">
                                           <label class="col-form-label fw-bold">mm.Hg</label>
@@ -493,7 +484,7 @@ function searchRecord() {
                                            <label class="col-form-label fw-bold">การเต้นของชีพจร :</label>
                                          </div>
                                          <div class="col-auto">
-                                          <label> ${row[8]}</label>
+                                          <label> ${row.pause}</label>
                                          </div>
                                           <div class="col-auto">
                                         <label class="col-form-label fw-bold">ครั้ง/นาที</label>
@@ -505,7 +496,7 @@ function searchRecord() {
                                              <label class="col-form-label ms-1 fw-bold">ผลการตรวจปัสสาวะทั่วไป :</label>
                                            </div>
                                            <div class="col-auto">
-                                             <label> ${row[12]}</label>
+                                             <label> ${row.cbc}</label>
                                            </div>
                                             <div class="col-auto">
                                              <label class="text-primary noprint" onclick="openUa()" style="cursor: pointer;">กดดูรายละเอียด</label>
@@ -516,7 +507,7 @@ function searchRecord() {
                                              <label class="col-form-label ms-1 fw-bold">ผลการเอ็กซเรย์ทรวงอก (Chest X Ray) :</label>
                                           </div>
                                           <div class="col-auto">
-                                           <label> ${row[13]}</label>
+                                           <label> ${row.urine}</label>
                                          </div>
                                        </div>
                                       <div class="row align-items-center">
@@ -524,7 +515,7 @@ function searchRecord() {
                                         <label class="col-form-label ms-1 fw-bold">ความเห็นแพทย์ :</label>
                                         </div>
                                          <div class="col-auto">
-                                          <label> ${row[11]}</label>
+                                          <label> ${row.doctor}</label>
                                        </div>
                                        </div>
                           
@@ -550,14 +541,14 @@ function searchRecord() {
     <tr>
       <th scope="row" colspan="2"></th>
       <td>เม็ดเลือดขาว(WBC)</td>
-        <td class="text-center">${row[44]}</td> 
+        <td class="text-center">${row.bwbc}</td> 
         <td class="text-center">5,000-10,000 cell/mL</td> 
     </tr>                              
 
   <tr>
       <th scope="row" colspan="2"></th>
         <td>Hemogobin</td>
-       <td class="text-center">${row[45]}</td> 
+       <td class="text-center">${row.hemo}</td> 
        <td class="text-center">13.7-17.5 g/dL</td> 
     </tr>     
 
@@ -565,56 +556,56 @@ function searchRecord() {
 <tr>
       <th scope="row" colspan="2"></th>
        <td>Hematocrit</td>
-       <td class="text-center">${row[46]}</td> 
+       <td class="text-center">${row.hema}</td> 
        <td class="text-center">40.1-51%</td>
     </tr>     
 
 <tr>
       <th scope="row" colspan="2"></th>
       <td>Neutrophils</td>
-        <td class="text-center">${row[47]}</td> 
+        <td class="text-center">${row.neu}</td> 
        <td class="text-center">34-67.9%</td> 
     </tr>     
 
 <tr>
       <th scope="row" colspan="2"></th>
       <td>Lymthocytes</td>
-        <td class="text-center">${row[48]}</td>
+        <td class="text-center">${row.lym}</td>
        <td class="text-center">21.8-53.1%</td> 
     </tr> 
 
 <tr>
       <th scope="row" colspan="2"></th>
       <td>Monocyte</td>
-       <td class="text-center">${row[49]}</td> 
+       <td class="text-center">${row.mono}</td> 
        <td class="text-center">5.3-12.2%</td> 
     </tr> 
 
 <tr>
       <th scope="row" colspan="2"></th>
       <td>Eosinphil</td>
-       <td class="text-center">${row[50]}</td> 
+       <td class="text-center">${row.eos}</td> 
        <td class="text-center">0.8-7%</td> 
     </tr>  
 
  <tr>
       <th scope="row" colspan="2"></th>
       <td>Basophill</td>
-        <td class="text-center">${row[51]}</td> 
+        <td class="text-center">${row.bas]}</td> 
        <td class="text-center">0.2-1.2%</td> 
     </tr>   
 
   <tr>
       <th scope="row" colspan="2"></th>
       <td>Platlet count</td>
-         <td class="text-center">${row[52]}</td>
+         <td class="text-center">${row.plat}</td>
        <td class="text-center">140,000-400,000 cell/cu.mm</td> 
     </tr> 
 
   <tr>
       <th scope="row" colspan="2"></th>
       <td>MCV</td>
-       <td class="text-center">${row[53]}</td>
+       <td class="text-center">${row.mcv}</td>
        <td class="text-center">80-100 fl</td> 
     </tr>                             
    </tbody>
@@ -642,14 +633,14 @@ function searchRecord() {
     <tr>
       <th scope="row" colspan="2"></th>
       <td>color</td>
-        <td class="text-center">${row[54]}</td> 
+        <td class="text-center">${row.color}</td> 
         <td class="text-center">yellow</td> 
     </tr>                              
 
   <tr>
       <th scope="row" colspan="2"></th>
         <td>Appearance</td>
-       <td class="text-center">${row[55]}</td> 
+       <td class="text-center">${row.appe}</td> 
        <td class="text-center">clear</td> 
     </tr>     
 
@@ -657,69 +648,69 @@ function searchRecord() {
 <tr>
       <th scope="row" colspan="2"></th>
        <td>Ph</td>
-       <td class="text-center">${row[57]}</td> 
+       <td class="text-center">${row.ph}</td> 
        <td class="text-center">4.5-8</td>
     </tr>     
 
 <tr>
       <th scope="row" colspan="2"></th>
       <td>Specific Gravity</td>
-        <td class="text-center">${row[56]}</td> 
+        <td class="text-center">${row.spec}</td> 
        <td class="text-center">1-1.03</td> 
     </tr>     
 
 <tr>
       <th scope="row" colspan="2"></th>
       <td>Protain</td>
-        <td class="text-center">${row[58]}</td>
+        <td class="text-center">${row.protain}</td>
        <td class="text-center">Negative</td> 
     </tr> 
 
 <tr>
       <th scope="row" colspan="2"></th>
       <td>Glucose</td>
-       <td class="text-center">${row[59]}</td> 
+       <td class="text-center">${row.glu}</td> 
        <td class="text-center">Negative</td> 
     </tr> 
 
 <tr>
       <th scope="row" colspan="2"></th>
       <td>RBC</td>
-       <td class="text-center">${row[60]}</td> 
+       <td class="text-center">${row.urbc}</td> 
        <td class="text-center">1-2</td> 
     </tr>  
 
  <tr>
       <th scope="row" colspan="2"></th>
       <td>WBC</td>
-        <td class="text-center">${row[61]}</td> 
+        <td class="text-center">${row.uwbc}</td> 
        <td class="text-center">0-1</td> 
     </tr>   
 
   <tr>
       <th scope="row" colspan="2"></th>
       <td>Epithelium</td>
-         <td class="text-center">${row[63]}</td>
+         <td class="text-center">${row.epi}</td>
        <td class="text-center">0-1</td> 
     </tr> 
 
   <tr>
       <th scope="row" colspan="2"></th>
       <td>Bacteria</td>
-       <td class="text-center">${row[62]}</td>
+       <td class="text-center">${row.bac}</td>
        <td class="text-center">Normal</td> 
     </tr> 
 
     <tr>
       <th scope="row" colspan="2"></th>
       <td>Amphetamine</td>
-       <td class="text-center">${row[64]}</td>
+       <td class="text-center">${row.amp}</td>
        <td class="text-center">Negative</td> 
     </tr> 
      <tr>
       <th scope="row" colspan="2"></th>
       <td>Pregnancy (การตั้งครรภ์)</td>
-       <td class="text-center">${row[65]}</td>
+       <td class="text-center">${row.preg}</td>
        <td class="text-center">Negative</td> 
     </tr>                                                                     
    </tbody>
@@ -754,13 +745,13 @@ function searchRecord() {
    <tbody>
     <tr>
       <th scope="row" colspan="2">ความสมบูรณ์ของเม็ดเลือด</th>   
-       <td class="text-center">${row[12]}</td> 
+       <td class="text-center">${row.cbc}</td> 
        <td class="text-primary text-center noprint" onclick="openCbc()" style="cursor: pointer;">กดดู</td>
     </tr>
    <tr>
       <th scope="row" colspan="2">ปริมาณน้ำตาลในเลือด</th>  
-       <td class="text-center">${row[16]}</td> 
-      <td class="text-center">${row[15]}</td>
+       <td class="text-center">${row.fbsr}</td> 
+      <td class="text-center">${row.fbsv}</td>
     </tr> 
    <tr>
       <th scope="row" colspan="4">ปริมาณไขมันในเส้นเลือด</th>
@@ -769,26 +760,26 @@ function searchRecord() {
     <tr>
       <th scope="row"></th>
          <td>Cholestroral</td> 
-       <td class="text-center">${row[18]}</td> 
-      <td class="text-center">${row[17]}</td>
+       <td class="text-center">${row.cholr}</td> 
+      <td class="text-center">${row.cholv}</td>
     </tr>
     <tr>
       <th scope="row"></th>
         <td>HDL</td>       
-       <td class="text-center">${row[20]}</td> 
-       <td class="text-center">${row[19]}</td>
+       <td class="text-center">${row.helr}</td> 
+       <td class="text-center">${row.hdlv}</td>
     </tr>
     <tr>
       <th scope="row"></th>
        <td>LDL</td>       
-       <td class="text-center">${row[22]}</td>
-        <td class="text-center">${row[21]}</td> 
+       <td class="text-center">${row.ldlr}</td>
+        <td class="text-center">${row.ldlv}</td> 
     </tr>
     <tr>
       <th scope="row""></th>
          <td>Trigleceride</td>        
-       <td class="text-center">${row[24]}</td> 
-       <td class="text-center">${row[23]}</td>
+       <td class="text-center">${row.trir}</td> 
+       <td class="text-center">${row.triv}</td>
     </tr>
      <tr>
       <th scope="row" colspan="4">การทำงานของตับ</th>
@@ -797,14 +788,14 @@ function searchRecord() {
     <tr>
       <th scope="row"></th>
         <td>SGPT/ALT</td>       
-       <td class="text-center">${row[26]}</td> 
-        <td class="text-center">${row[25]}</td>
+       <td class="text-center">${row.sgptr}</td> 
+        <td class="text-center">${row.sgptv}</td>
     </tr>
   <tr>
       <th scope="row"></th>
         <td>SGOT/AST</td>        
-       <td class="text-center">${row[28]}</td> 
-       <td class="text-center">${row[27]}</td>
+       <td class="text-center">${row.sgotr}</td> 
+       <td class="text-center">${row.sgotv}</td>
     </tr>
     <tr>
       <th scope="row" colspan="4">การทำงานของไต</th>
@@ -813,24 +804,24 @@ function searchRecord() {
    <tr>
       <th scope="row"></th>
          <td>BUN</td>        
-       <td class="text-center">${row[30]}</td> 
-       <td class="text-center">${row[29]}</td>
+       <td class="text-center">${row.bunr}</td> 
+       <td class="text-center">${row.bunv}</td>
     </tr>
   <tr>
       <th scope="row"></th>
          <td>Creatinin</td>        
-       <td class="text-center">${row[32]}</td> 
-       <td class="text-center">${row[31]}</td>
+       <td class="text-center">${row.crer}</td> 
+       <td class="text-center">${row.crev}</td>
     </tr>
      <tr>
       <th scope="row" colspan="2">กรดยูริค/เก๊า</th>        
-       <td class="text-center">${row[34]}</td> 
-       <td class="text-center">${row[33]}</td>
+       <td class="text-center">${row.uricr}</td> 
+       <td class="text-center">${row.uricv}</td>
     </tr> 
     <tr>
       <th scope="row" colspan="2">เชื้อไวรัสตับอักเสบ บี</th>       
-       <td class="text-center">${row[43]}</td> 
-        <td class="text-center">${row[42]}</td>
+       <td class="text-center">${row.hbr}</td> 
+        <td class="text-center">${row.hbv}</td>
     </tr> 
    </tbody>
   </table>
@@ -851,18 +842,18 @@ function searchRecord() {
     <tr>
       <th scope="row" colspan="3">สายตาชีวอนามัย</th>
         <td></td> 
-       <td class="text-center">${row[35]}</td> 
+       <td class="text-center">${row.eyes}</td> 
     </tr>
    <tr>
       <th scope="row" colspan="3">การได้ยิน</th>
        <td></td> 
-       <td class="text-center">${row[36]}</td> 
+       <td class="text-center">${row.ear}</td> 
     </tr> 
    
    <tr>
       <th scope="row" colspan="3">เป่าปอด</th>
        <td></td> 
-       <td class="text-center">${row[38]}</td> 
+       <td class="text-center">${row.lung}</td> 
     </tr> 
    <tr>
       <th scope="row" colspan="4">สมรรถภาพทางกล้ามเนื้อ</th>
@@ -876,21 +867,21 @@ function searchRecord() {
           
      
         <td></td>
-       <td class="text-center">${row[39]}</td> 
+       <td class="text-center">${row.hand}</td> 
     </tr>
     <tr>
      <th scope="row"></th>
         <td>กล้ามเนื้อขา</td>
         <td></td>
         <td></td>
-       <td class="text-center">${row[40]}</td> 
+       <td class="text-center">${row.leg}</td> 
     </tr>
     <tr>
      <th scope="row"></th>
         <td>กล้ามเนื้อหลัง</td>
         <td></td>
         <td></td>
-       <td class="text-center">${row[41]}</td> 
+       <td class="text-center">${row.back}</td> 
     </tr>
    
      </tbody>
@@ -939,7 +930,7 @@ function searchRecord() {
  
 
  
-  const urlsheet2 = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${rangesheet2}?key=${apiKey}`;
+  const urlsheet2 = `https://script.google.com/macros/s/AKfycbzZJzCPOc3NgrzNgC45Cciw7t5Rep5EoMrvvE-TYEEhNrMOYNtqyUVN4iDHiUq4s0Ab/exec`;
   
 
   fetch(urlsheet2)
@@ -951,13 +942,13 @@ function searchRecord() {
     let found = false;
 
     data.values.forEach(row => {
-      if (row[0] == searchKey) { 
+      if (String(row.register) == String(searchKey)) { 
         resultDiv2.innerHTML += `
 
   <tr>
-    <th scope="row" colspan="3">${row[2]}</th>
-      <td class="text-center">${row[3]}</td> 
-     <td class="text-center">${row[4]}</td> 
+    <th scope="row" colspan="3">${row.test}</th>
+      <td class="text-center">${row.value}</td> 
+     <td class="text-center">${row.result}</td> 
   </tr>
  
  
@@ -1006,12 +997,7 @@ function searchRecord() {
 </script>
 
 
-  <script src="https://cdn.jsdelivr.net/npm/@Popperjs/core@2.11.8/dist/umd/Popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
-
 </html>
