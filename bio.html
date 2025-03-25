@@ -208,7 +208,7 @@ function loadAllRecords() {
       });
     })
     .catch(error => {
-      console.error('Error:', error);
+     
     });
 }
 const selectedValue = localStorage.getItem('selectedDropdownValue');
@@ -216,7 +216,6 @@ const selectedValue = localStorage.getItem('selectedDropdownValue');
 // Display the value on the page
 document.getElementById('selectedValue').textContent = selectedValue ? selectedValue : 'No value selected';
 
-checkScreenSize();
 
 // เรียกฟังก์ชันทุกครั้งเมื่อมีการปรับขนาดหน้าจอ
 window.onresize = checkScreenSize;
