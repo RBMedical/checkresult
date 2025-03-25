@@ -411,8 +411,8 @@ function loadDropdownData() {
     const selectedValue = dropdown.value; // Username ที่เลือก
     const passwordInput = document.getElementById('floatingPassword').value; // รหัสผ่านที่ผู้ใช้กรอก
 
-    const urlsheet1 = `https://script.google.com/macros/s/AKfycbw0koLiMJDXwb_F0xOD4tUuC4VAaFfqgpCodoe_shoKmxb9DEnH_AHuTaX0TAHKySSRWQ/exec
-    fetch(urlsheet1, {
+    const urlsheet2 = `https://script.google.com/macros/s/AKfycbw0koLiMJDXwb_F0xOD4tUuC4VAaFfqgpCodoe_shoKmxb9DEnH_AHuTaX0TAHKySSRWQ/exec
+    fetch(urlsheet2, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username: selectedValue, password: passwordInput })
