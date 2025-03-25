@@ -173,11 +173,12 @@
 
 
 function loadAllRecords() {
-  const url = `https://script.google.com/macros/s/AKfycbw_K7VI0Bz5Tolfx4VfMPEz6BQ7FwXo0vV2JPXmAB3Dbf587fX8K1tdIvoAA-8kiAgW5Q/exec`;
+  const url = "https://script.google.com/macros/s/AKfycbw_K7VI0Bz5Tolfx4VfMPEz6BQ7FwXo0vV2JPXmAB3Dbf587fX8K1tdIvoAA-8kiAgW5Q/exec";
 
   fetch(url)
     .then(response => response.json())
     .then(data => {
+       console.log("🔹 Data received from API:", data); 
       const resultDiv1 = document.getElementById('cbcresult');
       
       // ดึงค่า selectedValue จาก Local Storage
@@ -186,7 +187,7 @@ function loadAllRecords() {
       resultDiv1.innerHTML = ''; // เคลียร์ผลลัพธ์ก่อนแสดงใหม่
 
       data.values.forEach(row => {
-        console.log(row.register,row.customer);
+  
         if (row.customer == selected) { 
           resultDiv1.innerHTML += ` 
             <tr>
