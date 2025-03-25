@@ -942,46 +942,44 @@
 
 
       function searchOutlab() {
-        var searchKey = document.getElementById('searchKey').value.trim();
-        const urlsheet2 = "https://script.google.com/macros/s/AKfycbzZJzCPOc3NgrzNgC45Cciw7t5Rep5EoMrvvE-TYEEhNrMOYNtqyUVN4iDHiUq4s0Ab/exec";
+  var searchKey = document.getElementById('searchKey').value.trim();
+  const urlsheet2 = "https://script.google.com/macros/s/AKfycbzZJzCPOc3NgrzNgC45Cciw7t5Rep5EoMrvvE-TYEEhNrMOYNtqyUVN4iDHiUq4s0Ab/exec";
 
-        fetch(urlsheet2)
-          .then(response => response.json())
-          .then(data => {
-            console.log("🔹 Data received:", data);
+  fetch(urlsheet2)
+    .then(response => response.json())
+    .then(data => {
+      console.log("🔹 Data received:", data);
 
-            const resultDiv2 = document.getElementById('outlab');
-            resultDiv2.innerHTML = '';
+      const resultDiv2 = document.getElementById('outlab');
+      resultDiv2.innerHTML = ''; // เคลียร์ผลลัพธ์ก่อนแสดงใหม่
 
-            let found = false;
+      let found = false;
 
-            data.forEach(row => {
-              if (String(row.register) === searchKey) {
-                console.log("✅ Matched row:", row);
+      data.forEach(row => {
+        if (String(row.register).trim() === searchKey) {
+          console.log("✅ Matched row:", row);
 
-                resultDiv2.innerHTML += `
+          resultDiv2.innerHTML += `
             <tr>
-              <th scope="row" colspan="3">${foundUser.test}</th>
-              <td class="text-center">${foundUser.value}</td> 
-              <td class="text-center">${foundUser.result}</td> 
+              <th scope="row" colspan="3">${row.test}</th>
+              <td class="text-center">${row.value}</td> 
+              <td class="text-center">${row.result}</td> 
             </tr>
           `;
 
-                found = true;
-              }
-            });
+          found = true;
+        }
+      });
 
-            if (!found) {
-              resultDiv2.innerHTML = `<p style="color:red;">ไม่พบข้อมูลสำหรับ Register ID: ${searchKey}</p>`;
-            }
-          })
-          .catch(error => {
-            console.error("❌ Error fetching data:", error);
-            document.getElementById('outlab').innerHTML = '<p style="color:red;">เกิดข้อผิดพลาดในการดึงข้อมูล</p>';
-          });
+      if (!found) {
+        resultDiv2.innerHTML = `<p style="color:red;">ไม่พบข้อมูลสำหรับ Register ID: ${searchKey}</p>`;
       }
-
-
+    })
+    .catch(error => {
+      console.error("❌ Error fetching data:", error);
+      document.getElementById('outlab').innerHTML = '<p style="color:red;">เกิดข้อผิดพลาดในการดึงข้อมูล</p>';
+    });
+}
 
 
       function printResult() {
