@@ -372,11 +372,10 @@
     <script>
        
     
-    
 
 
 function loadDropdownData() {
-    const urlsheet1 = `https://script.google.com/macros/s/AKfycbw0a1dzQQcp8NzlnOmXz4k6yMvI-NDFYgpLpXXR8iF_JO-PS9v4MgOGvsm89Y_DugUlOg/exec`;
+    const urlsheet1 = "https://script.google.com/macros/s/AKfycbw0a1dzQQcp8NzlnOmXz4k6yMvI-NDFYgpLpXXR8iF_JO-PS9v4MgOGvsm89Y_DugUlOg/exec";
     
     fetch(urlsheet1)
         .then(response => response.json())
@@ -401,37 +400,38 @@ function loadDropdownData() {
         });
 }
     
-    function checkCredentials() {
+function checkCredentials() {
     const dropdown = document.getElementById('dynamicDropdown');
-    const selectedValue = dropdown.value; // Username ที่เลือก
+    const selectedValue = dropdown.value; // ค่าที่เลือกใน dropdown
     const passwordInput = document.getElementById('floatingPassword').value; // รหัสผ่านที่ผู้ใช้กรอก
 
-    const urlsheet2 = `https://script.google.com/macros/s/AKfycbw0koLiMJDXwb_F0xOD4tUuC4VAaFfqgpCodoe_shoKmxb9DEnH_AHuTaX0TAHKySSRWQ/exec
-    fetch(urlsheet2, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username: selectedValue, password: passwordInput })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            localStorage.setItem('selectedDropdownValue', selectedValue);
-            window.location.href = 'pe.html';
-        } else {
-            alert(data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Error fetching data:', error);
-        alert('Error connecting to the server. Please try again later.');
-    });
+    const urlsheet2 = "https://script.google.com/macros/s/AKfycbw0a1dzQQcp8NzlnOmXz4k6yMvI-NDFYgpLpXXR8iF_JO-PS9v4MgOGvsm89Y_DugUlOg/exec";
+
+    fetch(urlsheet2)
+        .then(response => response.json())
+        .then(data => {
+            // ค้นหา username และ password ที่ตรงกัน
+            const user = data.find(row => row.username === selectedValue && String(row.password) === String(passwordInput));
+      console.log(selectedValue);
+      console.log(passwordInput);
+            if (user) {
+                localStorage.setItem('selectedDropdownValue', selectedValue);
+                window.location.href = 'pe.html';
+            } else {
+                alert('Wrong Username or Password! Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            alert('Error connecting to the server. Please try again later.');
+        });
 }
 
     
         window.onload = loadDropdownData;
 
+</script>
 
-    </script>
     
   
     
