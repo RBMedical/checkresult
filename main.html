@@ -406,25 +406,25 @@ function loadDropdownData() {
         });
 }
     
-        function checkCredentials() {
-            const dropdown = document.getElementById('dynamicDropdown');
-            const selectedValue = dropdown.value; // ค่าที่เลือกใน dropdown
-    
-            const passwordInput = document.getElementById('floatingPassword').value; // รหัสผ่านที่ผู้ใช้กรอก
-    
-            // ตรวจสอบค่าที่เลือกและรหัสผ่าน
-            const isValid = sheetData.some(row => row.username === selectedValue && row.passwordd === passwordInput);
-    
-            if (isValid) {
-                // เก็บค่า dropdown ที่เลือกไว้ใน Local Storage
-                localStorage.setItem('selectedDropdownValue', selectedValue);
-    
-                // เปลี่ยนหน้าไปที่ pe.html
-                window.location.href = 'pe.html';
-            } else {
-                alert('Invalid credentials. Please try again.');
-            }
-        }
+       function checkCredentials() {
+    const dropdown = document.getElementById('dynamicDropdown');
+    const selectedValue = dropdown.value; // ค่าที่เลือกใน dropdown
+    const passwordInput = document.getElementById('floatingPassword').value; // รหัสผ่านที่ผู้ใช้กรอก
+
+    // ตรวจสอบค่าที่เลือกและรหัสผ่าน
+    const isValid = sheetData.some(row => row.username === selectedValue && row.password === passwordInput);
+
+    if (isValid) {
+        // เก็บค่า dropdown ที่เลือกไว้ใน Local Storage
+        localStorage.setItem('selectedDropdownValue', selectedValue);
+
+        // เปลี่ยนหน้าไปที่ pe.html
+        window.location.href = 'pe.html';
+    } else {
+        alert('Wrong Username or Password!! Please try again.');
+    }
+}
+
     
         window.onload = loadDropdownData;
 
