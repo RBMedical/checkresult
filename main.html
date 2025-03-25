@@ -377,7 +377,7 @@
     <script>
        
     
-        const urlsheet1 = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${rangesheet3}?key=${apiKey}`;
+        const urlsheet1 = `https://script.google.com/macros/s/AKfycbw0a1dzQQcp8NzlnOmXz4k6yMvI-NDFYgpLpXXR8iF_JO-PS9v4MgOGvsm89Y_DugUlOg/exec`;
     
         let sheetData = []; // เก็บข้อมูลจาก Google Sheets
     
@@ -393,8 +393,8 @@
     
                         data.values.forEach(row => {
                             const option = document.createElement('option');
-                            option.value = row[0]; // ค่าในคอลัมน์ B
-                            option.text = row[0];  // ค่าในคอลัมน์ B
+                            option.value = row[1]; // ค่าในคอลัมน์ B
+                            option.text = row[1];  // ค่าในคอลัมน์ B
                             dropdown.appendChild(option);
                         });
                     }
