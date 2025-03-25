@@ -182,11 +182,11 @@ function loadAllRecords() {
       
       // ดึงค่า selectedValue จาก Local Storage
       const selectedValue = localStorage.getItem('selectedDropdownValue');
-      
+      var selected = document.GetElementById('selectedValue').textContent;
       resultDiv1.innerHTML = ''; // เคลียร์ผลลัพธ์ก่อนแสดงใหม่
 
       data.values.forEach(row => {
-        if (row.customer == selectedValue) {  // ตรวจสอบค่าใน row[73] ว่าตรงกับ selectedValue หรือไม่
+        if (row.customer == selected) {  // ตรวจสอบค่าใน row[73] ว่าตรงกับ selectedValue หรือไม่
           resultDiv1.innerHTML += ` 
             <tr>
               
