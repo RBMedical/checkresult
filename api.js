@@ -1,5 +1,5 @@
 
-const apiKey = 'AIzaSyBmlGsIpynjUrE3PKnoT-RrCKgyb_844Sg';
+const apiKey = '1-qW7nlKruJoyipWSs-8C9cJPkZEWmEy2271wA36eJ7g';
 const spreadsheetId = '1Vlbfxl6aQq9FOBiM2RyoFLIo5L0lOwCaQogrG4nxj8A';
 const rangesheet1 = 'Main!A3:ZZ'; 
 const rangesheet2 = 'Outlab!A2:ZZ';
