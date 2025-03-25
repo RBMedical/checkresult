@@ -167,7 +167,7 @@
 </div>
 
 <script>
-window.onload = loadAllRecords;
+
 
 
 
@@ -186,7 +186,8 @@ function loadAllRecords() {
       resultDiv1.innerHTML = ''; // เคลียร์ผลลัพธ์ก่อนแสดงใหม่
 
       data.values.forEach(row => {
-        if (row.customer == selected) {  // ตรวจสอบค่าใน row[73] ว่าตรงกับ selectedValue หรือไม่
+        console.log(row.register,row.customer);
+        if (row.customer == selected) { 
           resultDiv1.innerHTML += ` 
             <tr>
               
@@ -216,7 +217,7 @@ const selectedValue = localStorage.getItem('selectedDropdownValue');
 // Display the value on the page
 document.getElementById('selectedValue').textContent = selectedValue ? selectedValue : 'No value selected';
 
-
+window.onload = loadAllRecords();
 
 
 
