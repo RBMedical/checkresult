@@ -390,7 +390,7 @@
     
                     if (data.values && data.values.length > 0) {
                         sheetData = data.values; // เก็บข้อมูลทั้งหมดไว้ใน sheetData
-    
+                 console.log(sheetData);
                         data.values.forEach(row => {
                             const option = document.createElement('option');
                             option.value = row[1]; // ค่าในคอลัมน์ B
