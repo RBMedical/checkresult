@@ -178,20 +178,28 @@ function loadAllRecords() {
   fetch(url)
     .then(response => response.json())
     .then(data => {
-       console.log("🔹 Data received from API:", data); 
+      console.log("🔹 Data received from API:", data);
+
       const resultDiv1 = document.getElementById('cbcresult');
-      
-      // ดึงค่า selectedValue จาก Local Storage
-      const selectedValue = localStorage.getItem('selectedDropdownValue');
-      var selected = document.GetElementById('selectedValue').textContent;
       resultDiv1.innerHTML = ''; // เคลียร์ผลลัพธ์ก่อนแสดงใหม่
 
+      // ✅ ดึงค่า selectedValue จาก Local Storage
+      const selectedValue = localStorage.getItem('selectedDropdownValue');
+      console.log("🔹 Selected Value from Local Storage:", selectedValue);
+
+      if (!data.values || data.values.length === 0) {
+        console.warn("⚠️ No data found in API response.");
+        return;
+      }
+
       data.values.forEach(row => {
-  
-        if (row.customer == selected) { 
+        console.log("🔹 Checking row:", row);
+
+        if (row.customer === selectedValue) { 
+          console.log("✅ Matched row:", row);
+
           resultDiv1.innerHTML += ` 
             <tr>
-              
               <th class="text-center" scope="row" colspan="2">${row.register}</th>
               <td colspan="3">${row.name}</td>
               <td class="text-center">${row.age}</td>
@@ -210,9 +218,10 @@ function loadAllRecords() {
       });
     })
     .catch(error => {
-     
+      console.error("❌ Error fetching data:", error);
     });
 }
+
 const selectedValue = localStorage.getItem('selectedDropdownValue');
 
 // Display the value on the page
