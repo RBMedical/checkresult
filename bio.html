@@ -184,19 +184,27 @@ function loadAllRecords() {
       resultDiv1.innerHTML = ''; // เคลียร์ผลลัพธ์ก่อนแสดงใหม่
 
       // ✅ ดึงค่า selectedValue จาก Local Storage
-      const selectedValue = localStorage.getItem('selectedDropdownValue');
+      const selectedValue = localStorage.getItem('selectedDropdownValue')?.trim(); 
       console.log("🔹 Selected Value from Local Storage:", selectedValue);
-      var selected = document.getElementById('selectedValue').textContent;
+
+      // ✅ ดึงค่า selected จาก <span id="selectedValue">
+      const selected = document.getElementById('selectedValue').textContent.trim();
+      console.log("🔹 Selected Text Content:", selected);
+
       if (!data.values || data.values.length === 0) {
         console.warn("⚠️ No data found in API response.");
         return;
       }
 
+      let foundMatch = false; // ตรวจสอบว่ามีแถวที่ตรงหรือไม่
+
       data.values.forEach(row => {
         console.log("🔹 Checking row:", row);
 
-        if (row.customer.Trim() === selected) { 
+        // ✅ ใช้ .trim() กับค่าที่เปรียบเทียบเพื่อลบช่องว่าง
+        if (row.customer.trim() === selected) { 
           console.log("✅ Matched row:", row);
+          foundMatch = true;
 
           resultDiv1.innerHTML += ` 
             <tr>
@@ -216,18 +224,24 @@ function loadAllRecords() {
           `;
         }
       });
+
+      if (!foundMatch) {
+        console.warn("⚠️ No matching rows found!");
+        resultDiv1.innerHTML = "<tr><td colspan='15' class='text-center text-danger'>No matching data found.</td></tr>";
+      }
+
     })
     .catch(error => {
       console.error("❌ Error fetching data:", error);
     });
 }
 
-const selectedValue = localStorage.getItem('selectedDropdownValue');
-
-// Display the value on the page
+// ✅ โหลดค่าจาก Local Storage และแสดงในหน้าเว็บ
+const selectedValue = localStorage.getItem('selectedDropdownValue')?.trim();
 document.getElementById('selectedValue').textContent = selectedValue ? selectedValue : 'No value selected';
 
-window.onload = loadAllRecords();
+// ✅ แก้ปัญหาการเรียกใช้ฟังก์ชัน onload
+window.onload = loadAllRecords;
 
 
 
