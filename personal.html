@@ -405,7 +405,7 @@
                                         <label class="col-form-label fw-bold">Identify :</label>
                                        </div>
                                         <div class="col-auto">
-                                          <label>${row.register}</label>
+                                          <label>${foundUser.register}</label>
                                          </div>
                                        </div>
                                         <div class="row fs-3 align-items-center">
@@ -413,7 +413,7 @@
                                              <label class="col-form-label fw-bold ">ชื่อ นามสกุล :</label>
                                           </div>
                                            <div class="col-auto">
-                                              <label>${row.name}</label>
+                                              <label>${foundUser.name}</label>
                                            </div>
                                          <div class="col-10 ms-1 border border-bottom"></div>
                                        </div>
@@ -423,7 +423,7 @@
                                               <label class="col-form-label fw-bold">อายุ :</label>
                                           </div>
                                          <div class="col-auto">
-                                           <label>${row.age}</label>
+                                           <label>${foundUser.age}</label>
                                          </div>
                                          <div class="col-auto">
                                            <label class="col-form-label fw-bold">ปี</label>
@@ -432,7 +432,7 @@
                                           <label class="col-form-label fw-bold">เพศ</label>
                                        </div>
                                          <div class="col-auto">
-                                          <label>${row.sex}</label>
+                                          <label>${foundUser.sex}</label>
                                          </div>
                                        
                                        <div class="row  align-items-center">
@@ -440,7 +440,7 @@
                                            <label class="col-form-label fw-bold">น้ำหนัก :</label>
                                         </div>
                                          <div class="col-auto">
-                                           <label>${row.waigh}</label>
+                                           <label>${foundUser.waigh}</label>
                                          </div>
                                          <div class="col-auto">
                                            <label class="col-form-label fw-bold">ก.ก.</label>
@@ -449,7 +449,7 @@
                                           <label class="col-form-label fw-bold">ส่วนสูง</label>
                                        </div>
                                          <div class="col-auto">
-                                           <label>${row.tall}</label>
+                                           <label>${foundUser.tall}</label>
                                          </div>
                                          <div class="col-auto">
                                           <label class="col-form-label fw-bold">ซ.ม.</label>
@@ -458,7 +458,7 @@
                                           <label class="col-form-label fw-bold">หมู่โลหิต</label>
                                      </div>
                                         <div class="col-auto">
-                                          <label>${row.bg}</label>
+                                          <label>${foundUser.bg}</label>
                                          </div>
                                        </div>
                                     
@@ -474,13 +474,13 @@
                                                <label class="col-form-label ms-1 fw-bold">ค่าBMI :</label>
                                             </div>
                                              <div class="col-auto">
-                                              <label>${row.bmiv}</label>
+                                              <label>${foundUser.bmiv}</label>
                                            </div>
                                            <div class="col-auto">
                                              <label class="col-form-label fw-bold">อยู่ในเกณฑ์ :</label>
                                            </div>
                                          <div class="col-auto">
-                                            <label>${row.bmir}</label>
+                                            <label>${foundUser.bmir}</label>
                                          </div>
                                        </div>
                                        
@@ -489,7 +489,7 @@
                                             <label class="col-form-label ms-1 fw-bold">ค่าความดันโลหิต :</label>
                                          </div>
                                          <div class="col-auto">
-                                            <label>${row.bp}</label>
+                                            <label>${foundUser.bp}</label>
                                          </div>
                                          <div class="col-auto">
                                           <label class="col-form-label fw-bold">mm.Hg</label>
@@ -498,7 +498,7 @@
                                            <label class="col-form-label fw-bold">การเต้นของชีพจร :</label>
                                          </div>
                                          <div class="col-auto">
-                                          <label>${row.pause}</label>
+                                          <label>${foundUser.pause}</label>
                                          </div>
                                           <div class="col-auto">
                                         <label class="col-form-label fw-bold">ครั้ง/นาที</label>
@@ -510,7 +510,7 @@
                                              <label class="col-form-label ms-1 fw-bold">ผลการตรวจปัสสาวะทั่วไป :</label>
                                            </div>
                                            <div class="col-auto">
-                                             <label>${row.cbc}</label>
+                                             <label>${foundUser.cbc}</label>
                                            </div>
                                             <div class="col-auto">
                                              <label class="text-primary noprint" onclick="openUa()" style="cursor: pointer;">กดดูรายละเอียด</label>
@@ -521,7 +521,7 @@
                                              <label class="col-form-label ms-1 fw-bold">ผลการเอ็กซเรย์ทรวงอก (Chest X Ray) :</label>
                                           </div>
                                           <div class="col-auto">
-                                           <label>${row.urine}</label>
+                                           <label>${foundUser.urine}</label>
                                          </div>
                                        </div>
                                       <div class="row align-items-center">
@@ -529,7 +529,7 @@
                                         <label class="col-form-label ms-1 fw-bold">ความเห็นแพทย์ :</label>
                                         </div>
                                          <div class="col-auto">
-                                          <label>${row.doctor}</label>
+                                          <label>${foundUser.doctor}</label>
                                        </div>
                                        </div>
                           
@@ -555,14 +555,14 @@
     <tr>
       <th scope="row" colspan="2"></th>
       <td>เม็ดเลือดขาว(WBC)</td>
-        <td class="text-center">${row.bwbc}</td> 
+        <td class="text-center">${foundUser.bwbc}</td> 
         <td class="text-center">5,000-10,000 cell/mL</td> 
     </tr>                              
 
   <tr>
       <th scope="row" colspan="2"></th>
         <td>Hemogobin</td>
-       <td class="text-center">${row.hemo}</td> 
+       <td class="text-center">${foundUser.hemo}</td> 
        <td class="text-center">13.7-17.5 g/dL</td> 
     </tr>     
 
@@ -570,56 +570,56 @@
 <tr>
       <th scope="row" colspan="2"></th>
        <td>Hematocrit</td>
-       <td class="text-center">${row.hema}</td> 
+       <td class="text-center">${foundUser.hema}</td> 
        <td class="text-center">40.1-51%</td>
     </tr>     
 
 <tr>
       <th scope="row" colspan="2"></th>
       <td>Neutrophils</td>
-        <td class="text-center">${row.neu}</td> 
+        <td class="text-center">${foundUser.neu}</td> 
        <td class="text-center">34-67.9%</td> 
     </tr>     
 
 <tr>
       <th scope="row" colspan="2"></th>
       <td>Lymthocytes</td>
-        <td class="text-center">${row.lym}</td>
+        <td class="text-center">${foundUser.lym}</td>
        <td class="text-center">21.8-53.1%</td> 
     </tr> 
 
 <tr>
       <th scope="row" colspan="2"></th>
       <td>Monocyte</td>
-       <td class="text-center">${row.mono}</td> 
+       <td class="text-center">${foundUser.mono}</td> 
        <td class="text-center">5.3-12.2%</td> 
     </tr> 
 
 <tr>
       <th scope="row" colspan="2"></th>
       <td>Eosinphil</td>
-       <td class="text-center">${row.eos}</td> 
+       <td class="text-center">${foundUser.eos}</td> 
        <td class="text-center">0.8-7%</td> 
     </tr>  
 
  <tr>
       <th scope="row" colspan="2"></th>
       <td>Basophill</td>
-        <td class="text-center">${row.bas}</td> 
+        <td class="text-center">${foundUser.bas}</td> 
        <td class="text-center">0.2-1.2%</td> 
     </tr>   
 
   <tr>
       <th scope="row" colspan="2"></th>
       <td>Platlet count</td>
-         <td class="text-center">${row.plat}</td>
+         <td class="text-center">${foundUser.plat}</td>
        <td class="text-center">140,000-400,000 cell/cu.mm</td> 
     </tr> 
 
   <tr>
       <th scope="row" colspan="2"></th>
       <td>MCV</td>
-       <td class="text-center">${row.mcv}</td>
+       <td class="text-center">${foundUser.mcv}</td>
        <td class="text-center">80-100 fl</td> 
     </tr>                             
    </tbody>
@@ -647,14 +647,14 @@
     <tr>
       <th scope="row" colspan="2"></th>
       <td>color</td>
-        <td class="text-center">${row.color}</td> 
+        <td class="text-center">${foundUser.color}</td> 
         <td class="text-center">yellow</td> 
     </tr>                              
 
   <tr>
       <th scope="row" colspan="2"></th>
         <td>Appearance</td>
-       <td class="text-center">${row.appe}</td> 
+       <td class="text-center">${foundUser.appe}</td> 
        <td class="text-center">clear</td> 
     </tr>     
 
@@ -662,69 +662,69 @@
 <tr>
       <th scope="row" colspan="2"></th>
        <td>Ph</td>
-       <td class="text-center">${row.ph}</td> 
+       <td class="text-center">${foundUser.ph}</td> 
        <td class="text-center">4.5-8</td>
     </tr>     
 
 <tr>
       <th scope="row" colspan="2"></th>
       <td>Specific Gravity</td>
-        <td class="text-center">${row.spec}</td> 
+        <td class="text-center">${foundUser.spec}</td> 
        <td class="text-center">1-1.03</td> 
     </tr>     
 
 <tr>
       <th scope="row" colspan="2"></th>
       <td>Protain</td>
-        <td class="text-center">${row.protain}</td>
+        <td class="text-center">${foundUser.protain}</td>
        <td class="text-center">Negative</td> 
     </tr> 
 
 <tr>
       <th scope="row" colspan="2"></th>
       <td>Glucose</td>
-       <td class="text-center">${row.glu}</td> 
+       <td class="text-center">${foundUser.glu}</td> 
        <td class="text-center">Negative</td> 
     </tr> 
 
 <tr>
       <th scope="row" colspan="2"></th>
       <td>RBC</td>
-       <td class="text-center">${row.urbc}</td> 
+       <td class="text-center">${foundUser.urbc}</td> 
        <td class="text-center">1-2</td> 
     </tr>  
 
  <tr>
       <th scope="row" colspan="2"></th>
       <td>WBC</td>
-        <td class="text-center">${row.uwbc}</td> 
+        <td class="text-center">${foundUser.uwbc}</td> 
        <td class="text-center">0-1</td> 
     </tr>   
 
   <tr>
       <th scope="row" colspan="2"></th>
       <td>Epithelium</td>
-         <td class="text-center">${row.epi}</td>
+         <td class="text-center">${foundUser.epi}</td>
        <td class="text-center">0-1</td> 
     </tr> 
 
   <tr>
       <th scope="row" colspan="2"></th>
       <td>Bacteria</td>
-       <td class="text-center">${row.bac}</td>
+       <td class="text-center">${foundUser.bac}</td>
        <td class="text-center">Normal</td> 
     </tr> 
 
     <tr>
       <th scope="row" colspan="2"></th>
       <td>Amphetamine</td>
-       <td class="text-center">${row.amp}</td>
+       <td class="text-center">${foundUser.amp}</td>
        <td class="text-center">Negative</td> 
     </tr> 
      <tr>
       <th scope="row" colspan="2"></th>
       <td>Pregnancy (การตั้งครรภ์)</td>
-       <td class="text-center">${row.preg}</td>
+       <td class="text-center">${foundUser.preg}</td>
        <td class="text-center">Negative</td> 
     </tr>                                                                     
    </tbody>
@@ -759,13 +759,13 @@
    <tbody>
     <tr>
       <th scope="row" colspan="2">ความสมบูรณ์ของเม็ดเลือด</th>   
-       <td class="text-center">${row.cbc}</td> 
+       <td class="text-center">${foundUser.cbc}</td> 
        <td class="text-primary text-center noprint" onclick="openCbc()" style="cursor: pointer;">กดดู</td>
     </tr>
    <tr>
       <th scope="row" colspan="2">ปริมาณน้ำตาลในเลือด</th>  
-       <td class="text-center">${row.fbsr}</td> 
-      <td class="text-center">${row.fbsv}</td>
+       <td class="text-center">${foundUser.fbsr}</td> 
+      <td class="text-center">${foundUser.fbsv}</td>
     </tr> 
    <tr>
       <th scope="row" colspan="4">ปริมาณไขมันในเส้นเลือด</th>
@@ -774,26 +774,26 @@
     <tr>
       <th scope="row"></th>
          <td>Cholestroral</td> 
-       <td class="text-center">${row.cholr}</td> 
-      <td class="text-center">${row.cholv}</td>
+       <td class="text-center">${foundUser.cholr}</td> 
+      <td class="text-center">${foundUser.cholv}</td>
     </tr>
     <tr>
       <th scope="row"></th>
         <td>HDL</td>       
-       <td class="text-center">${row.helr}</td> 
-       <td class="text-center">${row.hdlv}</td>
+       <td class="text-center">${foundUser.helr}</td> 
+       <td class="text-center">${foundUser.hdlv}</td>
     </tr>
     <tr>
       <th scope="row"></th>
        <td>LDL</td>       
-       <td class="text-center">${row.ldlr}</td>
-        <td class="text-center">${row.ldlv}</td> 
+       <td class="text-center">${foundUser.ldlr}</td>
+        <td class="text-center">${foundUser.ldlv}</td> 
     </tr>
     <tr>
       <th scope="row""></th>
          <td>Trigleceride</td>        
-       <td class="text-center">${row.trir}</td> 
-       <td class="text-center">${row.triv}</td>
+       <td class="text-center">${foundUser.trir}</td> 
+       <td class="text-center">${foundUser.triv}</td>
     </tr>
      <tr>
       <th scope="row" colspan="4">การทำงานของตับ</th>
@@ -802,14 +802,14 @@
     <tr>
       <th scope="row"></th>
         <td>SGPT/ALT</td>       
-       <td class="text-center">${row.sgptr}</td> 
-        <td class="text-center">${row.sgptv}</td>
+       <td class="text-center">${foundUser.sgptr}</td> 
+        <td class="text-center">${foundUser.sgptv}</td>
     </tr>
   <tr>
       <th scope="row"></th>
         <td>SGOT/AST</td>        
-       <td class="text-center">${row.sgotr}</td> 
-       <td class="text-center">${row.sgotv}</td>
+       <td class="text-center">${foundUser.sgotr}</td> 
+       <td class="text-center">${foundUser.sgotv}</td>
     </tr>
     <tr>
       <th scope="row" colspan="4">การทำงานของไต</th>
@@ -818,24 +818,24 @@
    <tr>
       <th scope="row"></th>
          <td>BUN</td>        
-       <td class="text-center">${row.bunr}</td> 
-       <td class="text-center">${row.bunv}</td>
+       <td class="text-center">${foundUser.bunr}</td> 
+       <td class="text-center">${foundUser.bunv}</td>
     </tr>
   <tr>
       <th scope="row"></th>
          <td>Creatinin</td>        
-       <td class="text-center">${row.crer}</td> 
-       <td class="text-center">${row.crev}</td>
+       <td class="text-center">${foundUser.crer}</td> 
+       <td class="text-center">${foundUser.crev}</td>
     </tr>
      <tr>
       <th scope="row" colspan="2">กรดยูริค/เก๊า</th>        
-       <td class="text-center">${row.uricr}</td> 
-       <td class="text-center">${row.uricv}</td>
+       <td class="text-center">${foundUser.uricr}</td> 
+       <td class="text-center">${foundUser.uricv}</td>
     </tr> 
     <tr>
       <th scope="row" colspan="2">เชื้อไวรัสตับอักเสบ บี</th>       
-       <td class="text-center">${row.hbr}</td> 
-        <td class="text-center">${row.hbv}</td>
+       <td class="text-center">${foundUser.hbr}</td> 
+        <td class="text-center">${foundUser.hbv}</td>
     </tr> 
    </tbody>
   </table>
@@ -856,18 +856,18 @@
     <tr>
       <th scope="row" colspan="3">สายตาชีวอนามัย</th>
         <td></td> 
-       <td class="text-center">${row.eyes}</td> 
+       <td class="text-center">${foundUser.eyes}</td> 
     </tr>
    <tr>
       <th scope="row" colspan="3">การได้ยิน</th>
        <td></td> 
-       <td class="text-center">${row.ear}</td> 
+       <td class="text-center">${foundUser.ear}</td> 
     </tr> 
    
    <tr>
       <th scope="row" colspan="3">เป่าปอด</th>
        <td></td> 
-       <td class="text-center">${row.lung}</td> 
+       <td class="text-center">${foundUser.lung}</td> 
     </tr> 
    <tr>
       <th scope="row" colspan="4">สมรรถภาพทางกล้ามเนื้อ</th>
@@ -881,21 +881,21 @@
           
      
         <td></td>
-       <td class="text-center">${row.hand}</td> 
+       <td class="text-center">${foundUser.hand}</td> 
     </tr>
     <tr>
      <th scope="row"></th>
         <td>กล้ามเนื้อขา</td>
         <td></td>
         <td></td>
-       <td class="text-center">${row.leg}</td> 
+       <td class="text-center">${foundUser.leg}</td> 
     </tr>
     <tr>
      <th scope="row"></th>
         <td>กล้ามเนื้อหลัง</td>
         <td></td>
         <td></td>
-       <td class="text-center">${row.back}</td> 
+       <td class="text-center">${foundUser.back}</td> 
     </tr>
    
      </tbody>
@@ -961,9 +961,9 @@
 
                 resultDiv2.innerHTML += `
             <tr>
-              <th scope="row" colspan="3">${row.test}</th>
-              <td class="text-center">${row.value}</td> 
-              <td class="text-center">${row.result}</td> 
+              <th scope="row" colspan="3">${foundUser.test}</th>
+              <td class="text-center">${foundUser.value}</td> 
+              <td class="text-center">${foundUser.result}</td> 
             </tr>
           `;
 
