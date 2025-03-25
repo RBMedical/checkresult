@@ -364,24 +364,27 @@
 <script>
 
 function searchRecord() {
-  var searchKey = document.getElementById('searchKey').value;
-  var password = document.getElementById('password').value;
+  var searchKey = document.getElementById('searchKey').value.trim();
+  var password = document.getElementById('password').value.trim();
 
- 
-  const urlsheet1 = ` "https://script.google.com/macros/s/AKfycbza6a827EUSt4AjpTtvWJV2Rc3ERhA7HbRY0ftd10NKqKd0IKiFRHJ13qQhe56kO5G0sA/exec"`;
-  
- 
+  const urlsheet1 = "https://script.google.com/macros/s/AKfycbza6a827EUSt4AjpTtvWJV2Rc3ERhA7HbRY0ftd10NKqKd0IKiFRHJ13qQhe56kO5G0sA/exec";
+
   fetch(urlsheet1)
     .then(response => response.json())
     .then(data => {
+      console.log("🔹 Data received from API:", data);
+
       const resultDiv1 = document.getElementById('result');
-      resultDiv1.innerHTML = ''; 
+      resultDiv1.innerHTML = ''; // เคลียร์ผลลัพธ์ก่อนแสดงใหม่
 
-      let found = false;
+      let foundUser = data.find(row => 
+        String(row.register).trim() === searchKey && 
+        String(row.pw).trim() === password
+      );
 
-          data.values.forEach(row => {
-            if (String(row.register) == String(searchKey) && String(row.pw) == String(password)) { 
-              resultDiv1.innerHTML +=`
+      if (foundUser) {
+        console.log("✅ User found:", foundUser);
+        resultDiv1.innerHTML = `
               <div class="container-sm" id="result" style="font-family: sarabun;">
                   <div class="container-login">
      
@@ -908,64 +911,68 @@ function searchRecord() {
     </div>    
       
       `
-      found = true;
-      searchOutlab();
-      document.getElementById('printBtn').disabled= false;
-     
+     document.getElementById('printBtn').disabled = false;
+
+        // เรียกฟังก์ชัน searchOutlab() ถ้ามีอยู่
+        if (typeof searchOutlab === 'function') {
+          searchOutlab();
         }
-      });
-      if (!found) {
-        resultDiv1.innerHTML = '<p>user ID หรือ password ไม่ถูกต้อง</p>';
+
+      } else {
+        console.warn("❌ User not found");
+        resultDiv1.innerHTML = '<p style="color:red;">User ID หรือ Password ไม่ถูกต้อง</p>';
       }
+    })
+    .catch(error => {
+      console.error("❌ Error fetching data:", error);
+      document.getElementById('result').innerHTML = '<p style="color:red;">เกิดข้อผิดพลาดในการดึงข้อมูล</p>';
     });
-
-
-
-    
 }
       
      
- function searchOutlab(){
-  var searchKey = document.getElementById('searchKey').value;
- 
-
- 
-  const urlsheet2 = `https://script.google.com/macros/s/AKfycbzZJzCPOc3NgrzNgC45Cciw7t5Rep5EoMrvvE-TYEEhNrMOYNtqyUVN4iDHiUq4s0Ab/exec`;
-  
+function searchOutlab() {
+  var searchKey = document.getElementById('searchKey').value.trim();
+  const urlsheet2 = "https://script.google.com/macros/s/AKfycbzZJzCPOc3NgrzNgC45Cciw7t5Rep5EoMrvvE-TYEEhNrMOYNtqyUVN4iDHiUq4s0Ab/exec";
 
   fetch(urlsheet2)
-  .then(response => response.json())
-  .then(data => {
-    const resultDiv2 = document.getElementById('outlab');
-    resultDiv2.innerHTML = ''; 
+    .then(response => response.json())
+    .then(data => {
+      console.log("🔹 Data received:", data);
 
-    let found = false;
+      const resultDiv2 = document.getElementById('outlab');
+      resultDiv2.innerHTML = ''; 
 
-    data.values.forEach(row => {
-      if (String(row.register) == String(searchKey)) { 
-        resultDiv2.innerHTML += `
+      let found = false;
 
-  <tr>
-    <th scope="row" colspan="3">${row.test}</th>
-      <td class="text-center">${row.value}</td> 
-     <td class="text-center">${row.result}</td> 
-  </tr>
- 
- 
-  
+      data.forEach(row => {
+        if (String(row.register) === searchKey) { 
+          console.log("✅ Matched row:", row);
 
-        `;
-        found = true;
+          resultDiv2.innerHTML += `
+            <tr>
+              <th scope="row" colspan="3">${row.test}</th>
+              <td class="text-center">${row.value}</td> 
+              <td class="text-center">${row.result}</td> 
+            </tr>
+          `;
+
+          found = true;
+        }
+      });
+
+      if (!found) {
+        resultDiv2.innerHTML = `<p style="color:red;">ไม่พบข้อมูลสำหรับ Register ID: ${searchKey}</p>`;
       }
+    })
+    .catch(error => {
+      console.error("❌ Error fetching data:", error);
+      document.getElementById('outlab').innerHTML = '<p style="color:red;">เกิดข้อผิดพลาดในการดึงข้อมูล</p>';
     });
+}
 
-    if (!found) {
-      resultDiv2.innerHTML = '<p>ไม่พบข้อมูลใน Sheet2</p>';
-    }
-  });
+ 
   
- } 
-    
+ 
     function printResult() {
     
         window.print(); // ใช้คำสั่ง print เพื่อพิมพ์เฉพาะส่วนผลลัพธ์
