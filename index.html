@@ -168,55 +168,49 @@
     </div>
     </div>
     <!-- Feature End --><div class="container-xxl py-5">
-  <style>
-  .carousel-item > .row {
-    display: flex;
-    justify-content: center;
-  }
+ <style>
+.carousel-item > .row {
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-card {
+  padding: 10px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
   .carousel-card {
-    min-width: 250px;
-    max-width: 300px;
-    margin: 0 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    overflow: hidden;
-    text-align: center;
+    flex: 0 0 33.333%; /* 3 cards */
+    max-width: 33.333%;
   }
-  .carousel-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+  .text-white{
+      font-size: 0.80rem;
   }
-      @media (max-width: 768px) {
-  .carousel-item .row {
-    flex-direction: column;
-    align-items: center;
-  }
+}
+
+@media (max-width: 767.98px) {
   .carousel-card {
-    margin: 0 auto 15px auto;
-    width: 90% !important;
+    flex: 0 0 100%; /* 1 card */
+    max-width: 100%;
   }
- .text-white {
-     font-size: 0.75rem;
- }
 }
 </style>
 
 <!-- Carousel -->
  <div class= "container-fluid">
-     <p class="d-inline-block border rounded-pill py-1 px-4" style="justyfy content: center;">อัตราค่าบริการ</p>
-<div id="multiCardCarousel" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner" id="carouselMultiCardContent">
-    <!-- JS จะเติม slide เข้ามาที่นี่ -->
+     <div id="customCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner" id="carouselContainer">
+    <!-- Slides will be injected here by JS -->
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#multiCardCarousel" data-bs-slide="prev">
+  <button class="carousel-control-prev" type="button" data-bs-target="#customCarousel" data-bs-slide="prev">
     <span class="carousel-control-prev-icon"></span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#multiCardCarousel" data-bs-slide="next">
+  <button class="carousel-control-next" type="button" data-bs-target="#customCarousel" data-bs-slide="next">
     <span class="carousel-control-next-icon"></span>
   </button>
 </div>
-</div>
+
     </div>  
 <script>
   async function loadMultiCardCarousel() {
