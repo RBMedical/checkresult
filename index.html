@@ -287,7 +287,9 @@ function buildCarousel(cardsPerSlide) {
         const card = `
           <div class="carousel-card">
             <div class="card">
-              <img href="package.html" src="${item.mainImage}" class="card-img-top" alt="...">
+            <a href="package.html">
+              <img src="${item.mainImage}" class="card-img-top" alt="...">
+              </a>
               <div class="card-body text-center">
                 <h5 class="card-title">${item.description}</h5>
               </div>
