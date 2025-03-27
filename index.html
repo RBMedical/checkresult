@@ -181,6 +181,14 @@
 .container-sm{
     display: flex;
 }
+.container-mobile{
+    max-width: 5inch;
+    min-width: 5inch;
+    display: none;
+}
+    .container-mobile-img{
+        width: 100%;
+    }
     .container-title{
         width: 40%;
     }
@@ -201,6 +209,9 @@
   }
     #mailbox {
         display: none;
+    }
+    .container-mobile {
+        display: flex;
     }
 }
 </style>
@@ -274,6 +285,9 @@ window.addEventListener('resize', updateCarouselLayout);
      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfhs1HejyNNqc1APXDNowxmZ8ix-QpSAn68tUjv4jtPsCWGvQ/viewform?embedded=true" width="640" height="1150" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
      </div>
  </div>
+   <div class="container-mobile">
+       <img class="container-mobile-img link" href="https://docs.google.com/forms/d/e/1FAIpQLSfhs1HejyNNqc1APXDNowxmZ8ix-QpSAn68tUjv4jtPsCWGvQ/viewform?usp=header" src="https://img5.pic.in.th/file/secure-sv1/bookingdb25b036fd826456.png" style="cursor: pointer;">
+   </div>
        
    
 
