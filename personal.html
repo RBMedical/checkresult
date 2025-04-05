@@ -378,7 +378,7 @@
         var searchKey = document.getElementById('searchKey').value.trim();
         var password = document.getElementById('password').value.trim();
 
-        const urlsheet1 = "https://script.google.com/macros/s/AKfycbzLW6fhNFpiLoWhK-gp1DrpWr5XYnX1hwOTBu6VwaSyTQDldBBWF-DzUszDx_tw6j6h/exec";
+        const urlsheet1 = "https://script.google.com/macros/s/AKfycbzruA7wMKOmHO75zeAOx5Lfi7JZMOINVI48tv3v4j8X11GruKMckcGVQeHWlRKNGHdD/exec";
 
         fetch(urlsheet1)
           .then(response => response.json())
@@ -389,7 +389,7 @@
             resultDiv1.innerHTML = ''; // เคลียร์ผลลัพธ์ก่อนแสดงใหม่
 
             let foundUser = data.find(row =>
-              String(row.idcard).trim() === searchKey &&
+              String(row.username.trim() === searchKey &&
               String(row.pw).trim() === password
             );
 
