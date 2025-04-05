@@ -389,7 +389,7 @@
             resultDiv1.innerHTML = ''; // เคลียร์ผลลัพธ์ก่อนแสดงใหม่
 
             let foundUser = data.find(row =>
-              String(row.username.trim() === searchKey &&
+              String(row.username).trim() === searchKey &&
               String(row.pw).trim() === password
             );
 
