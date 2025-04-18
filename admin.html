@@ -1,242 +1,397 @@
-<!DOCTYPE html>
-<html lang="th">
+<!doctype html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Checkup System</title>
-    <script src="https://apis.google.com/js/api.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/10.5.22/jsrsasign-all-min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <link rel="stylesheet" href="index.css">
-    <script src="index.js"></script>
-    <style>
-       body {
-            background: url('https://your-image-url.com/background.jpg') no-repeat center center fixed;
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-       
-        }
-        .login-box {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-            width: 100%;
-            max-width: 400px;
-        }
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #ffffff;
-        }
-        .navbar-toggler {
-            border: none;
-            background-color: transparent;
-            margin-left: auto;
-        }
-        .navbar-toggler-icon {
-            background-image: url('data:image/svg+xml;charset=UTF8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="black"%3E%3Cpath stroke="rgba%280, 0, 0, 0.7%29" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
-        }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rb Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+    rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+<style>
 
-        .modalrecieve {
-    display: none;
-      /* ซ่อน modal ไว้ก่อน จนกว่าจะถูกแสดง */
-      position: fixed;
-      /* ทำให้ modal อยู่บนสุดตลอดเวลา */
-      top: 50%;
-      /* จัดให้อยู่กลางหน้าจอ (แนวตั้ง) */
-      left: 50%;
-      /* จัดให้อยู่กลางหน้าจอ (แนวนอน) */
-      transform: translate(-50%, -50%);
-      /* ย้าย modal ให้ตรงกลางพอดี */
-      width: 30%;
-      /* กำหนดความกว้าง */
-      max-width: 800px;
-      /* จำกัดความกว้างสูงสุด */
-      padding: 20px;
-      /* ระยะห่างด้านในของ modal */
+body{
+  max-height: 800px;
+}
 
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      /* เงาของ modal */
-      z-index: 1000;
-      /* ทำให้ modal อยู่เหนือ element อื่นๆ */
-      border-radius: 10px;
-      /* มุมโค้งของ modal */
-      justify-content: center;
-    }
-    .text-footer{
-        font-family: "sarabun";
-        font-size: 0.80rem;
-    }
+.b-example-divider {
+  width: 100%;
+  height: 4rem;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+.main-container {
+  height: 100vh;
+  display: flex;
+  border: 2px solid #000;
+}
 
-        .nav-logo span {
-            font-size: 1rem;
-        }
-        .nav-logo {
-            display: flex;
-            align-items: center;
-        }
-        .nav-logo img {
-            width: 200x;
-        }
-        .hero-image {
-            width: 100%;
-            height: auto;
-        }
-        .container-fluid {
-            background-color: #e3f2fd; /* สีฟ้าอ่อน ๆ */
-            padding: 15px;
-        }
-        .text-container {
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-        .nav-pills .nav-link {
-            background-color: white;
-            color: darkgreen;
-            border-radius: 5px;
-            margin: 0 5px;
-        }
-        .nav-pills .nav-link:hover {
-            background-color: #e0f2f1;
-        }
-        .nav-pills .nav-link.active {
-            background-color: #2e7d32; /* สีเขียวเข้มเมื่อ active */
-            color: white;
-        }
-        .footer-logo {
-            width: 30px;
-            height: 30px;
-        }
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .text-footer{
-                font-size: 0.5rem;
-            }
-            .nav-pills {
-                margin-top: 10px;
-            }
-            .container{
-              max-width: 90%;
-              min-width: 90%;
-            }
-            .container-fluid{
-              max-width: 90%;
-              min-width: 90%;
-          }
-          .card-body{
-            max-width: 100%;
-            min-width: 100%;
-          }
-          .card-shadow{
-            max-width: 100%;
-            min-width: 100%;
 
-          }
-          .bd-placeholder-img card-img-top{
-            max-width: 100%;
-            min-width: 100%;
-            min-width: 500px;
-            max-height: 500px;
-          }
-          .ulbum{
-            max-width: 100%;
-            min-width: 100%;
-          }
-          .col{
-            max-width: 100%;
-            min-width: 100%;
-          }
-          image{
-            max-width: 100%;
-            min-width: 100%;
-          }
-          .card-shadow-sm{
-            max-width: 100%;
-            min-width: 100%;
-          }
-          .card-text{
-            font-size: 0.80rem
-          }
-        }
+.sidebar {
+  width: 20%;
+  border-right: 2px solid #000;
+  padding: 1rem;
+}
 
-        .iframe-container {
-            width: 80%;
-            max-width: 1300px;
-            min-width: 1300px;
-            height: 700px;
-            border-radius: 4px;
-            overflow: hidden;
-            position: relative;
-            background: #fff;
-            padding: 10px;
-            box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3), 
-                        inset -5px -5px 10px rgba(255, 255, 255, 0.7),
-                        5px 5px 10px rgba(0, 0, 0, 0.2);
-        }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 5px;
-        }
-        header{
-            max-height: 250px;
-        }
-    </style>
+.container-sm {
+  width: 100%;
+  min-height: 18cm;
+  max-height: 18cm;
+  
+ 
+}
+
+.top-bar {
+  height: 50%;
+  border-bottom: 2px solid #000;
+  padding: 1rem;
+}
+
+
+
+.btn-container {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.bordered {
+  border: 2px solid #000;
+}
+
+.nav-menu {
+  display: block;
+  color:rgb(2, 24, 2);
+  font-family: "sarabun";
+  line-height: 1.5;
+}
+.row{
+  min-height: 1000px;
+  max-height: 1000px;
+}
+
+
+.fl-table {
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: normal;
+  border: none;
+  background-color: #f8f8f8;
+  min-width: 100%;
+  max-width: 100%;
+  position: relative; 
+ 
+  
+ 
+}
+
+.fl-table td, .fl-table th {
+  text-align: center;
+  padding: 8px;
+}
+
+.fl-table tr {
+ 
+  border: 5px solid #f8f8f8;
+  border-radius: 10px solid #f8f8f8;
+  font-size: 12px;
+  font-family: "sarabun";
+  background-color: rgba(143, 225, 240, 0.966);
+}
+
+.fl-table td:first-child {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.fl-table td:last-child {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+
+.midtext{
+  left: 50px;
+  line-height: 0.5;
+}
+
+.table-wrapper {
+  max-height: 400px;     /* ความสูงสูงสุดของตาราง */
+  overflow-y: auto;      /* ให้เลื่อนแค่แนวตั้ง */
+  overflow-x: auto;      /* ป้องกันตารางล้น */
+  position: relative;    /* สำคัญมากสำหรับ sticky */
+}
+
+.fl-table thead{
+
+    position: sticky;
+    
+    top: 0;
+ 
+    background-color: #DCDCDC;
+   
+    z-index: 10;
+   
+}
+
+.fl-table thead th {
+  color: #e9ecee;
+  height: 100%;
+  position: sticky;
+  border: none;
+  background-color: rgb(102, 104, 107);   
+  z-index: 4000; 
+                 
+  
+}
+
+
+
+.logotext{
+  color: darkorange;
+  font-family: "sarabun";
+  font-size: 1rem;
+}
+
+.modal,
+.modal-bg {
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.5);
+position: fixed;
+top: 0;
+left: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.modal-page {
+z-index: 99;
+min-width: 400px;
+max-width: 400px;
+max-height: 30vw;
+overflow: scroll;
+background: #fff;
+border-radius: 15px;
+padding: 20px;
+}
+    
+</style>
 </head>
 
 <body>
-    <div class="container">
-        <header class="d-flex flex-wrap align-items-center justify-content-between py-3 mb-4 border-bottom nav-container container">
+<div class="container"> 
+  <div class="container-lg">
+    <header class="d-flex flex-wrap align-items-center justify-content-between py-3 mb-4 border-bottom nav-container container">
            
        
-            <div class="collapse navbar-collapse d-md-flex justify-content-end" id="navbarNav">
-                <ul class="nav nav-pills">
-                   <li class="nav-item"><a href="login.html" class="nav-link active">Log Out</a></li>
-                  
-                            
-                </ul>
-            </div>
-        </header>
-                        
-        <div  class="iframe-container" style="height: 900px;">
-            <iframe id="data" src="https://docs.google.com/spreadsheets/d/1Vlbfxl6aQq9FOBiM2RyoFLIo5L0lOwCaQogrG4nxj8A/edit?usp=sharing"></iframe>
-        </div> 
-         <div class="iframe-container mt-5" style="height: 900px;">                   
-            <iframe id="website" src="https://docs.google.com/spreadsheets/d/1zzmJMatdYdsMhn3ArKqbXASHwVS863na6RBRzW7QmWc/edit?usp=drive_link"></iframe>
-         </div>
+      <div class="collapse navbar-collapse d-md-flex justify-content-end" id="navbarNav">
+          <ul class="nav nav-pills">
+             <li class="nav-item"><a href="login.html" class="nav-link active">Log Out</a></li>
+            
                       
-  <div class="container-fluid mt-5">
-    <footer class="d-flex justify-content-between py-3 border-top">
-        <div>
-           
+          </ul>
+      </div>
+  </header>
+  <div class="b-example-divider" style="justify-content: center;"></div>
+  <div class="container-sm"> 
+   <div class="row mt-1">
+    
+      <div class="col-2">
+        <div class=".nav-menu ">
+          <a href="">BMI Calculate</a><br>
+          <a href="">Muscle Test</a>
         </div>
-        <div id="datetime" class="text-footer"></div>
-    </footer>
-</div>
-</div>
 
-<script>
-    function updateDateTime() {
-        const now = new Date();
-        const date = now.toLocaleDateString('th-TH');
-        const time = now.toLocaleTimeString('th-TH');
-        document.getElementById('datetime').textContent = `${date} ${time}`;
+      </div>
+
+   
+     <div class="col-9 ms-1 mt-5">
+        <div style="font-family: sarabun; display: flex;">
+
+          <div class="col-3 ms-3 mb-5">
+            <label for="fileInput">อัพโหลดไฟล์</label>
+            <input class="form-control form-control-sm mt-1" type="file" id="fileInput" accept=".xlsx, .xls">
+          </div>
+
+          <div class="col-6  mt-4">
+            <button id="importBtn" class="btn btn-primary ms-1 py-1">Import</button>
+          </div>
+
+          <div class="col-2  mt-4">
+            <div class="btn-group ms-4">
+          <button id="downloadExcel" class="btn btn-secondary">Download Excel</button>
+         
+        
+          <button id="downloadPDF" class="btn btn-secondary">Download PDF</button>
+          </div>
+        </div>
+        </div>
+
+
+        <!-- Data Table -->
+    
+
+          <table id="datatest" class="fl-table">
+            <thead>
+              <tr>
+                <th>ลำดับ</th>
+                <th>รหัสลงทะเบียน</th>
+                <th>ชื่อ นามสกุล</th>
+                <th>น้ำหนัก (ก.ก.)</th>
+                <th>ส่วนสูง (ซ.ม.)</th>
+                <th>ส่วนสูง (ม.)</th>
+                <th>BMI</th>
+                <th>สรุปผลการตรวจ</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <div class="table-wrapper">
+            <table id="dataTable" class="fl-table">
+              <thead style="display: none;">
+                <tr>
+                  <th>ลำดับ</th>
+                  <th>รหัสลงทะเบียน</th>
+                  <th>ชื่อ นามสกุล</th>
+                  <th>น้ำหนัก (ก.ก.)</th>
+                  <th>ส่วนสูง (ซ.ม.)</th>
+                  <th>ส่วนสูง (ม.)</th>
+                  <th>BMI</th>
+                  <th>สรุปผลการตรวจ</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+  
+  <div class="b-example-divider" style="justify-content: center;"></div>
+</div>
+</div>
+  <script>
+
+    // 👉 ดาวน์โหลด Excel
+document.getElementById("downloadExcel").addEventListener("click", function () {
+  const table = document.getElementById("dataTable");
+  const wb = XLSX.utils.book_new();
+  const ws = XLSX.utils.table_to_sheet(table);
+  XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+  XLSX.writeFile(wb, "ข้อมูลสุขภาพ.xlsx");
+});
+
+// 👉 ดาวน์โหลด PDF
+document.getElementById("downloadPDF").addEventListener("click", function () {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  doc.setFont("THSarabunNew", "normal"); // ถ้าคุณใช้ font ไทย ต้อง embed เพิ่ม
+
+  // ใช้ autoTable สร้าง PDF จากตาราง
+  doc.autoTable({
+    html: '#dataTable',
+    startY: 10,
+    styles: { fontSize: 10 },
+    headStyles: { fillColor: [41, 128, 185] }, // เปลี่ยนสีหัวตาราง
+    margin: { top: 10 },
+  });
+
+  doc.save("ข้อมูลสุขภาพ.pdf");
+});
+
+    let selectedFile;
+
+    document.getElementById('fileInput').addEventListener('change', function (e) {
+      selectedFile = e.target.files[0];
+    });
+
+    document.getElementById('importBtn').addEventListener('click', function () {
+      if (!selectedFile) {
+        alert("กรุณาเลือกไฟล์ Excel ก่อน");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const data = new Uint8Array(e.target.result);
+        const workbook = XLSX.read(data, { type: 'array' });
+
+        const sheetName = workbook.SheetNames[0];
+        const sheet = workbook.Sheets[sheetName];
+        const rows = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+
+        const tableBody = document.querySelector("#dataTable tbody");
+        tableBody.innerHTML = "";
+
+        // ข้ามแถวหัวตาราง
+        for (let i = 1; i < rows.length; i++) {
+          const row = rows[i];
+
+          const no = row[0] || "";
+          const regId = row[1] || "";
+          const name = row[2] || "";
+          const weight = parseFloat(row[3]) || 0;
+          const heightCm = parseFloat(row[4]) || 0;
+          const heightM = heightCm / 100;
+
+          let bmi = 0;
+          if (heightM > 0) {
+            bmi = weight / (heightM * heightM);
+          }
+
+          const summary = getBMISummary(bmi);
+
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${no}</td>
+            <td>${regId}</td>
+            <td>${name}</td>
+            <td>${weight}</td>
+            <td>${heightCm}</td>
+            <td>${heightM.toFixed(2)}</td>
+            <td>${bmi ? bmi.toFixed(2) : ""}</td>
+            <td>${summary}</td>
+          `;
+          tableBody.appendChild(tr);
+        }
+      };
+
+      reader.readAsArrayBuffer(selectedFile);
+    });
+
+    function getBMISummary(bmi) {
+      if (bmi === 0) return "";
+      if (bmi < 18.5) return "น้ำหนักน้อยกว่าปกติ";
+      if (bmi <= 25) return "อยู่ในเกณฑ์ปกติ";
+      if (bmi <= 30) return "น้ำหนักเกิน";
+      if (bmi <= 35) return "โรคอ้วนระยะแรก";
+      return "โรคอ้วนระยะที่2";
     }
-    setInterval(updateDateTime, 1000);
-    updateDateTime();
 
-</script>
+
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js"
+    integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
