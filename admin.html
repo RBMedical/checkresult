@@ -18,180 +18,8 @@
  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
-  <link rel="stylesheet" href="Dashboard.html">
+<link rel="stylesheet" href="Dashboard.css">
 </head>
-<style>
-
-body{
-  max-height: 800px;
-}
-
-.b-example-divider {
-  width: 100%;
-  height: 4rem;
-  background-color: rgba(0, 0, 0, .1);
-  border: solid rgba(0, 0, 0, .15);
-  border-width: 1px 0;
-  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-}
-.main-container {
-  height: 100vh;
-  display: flex;
-  border: 2px solid #000;
-}
-
-
-.sidebar {
-  width: 20%;
-  border-right: 2px solid #000;
-  padding: 1rem;
-}
-
-.container-sm {
-  width: 100%;
-  min-height: 18cm;
-  max-height: 18cm;
-  
- 
-}
-
-.top-bar {
-  height: 50%;
-  border-bottom: 2px solid #000;
-  padding: 1rem;
-}
-
-
-
-.btn-container {
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.bordered {
-  border: 2px solid #000;
-}
-
-.nav-menu {
-  display: block;
-  color:rgb(2, 24, 2);
-  font-family: "sarabun";
-  line-height: 1.5;
-}
-.row{
-  min-height: 1000px;
-  max-height: 1000px;
-}
-
-
-.fl-table {
-  border-radius: 10px;
-  font-size: 12px;
-  font-weight: normal;
-  border: none;
-  background-color: #f8f8f8;
-  min-width: 100%;
-  max-width: 100%;
-  position: relative; 
- 
-  #downloadExce, #dowload                                                                                                                                           
- 
-}
-
-.fl-table td, .fl-table th {
-  text-align: center;
-  padding: 8px;
-}
-
-.fl-table tr {
- 
-  border: 5px solid #f8f8f8;
-  border-radius: 10px solid #f8f8f8;
-  font-size: 12px;
-  font-family: "sarabun";
-  background-color: rgba(143, 225, 240, 0.966);
-}
-
-.fl-table td:first-child {
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
-}
-
-.fl-table td:last-child {
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-}
-
-
-.midtext{
-  left: 50px;
-  line-height: 0.5;
-}
-
-.table-wrapper {
-  max-height: 400px;     /* ความสูงสูงสุดของตาราง */
-  overflow-y: auto;      /* ให้เลื่อนแค่แนวตั้ง */
-  overflow-x: auto;      /* ป้องกันตารางล้น */
-  position: relative;    /* สำคัญมากสำหรับ sticky */
-}
-
-.fl-table thead{
-
-    position: sticky;
-    
-    top: 0;
- 
-    background-color: #DCDCDC;
-   
-    z-index: 10;
-   
-}
-
-.fl-table thead th {
-  color: #e9ecee;
-  height: 100%;
-  position: sticky;
-  border: none;
-  background-color: rgb(102, 104, 107);   
-  z-index: 4000; 
-                 
-  
-}
-
-
-
-.logotext{
-  color: darkorange;
-  font-family: "sarabun";
-  font-size: 1rem;
-}
-
-.modal,
-.modal-bg {
-width: 100%;
-height: 100%;
-background: rgba(0, 0, 0, 0.5);
-position: fixed;
-top: 0;
-left: 0;
-display: flex;
-justify-content: center;
-align-items: center;
-}
-.modal-page {
-z-index: 99;
-min-width: 400px;
-max-width: 400px;
-max-height: 30vw;
-overflow: scroll;
-background: #fff;
-border-radius: 15px;
-padding: 20px;
-}
-    
-</style>
-
 
 <body>
 <div class="container"> 
@@ -199,9 +27,10 @@ padding: 20px;
     <header class="d-flex flex-wrap align-items-center justify-content-between py-3 mb-4 border-bottom nav-container container">
            
        
-      <div class="collapse navbar-collapse d-md-flex justify-content-end" id="navbarNav">
+      <div class="collapse navbar-collapse d-md-flex justify-content-between" id="navbarNav">
+        <h1 class="fw-bold" style="font-family: sarabun; color:darkgreen">R&B Work Space</h1>
           <ul class="nav nav-pills">
-             <li class="nav-item"><a href="login.html" class="nav-link active">Log Out</a></li>
+             <li class="nav-item"><a href="login.html">Log Out</a></li>
             
                       
           </ul>
@@ -211,15 +40,50 @@ padding: 20px;
   <div class="container-sm"> 
    <div class="row mt-1">
     
-      <div class="col-2">
-        <div class=".nav-menu ">
-          <a href="admin.html">BMI Calculate</a><br>
-          <a class="mt-5" href="Dashboard.html">Grip Strengt.</a><br>
-          <a class="mt-5" href="legs.html" active>Legs Strengt.</a><br>
-          <a class="mt-5"href="back.html" active>Back Strengt.</a><br>
-        </div>
+       
 
-      </div>
+        <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">
+          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <svg class="bi pe-none me-2" width="40" height="32" aria-hidden="true"><use xlink:href="#bootstrap"/></svg>
+            <span class="fs-5 fw-bold" style="font-family: sarabun; color:darkgreen;">แปรผลแรงเหยียดขา</span>
+          </a>
+          <hr>
+          <ul class="nav nav-pills flex-column mb-auto" >
+            <li class="nav-item" style="font-family: sarabun;">
+              <a href="admin.html" class="nav-link link-body-emphasis fw-bold">
+                <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true"><use xlink:href="admin.html"/></svg>
+                BMI Calculater
+              </a>
+            </li>
+            <li>
+              <a href="Dashboard.html" class="nav-link link-body-emphasis fw-bold" >
+                <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true"><use xlink:href="Dashboard.html"/></svg>
+                Grip Strenght.
+              </a>
+            </li>
+            <li>
+              <a href="legs.html" class="nav-link current">
+                <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true"><use xlink:href="legs.html"/></svg>
+                Legs Strenght.
+              </a>
+            </li>
+            <li>
+              <a href="backtest.html" class="nav-link link-body-emphasis fw-bold">
+                <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true"><use xlink:href="backtest.html"/></svg>
+                Back Strenght.
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link link-body-emphasis fw-bold">
+                <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true"><use xlink:href="#"/></svg>
+                
+              </a>
+            </li>
+          </ul>
+          <hr>
+         
+        </div>
+        <div class="b-example-divider b-example-vr"></div>
 
    
      <div class="col-9 ms-1 mt-5">
@@ -231,7 +95,7 @@ padding: 20px;
           </div>
 
           <div class="col-6  mt-4">
-            <button id="importBtn" class="btn btn-primary ms-1 py-1">Import</button>
+            <button id="importBtn" onclick ="processExcel()" class="btn btn-secondary ms-1 py-1">Import</button>
           </div>
 
           <div class="col-2  mt-4">
@@ -239,7 +103,7 @@ padding: 20px;
           <button id="downloadExcel" class="btn btn-outline-secondary">Download Excel</button>
          
         
-          <button id="downloadPDF" class="btn btn-secondary">Download PDF</button>
+          <button id="downloadPDF" class="btn btn-outline-secondary">Download PDF</button>
           </div>
         </div>
         </div>
@@ -285,7 +149,7 @@ padding: 20px;
     </div>
    
   
-  <div class="b-example-divider" style="justify-content: center;"></div>
+
 </div>
 </div>
   <script>
