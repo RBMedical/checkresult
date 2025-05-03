@@ -33,10 +33,6 @@
       font-family: Sarabun;
 
     }
-    #hidden{
-      display: block;
-      max-height: 700px;
-    }
 
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -382,7 +378,7 @@
         var searchKey = document.getElementById('searchKey').value.trim();
         var password = document.getElementById('password').value.trim();
 
-        const urlsheet1 = "https://script.google.com/macros/s/AKfycbx8YYqD_iqs27YQ00xy0e15VppRCJbYaib5A8bK9YSh2XR50CnPJa2uTq3fle6ZOralLA/exec";
+        const urlsheet1 = "https://script.google.com/macros/s/AKfycbxuaVFBF_aYbRIHnbWuTaValM461NiDiCzKJuEMn40tQornCA828Y1Jy-uB_RtqMG1CoA/exec";
 
         fetch(urlsheet1)
           .then(response => response.json())
@@ -532,13 +528,14 @@
                                        <div class="col-auto">
                                         <label class="col-form-label ms-1 fw-bold">ความเห็นแพทย์ :</label>
                                         </div>
-                                         <div class="col-auto ms-2 mt-1">
+                                         <div class="col-auto">
                                           <label>${foundUser.doctor}</label>
                                        </div>
                                        </div>
                           
                    
   
+  <div class="row align-items-center">
 <div class="container-hidden ms-3 mb-3" id="hidden" style="display:none;">
   <table class="table-hidden border-dark mb-5" >
                <thead class="border-bottom" style="border-color: black;">
@@ -627,10 +624,12 @@
     </tr>                             
    </tbody>
    </table> 
- 
+   <div class="input-group>
+   <label style="font-size: 0.75rem;>คำอธิบาย</label>
+   <span style="font-size: 0.75rem;>${foundUser.cbcsum}</span>
    </div>
+ </div>
    </div>
-  </div>
 
  <div class="row align-items-center">
 <div class="container-hidden ms-3 mb-3" id="hide" style="background-color: #CCFFFF;">
@@ -734,10 +733,8 @@
     </tr>                                                                     
    </tbody>
    </table> 
-   <p style="font-size: 0.75rem;">${foundUser.cbcsum}</p>
-  </div>
  </div>
-   
+   </div>
 
     </form>
    </div>
