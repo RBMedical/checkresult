@@ -584,7 +584,7 @@
                                              <label class="col-form-label ms-1 fw-bold">ผลการตรวจปัสสาวะทั่วไป :</label>
                                            </div>
                                            <div class="col-auto">
-                                             <label>${foundUser.cbc}</label>
+                                             <label class="text-danger${foundUser.urine === 'ปกติ' ? 'text-black' : ''}">${foundUser.urine}</label>
                                            </div>
                                             <div class="col-auto">
                                              <label class="text-primary noprint" onclick="openUa()" style="cursor: pointer;">กดดูรายละเอียด</label>
@@ -595,7 +595,7 @@
                                              <label class="col-form-label ms-1 fw-bold">ผลการเอ็กซเรย์ทรวงอก (Chest X Ray) :</label>
                                           </div>
                                           <div class="col-auto">
-                                           <label>${foundUser.urine}</label>
+                                           <label class="text-danger${foundUser.xray === 'ปกติ' ? 'text-black' : ''}">${foundUser.xray}</label>
                                          </div>
                                        </div>
                                       <div class="row align-items-center">
