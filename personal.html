@@ -449,7 +449,7 @@
             $("#waiting").css('display','none');
         }
       function searchRecord() {
-        showWaiting();
+        document.getElementById('waiting').style.display = 'flex';
         var searchKey = document.getElementById('searchKey').value.trim();
         var password = document.getElementById('password').value.trim();
 
@@ -1019,7 +1019,7 @@
             console.error("❌ Error fetching data:", error);
             document.getElementById('result').innerHTML = '<p style="color:red;">เกิดข้อผิดพลาดในการดึงข้อมูล</p>';
           });
-          hideWaiting();
+          document.getElementById('waiting').style.display = 'none';
       }
 
 
