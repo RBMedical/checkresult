@@ -271,11 +271,12 @@ function loadAllRecords() {
            `;
                 }
             });
+            loading.textContent = "";
         })
         .catch(error => {
             console.error("❌ Error fetching data:", error);
         });
-  loading.textContent = "";
+
   hideLoading();
 }
 
