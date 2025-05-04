@@ -136,7 +136,7 @@
     </header>
    
 <div class="container-md" style="font-family: sarabun;">
-    <h class="fs-5 mt-2 mb-2">ตารางแสดงผลการทดสอบด้านชีวอนามัย</h>
+    <span id="loading" class="fs-5 mt-2 mb-2"></span>
     <table class="table table-result mt-3">
        <head>
        
@@ -223,6 +223,8 @@
 
 
 function loadAllRecords() {
+  const loading = document.getEleMentById('loading');
+  loading.textContent = "Waiting for loading.........";
     const url = "https://script.google.com/macros/s/AKfycbza6a827EUSt4AjpTtvWJV2Rc3ERhA7HbRY0ftd10NKqKd0IKiFRHJ13qQhe56kO5G0sA/exec";
 
     fetch(url)
@@ -272,6 +274,7 @@ function loadAllRecords() {
                `;
                 }
             });
+           loading.textContent = "";
         })
            .catch(error => {
             console.error("❌ Error fetching data:", error);
