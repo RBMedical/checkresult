@@ -32,9 +32,6 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <style>
-    .rowmd{
-display: flex;
-    }
      #floating-img {
     position: fixed;
     bottom: 50px;
@@ -130,6 +127,19 @@ display: flex;
       margin-top: 10px;
       margin-bottom: 10px;
     }
+
+    .container-group{
+      display: flex;
+    }
+
+    .container-imng{
+      display: 30%;
+    }
+
+    .container-text{
+      display: 60%;
+    }
+
   </style>
 
 <body class="container py-4">
@@ -147,13 +157,12 @@ display: flex;
   </p>
 
   <!-- ประโยชน์ของการตรวจสุขภาพ -->
-  <div class="rowmd">  
-     <div class="col-6">
-    <img class="thumbnail-img" src="">
-     </div>
-
-    <div class="col-6">
-
+  <div class="container-group">
+    <div class="container-img">
+       <img class="thumbnail-img" src="">
+    </div>
+  
+    <div class="container-text">
       <h6 class="section-heading">ประโยชน์ของการตรวจสุขภาพประจำปี</h6>
       <ul>
         <li>ค้นหาโรคตั้งแต่ระยะเริ่มต้น เพื่อการรักษาที่ทันท่วงที</li>
@@ -162,10 +171,7 @@ display: flex;
         <li>สร้างภาพลักษณ์ที่ดีให้กับองค์กร</li>
       </ul>
     </div>
-  </div>
-
-
-    
+</div>
   <!-- รายการตรวจสุขภาพที่สำคัญ -->
   <div class="row align-items-center my-5">
     <div class="col-md-6">
@@ -197,7 +203,6 @@ display: flex;
       </ol>
     </div>
   </div>
-    
 
 
 
