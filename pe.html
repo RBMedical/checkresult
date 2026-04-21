@@ -244,7 +244,7 @@
   }
 
   function loadAllRecords() {
-    showLoading("Waiting for loading......");
+   
 
     const resultDiv1 = document.getElementById("cbcresult");
     if (resultDiv1) {
@@ -259,7 +259,7 @@
     console.log("🔹 Selected Value from Local Storage:", selectedValue);
 
     if (!selectedValue) {
-      hideLoading();
+     
       if (resultDiv1) {
         resultDiv1.innerHTML = `
           <tr>
@@ -283,7 +283,7 @@
               </tr>
             `;
           }
-          hideLoading();
+         
           return;
         }
 
@@ -324,7 +324,7 @@
           `;
         }
 
-        hideLoading();
+      
       })
       .catch(error => {
         console.error("❌ Error fetching data:", error);
@@ -337,7 +337,7 @@
           `;
         }
 
-        hideLoading();
+      
       });
   }
 
