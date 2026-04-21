@@ -107,104 +107,129 @@
     This device not support, Open this page on PC.
   </div>
 
-  <script>
-    const BASE_URL = "YOUR_WEB_APP_URL";
+ <script>
+  const BASE_URL = "https://script.google.com/macros/s/AKfycbxIFqg_sVoBadGiZijEkpghbLBNUiYMO9Zz_5eXxZ_JPSp457PnhJwPCRqTg_Qe8REQPA/exec";
 
-    function showLoading(message = "กำลังโหลดข้อมูล...") {
-      const box = document.getElementById("loadingBox");
+  function showLoading(message = "กำลังโหลดข้อมูล...") {
+    const box = document.getElementById("loadingBox");
+    if (box) {
       box.innerText = message;
       box.style.display = "block";
     }
+  }
 
-    function hideLoading() {
-      document.getElementById("loadingBox").style.display = "none";
+  function hideLoading() {
+    const box = document.getElementById("loadingBox");
+    if (box) {
+      box.style.display = "none";
     }
+  }
 
-    function loadDropdownData() {
-      showLoading("กำลังโหลดรายชื่อผู้ใช้...");
+  function fetchJson(url) {
+    return fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("HTTP error: " + response.status);
+        }
+        return response.json();
+      });
+  }
 
-      fetch(BASE_URL + "?type=userdetail")
-        .then(response => response.json())
-        .then(data => {
-          const dropdown = document.getElementById("dynamicDropdown");
-          dropdown.innerHTML = "";
+  function loadDropdownData() {
+    showLoading("กำลังโหลดรายชื่อผู้ใช้...");
 
-          if (!Array.isArray(data) || data.length === 0) {
-            dropdown.innerHTML = `<option value="">ไม่พบข้อมูล</option>`;
-            hideLoading();
-            return;
-          }
+    fetchJson(BASE_URL + "?type=userdetail")
+      .then(data => {
+        const dropdown = document.getElementById("dynamicDropdown");
+        dropdown.innerHTML = "";
 
-          data.forEach(row => {
+        if (!Array.isArray(data) || data.length === 0) {
+          dropdown.innerHTML = `<option value="">ไม่พบข้อมูล</option>`;
+          hideLoading();
+          return;
+        }
+
+        data.forEach(row => {
+          const username = String(row.username || "").trim();
+          if (username !== "") {
             const option = document.createElement("option");
-            option.value = row.username || "";
-            option.text = row.username || "";
+            option.value = username;
+            option.textContent = username;
             dropdown.appendChild(option);
-          });
-
-          hideLoading();
-        })
-        .catch(error => {
-          console.error("Error fetching userdetail:", error);
-          document.getElementById("dynamicDropdown").innerHTML = `<option value="">โหลดข้อมูลไม่สำเร็จ</option>`;
-          hideLoading();
-          alert("เกิดข้อผิดพลาดในการโหลดข้อมูลผู้ใช้");
+          }
         });
+
+        if (dropdown.options.length === 0) {
+          dropdown.innerHTML = `<option value="">ไม่พบข้อมูล</option>`;
+        }
+
+        hideLoading();
+      })
+      .catch(error => {
+        console.error("Error fetching userdetail:", error);
+
+        const dropdown = document.getElementById("dynamicDropdown");
+        if (dropdown) {
+          dropdown.innerHTML = `<option value="">โหลดข้อมูลไม่สำเร็จ</option>`;
+        }
+
+        hideLoading();
+        alert("เกิดข้อผิดพลาดในการโหลดข้อมูลผู้ใช้");
+      });
+  }
+
+  function checkCredentials() {
+    const dropdown = document.getElementById("dynamicDropdown");
+    const passwordField = document.getElementById("floatingPassword");
+
+    const selectedValue = String(dropdown?.value || "").trim();   // UserDetail[1] = Main[67]
+    const passwordInput = String(passwordField?.value || "").trim();
+
+    if (!selectedValue) {
+      alert("กรุณาเลือก Username");
+      return;
     }
 
-    function checkCredentials() {
-      const dropdown = document.getElementById("dynamicDropdown");
-      const selectedValue = dropdown.value.trim();   // ค่านี้ = UserDetail[1] = Main[67]
-      const passwordInput = document.getElementById("floatingPassword").value.trim();
-
-      if (!selectedValue) {
-        alert("กรุณาเลือก Username");
-        return;
-      }
-
-      if (!passwordInput) {
-        alert("กรุณากรอก Password");
-        return;
-      }
-
-      showLoading("กำลังตรวจสอบข้อมูล...");
-
-      fetch(BASE_URL + "?type=userdetail")
-        .then(response => response.json())
-        .then(users => {
-          if (!Array.isArray(users)) {
-            hideLoading();
-            alert("รูปแบบข้อมูลผู้ใช้ไม่ถูกต้อง");
-            return;
-          }
-
-          const user = users.find(row =>
-            String(row.username || "").trim() === selectedValue &&
-            String(row.password || "").trim() === passwordInput
-          );
-
-          if (!user) {
-            hideLoading();
-            alert("Wrong Username or Password! Please try again.");
-            return;
-          }
-
-          // ค่านี้จะเอาไปเทียบกับ Main[67]
-          localStorage.setItem("selectedCustomer", selectedValue);
-          localStorage.setItem("selectedDropdownValue", selectedValue);
-
-          hideLoading();
-          window.location.href = "pe.html";
-        })
-        .catch(error => {
-          console.error("Error:", error);
-          hideLoading();
-          alert("Error connecting to the server. Please try again later.");
-        });
+    if (!passwordInput) {
+      alert("กรุณากรอก Password");
+      return;
     }
 
-    window.onload = loadDropdownData;
-  </script>
+    showLoading("กำลังตรวจสอบข้อมูล...");
+
+    fetchJson(BASE_URL + "?type=userdetail")
+      .then(users => {
+        if (!Array.isArray(users)) {
+          throw new Error("รูปแบบข้อมูลผู้ใช้ไม่ถูกต้อง");
+        }
+
+        const user = users.find(row =>
+          String(row.username || "").trim() === selectedValue &&
+          String(row.password || "").trim() === passwordInput
+        );
+
+        if (!user) {
+          hideLoading();
+          alert("Wrong Username or Password! Please try again.");
+          return;
+        }
+
+        // selectedValue = UserDetail[1] และต้องตรงกับ Main[67]
+        localStorage.setItem("selectedCustomer", selectedValue);
+        localStorage.setItem("selectedDropdownValue", selectedValue);
+
+        hideLoading();
+        window.location.href = "pe.html";
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        hideLoading();
+        alert("Error connecting to the server. Please try again later.");
+      });
+  }
+
+  document.addEventListener("DOMContentLoaded", loadDropdownData);
+</script>
 
 </body>
 </html>
