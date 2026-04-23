@@ -395,7 +395,13 @@ window.addEventListener('resize', updateCarouselLayout);
     <script src="moment.min.js"></script>
     <script src="moment-timezone.min.js"></script>
     <script src="tempusdominus-bootstrap-4.min.js"></script>
-
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js')
+    .then(() => console.log('Service Worker registered'))
+    .catch(err => console.error('SW register failed:', err));
+}
+</script>
     <!-- Template Javascript -->
     <script src="main.js"></script>
 </body>
